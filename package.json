@@ -1,0 +1,16 @@
+{
+  "name": "arfan.me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-page -d web"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://arfan-rfn.github.io/arfan",
+  "dependencies": {
+    "gh-pages": "2.0.1"
+  }
+}
