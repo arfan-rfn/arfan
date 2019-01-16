@@ -1,0 +1,46 @@
+body{
+    background-image: url('../img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    /* background-position: center; */
+}
+
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 50px;
+}
+
+h3{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 50;
+    color: white;
+}
+
+#container {
+    position: absolute;
+    top: 50%;
+    margin-top: -200px;
+    left: 0;
+    width: 100%;
+  }
+  
+  #content {
+      margin-left: 2%;
+  }
+
+  #profile{
+      height: 170px;
+      float: left;
+      margin-right: 10px;
+  }
+
+  span{
+      color:rgb(217, 227, 236);
+  }
+
+  .icon{
+      margin: 5px;
+      height: 40px;
+  }
