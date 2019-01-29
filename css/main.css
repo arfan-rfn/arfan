@@ -30,6 +30,25 @@ h3{
       margin-left: 2%;
   }
 
+  .button{
+      background-color: aliceblue;
+      float: left;
+      width: 100px;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px;
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 500;
+      font-size: 20px;
+      color: black;
+  }
+
+  .button:hover{
+      background-color: rgb(26, 27, 26);
+      color: white;
+  }
+
   #profile{
       height: 170px;
       float: left;
