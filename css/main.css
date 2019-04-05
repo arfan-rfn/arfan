@@ -1,18 +1,18 @@
-html body{
+html body {
     background-image: url('../img/bg.jpg');
-    background-repeat: repeat;
+    background-attachment: fixed;
     /* background-size: cover; */
     /* height: 100%; */
     /* background-position: center; */
 }
 
-h1{
+h1 {
     font-family: 'Courier New', Courier, monospace;
     color: white;
     font-size: 50px;
 }
 
-h3{
+h3 {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 50;
     color: white;
@@ -24,49 +24,49 @@ h3{
     margin-top: -200px;
     left: 0;
     width: 100%;
-  }
-  
-  #content {
-      margin-left: 2%;
-  }
+}
 
-  .button{
-      background-color: aliceblue;
-      float: left;
-      width: 100px;
-      padding: 10px;
-      border-radius: 10px;
-      margin: 10px;
-      text-align: center;
-      font-family: 'Courier New', Courier, monospace;
-      font-weight: 500;
-      font-size: 20px;
-      color: black;
-  }
+#content {
+    margin-left: 2%;
+}
 
-  .typed{
+.button {
+    background-color: aliceblue;
+    float: left;
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+}
+
+.typed {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 50;
     font-size: 20px;
     color: white;
-  }
+}
 
-  .button:hover{
-      background-color: rgb(26, 27, 26);
-      color: white;
-  }
+.button:hover {
+    background-color: rgb(26, 27, 26);
+    color: white;
+}
 
-  #profile{
-      height: 170px;
-      float: left;
-      margin-right: 10px;
-  }
+#profile {
+    height: 170px;
+    float: left;
+    margin-right: 10px;
+}
 
-  span{
-      color:rgb(217, 227, 236);
-  }
+span {
+    color: rgb(217, 227, 236);
+}
 
-  .icon{
-      margin: 5px;
-      height: 40px;
-  }
+.icon {
+    margin: 5px;
+    height: 40px;
+}
