@@ -1,17 +1,20 @@
-delay: 1
-input: RED, BLUE, YELLOW, GREEN, RED
-0: input, (20, 20)
-1: passthrough, (68,312)
-2: passthrough, (185,72)
-3: passthrough, (127,518)
-4: passthrough, (191,178)
-5: passthrough, (302,319)
-6: passthrough, (379,236)
-7: sink, (257,27)
-0 -> 3
-0 -> 4
-3 -> 7
-4 -> 2 
-2 -> 5
-5 -> 6
-6 -> 1
+rows: 11
+cols: 13
+
+CREATE (9,7) lion female right
+CREATE (5,4) warbler female 2
+CREATE (1,0) mosquito female true true false
+CREATE (9,7) lion male left
+REPRODUCE
+MOVE
+MOVE
+MOVE lion
+MOVE mosquito
+CREATE (1,1) bee female false
+MOVE
+MOVE bee
+REPRODUCE
+MOVE
+MOVE
+MOVE
+MOVE warbler
