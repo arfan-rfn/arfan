@@ -6,6 +6,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         loop: true,
         // shuffle: true,
         loopCount: Infinity,
-        showCursor: true,
+        showCursor: false,
       });
 });
