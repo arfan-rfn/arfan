@@ -1,10 +1,19 @@
 import '@/styles/globals.css'
-import { Inter } from 'next/font/google'
+import { Inter, Birthstone as FontHeading } from 'next/font/google'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  variable: "--font-sans",
+})
+
+const birthstone = FontHeading({
+  subsets: ['latin'],
+  weight: '400',
+  variable: "--font-heading",
+})
 
 interface ReactRootLayout {
   children: React.ReactNode
@@ -62,8 +71,9 @@ export default function RootLayout({ children }: ReactRootLayout) {
 
       <body
         className={cn(
-          inter.className,
           "min-h-full font-sans antialiased bg-yellow-400",
+          inter.variable,
+          birthstone.variable,
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='light' enableSystem>

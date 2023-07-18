@@ -12,19 +12,21 @@ export default function Home() {
 
           <div className="relative col-span-2 row-span-1 rounded-lg sm:row-span-1">
             <div className="relative h-full w-full overflow-hidden rounded-lg sm:h-full">
-              <img
+              <Image
                 src={'/img/arfan.png'}
-                alt={'callout.imageAlt'}
+                alt={'Arfan\'s Picture'}
                 className="h-full w-full object-cover object-center"
+                width={500}
+                height={500}
               />
             </div>
           </div>
 
           <div className="relative col-span-2 row-span-2 rounded-lg">
-            <h1 className="text-9xl text-slate-700">
+            <h1 className="text-[11rem]/[9rem] text-slate-700 font-heading">
               Arfan Uddin
             </h1>
-            <h3 className="text-4xl text-slate-500 ml-2">
+            <h3 className="text-4xl/tight text-slate-500">
               Software Engineer
             </h3>
           </div>
