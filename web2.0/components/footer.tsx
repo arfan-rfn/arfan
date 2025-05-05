@@ -59,11 +59,10 @@ export function Footer() {
 					))}
 
 				</div>
-				<div className='flex justify-between'>
-					<p className="mt-4 text-xs">
+				<div className='flex justify-center'>
+					<p className="mt-4 text-xs text-muted-foreground">
 						&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
 					</p>
-					<ThemeToggle />
 				</div>
 			</div>
 		</footer>
