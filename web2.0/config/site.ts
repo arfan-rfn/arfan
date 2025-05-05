@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next Template",
+  name: "Arfan Uddin",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "This is my personal site — I’m Arfan, a software researcher and founder. Follow along as I work on my PhD and build things.",
   mainNav: [
     {
       title: "Home",
@@ -22,9 +22,20 @@ export const siteConfig = {
   socials: [
     {
       name: "GitHub",
-      url: "https://github.com/arfan-rfn/next-template",
+      url: "https://github.com/arfan-rfn",
       icon: "GitHub",
     },
+    {
+      name: "X",
+      url: "https://x.com/arfan_rfn",
+      icon: "TwitterX",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/rfn/",
+      icon: "LinkedIn",
+    },
+
   ],
   footer: {
     links: {

@@ -6,6 +6,7 @@ import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from './ui/button';
 import { ThemeToggle } from './theme-toggle';
+import { birthstone } from '@/lib/fonts';
 
 export function Footer() {
 	return (
@@ -15,7 +16,7 @@ export function Footer() {
 					<div className="w-full p-4 md:w-2/5">
 						<div className="flex items-center gap-2">
 							<Icons.Logo className="my-4 h-12 w-auto" />
-							<span className="text-lg font-semibold">{siteConfig.name}</span>
+							<span className={cn(birthstone.className, "text-6xl font-semibold")}>Arfan</span>
 						</div>
 						<ul className="my-2 list-none">
 

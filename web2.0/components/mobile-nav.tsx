@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "./ui/sheet"
 import { Button } from "./ui/button"
 import { ScrollArea } from "./ui/scroll-area"
 
@@ -27,6 +27,7 @@ export function MobileNav() {
 				</Button>
 			</SheetTrigger>
 			<SheetContent side="left" className="pr-0">
+				<SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 				<MobileLink
 					href="/"
 					className="flex items-center"

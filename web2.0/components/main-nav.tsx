@@ -5,6 +5,7 @@ import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
+import { birthstone } from "@/lib/fonts"
 
 interface MainNavProps {
   items?: NavItem[]
@@ -15,7 +16,7 @@ export function MainNav({ items }: MainNavProps) {
     <div className="hidden gap-6 md:flex md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
         <Icons.Logo className="size-6" />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
+        <span className={cn(birthstone.className, "text-4xl font-semibold")}>Arfan</span>
       </Link>
 
       <nav className="flex gap-6">

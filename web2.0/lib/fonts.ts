@@ -1,13 +1,9 @@
-import { JetBrains_Mono as FontMono, Inter as FontSans, Nunito, PT_Sans } from "next/font/google"
+import { Nunito, PT_Sans, Birthstone } from "next/font/google"
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-export const fontMono = FontMono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+export const birthstone = Birthstone({
+  subsets: ['latin'],
+  weight: '400',
+  variable: "--font-name",
 })
 
 export const nunito = Nunito({

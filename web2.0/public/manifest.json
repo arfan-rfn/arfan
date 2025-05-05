@@ -1,7 +1,7 @@
 {
-	"short_name": "Next Template",
-	"name": "Next",
-	"description": "Next.js template with Tailwind CSS, TypeScript, ESLint, Prettier.",
+	"short_name": "Arfan Uddin",
+	"name": "Arfan Uddin",
+	"description": "This is my personal site — I’m Arfan, a software researcher and founder. Follow along as I work on my PhD and build things.",
 	"icons": [
 		{
 			"src": "/android-chrome-192x192.png",
