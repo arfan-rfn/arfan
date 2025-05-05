@@ -48,7 +48,7 @@ export function Footer() {
 									<li key={`${name}-${i}`} className='py-1'>
 										<Link
 											href={url}
-											className={cn(buttonVariants({ variant: 'link', size: 'text' }), 'font-light')}
+											className={cn(buttonVariants({ variant: 'link' }), 'font-light text-muted-foreground my-0 py-0 h-fit')}
 										>
 											{name}
 										</Link>

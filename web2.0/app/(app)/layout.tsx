@@ -8,7 +8,7 @@ interface AppLayoutProps {
 export default function AppLayout({ children }: AppLayoutProps) {
 	return (
 		<>
-			<SiteHeader />
+			{/* <SiteHeader /> */}
 			<div className="container flex-1">{children}</div>
 			<Footer />
 		</>
