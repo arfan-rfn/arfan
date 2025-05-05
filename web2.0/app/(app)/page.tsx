@@ -1,11 +1,10 @@
-import { Footer } from "@/components/footer"
-import { Hero } from "@/components/hero"
 import { JsonLd } from "@/components/json-ld";
+import { siteConfig } from "@/config/site";
 import { getSEOTags } from "@/lib/seo";
 
 export const metadata = getSEOTags({
-  title: "NextJS Template",
-  description: "A NextJS template with Tailwind CSS and TypeScript.",
+  title: siteConfig.name,
+  description: siteConfig.description,
   relativeUrl: "/",
 }
 );
@@ -14,8 +13,8 @@ export const metadata = getSEOTags({
 export default function IndexPage() {
 
   const jsonLd = {
-    name: "NextJS Template",
-    description: "A NextJS template with Tailwind CSS and TypeScript.",
+    name: siteConfig.name,
+    description: siteConfig.description,
     relativeUrl: "/",
   }
 
@@ -23,7 +22,6 @@ export default function IndexPage() {
     <>
       <JsonLd data={jsonLd} />
       <main>
-        <Hero />
       </main>
     </>
   )
