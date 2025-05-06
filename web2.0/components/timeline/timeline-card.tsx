@@ -1,7 +1,8 @@
 import React from "react";
-import { TimelineItem } from "./timeline";
+import { TimelineItem } from "@/types/timeline";
 import { cn } from "@/lib/utils";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 interface TimelineCardProps {
   item: TimelineItem;
@@ -9,37 +10,49 @@ interface TimelineCardProps {
 
 export function TimelineCard({ item }: TimelineCardProps) {
   return (
-    <div className="relative w-full max-w-2xl">
-      <div className="flex items-center">
-        <div className="h-8 w-1 rounded bg-primary/60 mr-4" style={{ background: item.color }} />
-        <Card className="flex-1">
-          <CardHeader className="p-6 pb-2">
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-semibold text-primary/80 tracking-wide">
-                {item.date}
-              </span>
-            </div>
-            <CardTitle className="text-xl font-bold flex items-center gap-2">
-              {item.title}
-              <span style={{ color: item.color }}>{item.icon}</span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-6 pt-0">
-            <p className="text-muted-foreground mb-3 leading-relaxed">
-              {item.description}
-            </p>
-            {item.tags && (
-              <div className="flex flex-wrap gap-2 mt-2">
-                {item.tags.map((tag) => (
-                  <span key={tag} className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
-                    {tag}
-                  </span>
-                ))}
+    <motion.div
+      className="relative w-full max-w-2xl"
+      whileHover={{ scale: 1.01 }}
+      transition={{ duration: 0.2 }}
+    >
+      <Card className="relative overflow-hidden">
+        <div
+          className="absolute left-0 top-0 h-full w-1"
+          style={{ background: item.color }}
+        />
+        <CardContent>
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between gap-2 mb-1">
+                <span className="text-xs font-medium text-muted-foreground">
+                  {item.date}
+                </span>
+                <span className="text-primary">
+                  {item.icon}
+                </span>
               </div>
-            )}
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+              <h3 className="text-lg font-semibold truncate">
+                {item.title}
+              </h3>
+              <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+                {item.description}
+              </p>
+              {item.tags && (
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-muted text-muted-foreground px-2 py-0.5 rounded-md text-xs font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }

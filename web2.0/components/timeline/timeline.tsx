@@ -2,22 +2,19 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React from "react";
 import { TimelineCard } from "./timeline-card";
+import { Icons } from "@/components/icons";
+import { TimelineItem, TimelineProps } from "@/types/timeline";
 
-export interface TimelineItem {
-  id: string;
-  year: string;
-  date: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  color: string;
-  tags?: string[];
-}
-
-export interface TimelineProps {
-  items: TimelineItem[];
-  className?: string;
-}
+const getIconComponent = (iconName: string): React.ReactNode => {
+  const icons: Record<string, React.ReactNode> = {
+    "rocket": <Icons.Rocket className="h-4 w-4" />,
+    "graduation-cap": <Icons.GraduationCap className="h-4 w-4" />,
+    "book-open": <Icons.BookOpen className="h-4 w-4" />,
+    "briefcase": <Icons.Briefcase className="h-4 w-4" />,
+    "code-2": <Icons.Code2 className="h-4 w-4" />,
+  };
+  return icons[iconName] || <Icons.Briefcase className="h-4 w-4" />;
+};
 
 export function Timeline({ items, className }: TimelineProps) {
   // Group items by year for sticky year markers
@@ -70,7 +67,7 @@ export function Timeline({ items, className }: TimelineProps) {
                     </motion.div>
                   </div>
                   {/* Card right-aligned */}
-                  <TimelineCard item={item} />
+                  <TimelineCard item={{ ...item, icon: typeof item.icon === 'string' ? getIconComponent(item.icon) : item.icon }} />
                 </motion.div>
               ))}
             </div>

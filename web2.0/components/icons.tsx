@@ -10,6 +10,11 @@ import {
   Menu,
   Moon,
   SunMedium,
+  Briefcase,
+  GraduationCap,
+  BookOpen,
+  Code2,
+  Rocket,
 } from "lucide-react"
 import Image from "next/image"
 
@@ -25,6 +30,12 @@ export const Icons = {
   ChevronLeft: ChevronLeft,
   ChevronRight: ChevronRight,
   Menu: Menu,
+  // Timeline Icons
+  Rocket: Rocket,
+  GraduationCap: GraduationCap,
+  BookOpen: BookOpen,
+  Briefcase: Briefcase,
+  Code2: Code2,
   Logo: (props: LucideProps) => (
     <Image
       src="/assets/arfan.svg"
