@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import { getSEOTags } from "@/lib/seo";
 import { ProfileSection } from "@/components/sections/profile-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { TimelineSection } from "@/components/sections/timeline-section";
 
 export const metadata = getSEOTags({
   title: siteConfig.name,
@@ -15,15 +16,6 @@ export default function IndexPage() {
     name: siteConfig.name,
     description: siteConfig.description,
     relativeUrl: "/",
-  };
-
-  // Helper function to generate multiple paragraphs
-  const generateParagraphs = (count: number) => {
-    return Array.from({ length: count }, (_, i) => (
-      <p key={i} className="text-muted-foreground mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-    ));
   };
 
   return (
@@ -41,10 +33,7 @@ export default function IndexPage() {
 
           {/* Right column - scrollable */}
           <div className="flex-1 p-6 md:p-8">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Right Column</h2>
-              {generateParagraphs(200)}
-            </div>
+            <TimelineSection />
           </div>
         </div>
 

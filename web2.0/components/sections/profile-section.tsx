@@ -5,30 +5,6 @@ import { cn } from "@/lib/utils";
 import { birthstone } from "@/lib/fonts";
 import { buttonVariants } from "@/components/ui/button";
 
-interface SocialLink {
-  name: string;
-  url: string;
-  icon: keyof typeof Icons;
-}
-
-const socialLinks: SocialLink[] = [
-  {
-    name: "GitHub",
-    url: "https://github.com/yourusername",
-    icon: "GitHub",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com/in/yourusername",
-    icon: "LinkedIn",
-  },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/yourusername",
-    icon: "TwitterX",
-  },
-];
-
 const navItems = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
@@ -54,11 +30,11 @@ export function ProfileSection() {
 
         {/* Name and Title */}
         {/* <div className="text-center space-y-2"> */}
-        <h1 className={cn(birthstone.className, "text-7xl font-bold")}>
+        <h1 className={cn(birthstone.className, "text-7xl font-bold text-center")}>
           Arfan Uddin
         </h1>
         <p className="text-center text-muted-foreground text-pretty tracking-tight">
-          Founder of <Link href="https://connecto.now" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn( "mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link> |
+          Founder at <Link href="https://connecto.now" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn( "mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link> |
           Pursuing PhD in Software Engineering |
           Full Stack Developer
         </p>
