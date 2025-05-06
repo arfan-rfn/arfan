@@ -1,10 +1,18 @@
 import { unstable_ViewTransition as ViewTransition } from 'react';
+import { ProfileSectionCompact } from '@/components/sections/profile-section-compact';
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<ViewTransition>
 			<div className="container mx-auto px-4 my-4">
-				{children}
+				<div className="flex gap-8">
+					<aside className="hidden md:block sticky top-4 h-fit">
+						<ProfileSectionCompact />
+					</aside>
+					<main className="flex-1">
+						{children}
+					</main>
+				</div>
 			</div>
 		</ViewTransition>
 	);
