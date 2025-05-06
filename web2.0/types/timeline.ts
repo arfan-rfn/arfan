@@ -1,17 +1,18 @@
 import { ReactNode } from "react";
+import { Icons } from "@/components/icons";
 
-export interface TimelineItem {
+export type TimelineItem = {
   id: string;
   year: string;
   date: string;
   title: string;
   description: string;
-  icon: ReactNode;
+  icon: keyof typeof Icons;
   color: string;
-  tags?: string[];
-}
+  tags: string[];
+};
 
-export interface TimelineProps {
+export type TimelineProps = {
   items: TimelineItem[];
   className?: string;
-}
+};

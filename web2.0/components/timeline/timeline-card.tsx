@@ -3,10 +3,16 @@ import { TimelineItem } from "@/types/timeline";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { Icons } from "@/components/icons";
 
 interface TimelineCardProps {
   item: TimelineItem;
 }
+
+const getIconComponent = (iconName: TimelineItem["icon"]): React.ReactNode => {
+  const IconComponent = Icons[iconName];
+  return <IconComponent className="size-6" />;
+};
 
 export function TimelineCard({ item }: TimelineCardProps) {
   return (
@@ -17,7 +23,7 @@ export function TimelineCard({ item }: TimelineCardProps) {
     >
       <Card className="relative overflow-hidden">
         <div
-          className="absolute left-0 top-0 h-full w-1"
+          className="absolute left-0 top-0 h-full w-1 bg-primary"
           style={{ background: item.color }}
         />
         <CardContent>
@@ -28,7 +34,7 @@ export function TimelineCard({ item }: TimelineCardProps) {
                   {item.date}
                 </span>
                 <span className="text-primary">
-                  {item.icon}
+                  {getIconComponent(item.icon)}
                 </span>
               </div>
               <h3 className="text-lg font-semibold truncate">
