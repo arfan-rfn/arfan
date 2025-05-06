@@ -16,6 +16,8 @@ import {
   Code2,
   Rocket,
   ScrollText,
+  TrendingUp,
+  Microscope,
 } from "lucide-react"
 import Image from "next/image"
 
@@ -38,6 +40,8 @@ export const Icons = {
   Work: Briefcase,
   Code: Code2,
   Blog: ScrollText,
+  Leadership: TrendingUp,
+  Research: Microscope,
   Logo: (props: LucideProps) => (
     <Image
       src="/assets/arfan.svg"

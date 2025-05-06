@@ -30,16 +30,19 @@ const getYearFromDate = (dateString: string): string => {
 
 const formatDateRange = (startDate: string, endDate?: string): string => {
   const start = new Date(startDate);
-  const end = endDate ? new Date(endDate) : null;
+  const end = endDate?.toLowerCase() === 'current' ? null : endDate ? new Date(endDate) : null;
 
   if (!end) {
-    return formatDate(startDate);
+    const startStr = formatDate(startDate);
+    return endDate?.toLowerCase() === 'current'
+      ? `${startStr} - Present`
+      : startStr;
   }
 
   // If same year, only show year once
   if (start.getFullYear() === end.getFullYear()) {
-    const startStr = start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    const endStr = end.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const startStr = start.toLocaleDateString('en-US', { month: 'short' });
+    const endStr = end.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
     return `${startStr} - ${endStr}`;
   }
 
