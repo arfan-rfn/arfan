@@ -23,6 +23,7 @@ export default function GoogleAnalytics() {
 
 	return (
 		<>
+			<Script src="https://analytics.ahrefs.com/analytics.js" data-key="th34dN3HD6nisnaBs7UEqg" async></Script>
 			<noscript>
 				<iframe
 					src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
