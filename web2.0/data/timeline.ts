@@ -3,7 +3,7 @@ import { TimelineItem } from "@/types/timeline";
 export const timelineItems: TimelineItem[] = [
   {
     id: "phd-arizona",
-    date: "August 2024",
+    date: "2024-08-01",
     title: "PhD in Software Engineering",
     description: "Started PhD at the University of Arizona with a Graduate Assistantship.",
     icon: "Education",
@@ -13,8 +13,8 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "kmap-developer",
-    date: "May 2022",
-    endDate: "June 2024",
+    date: "2022-05-01",
+    endDate: "2024-06-01",
     title: "Web Application Developer II, University of Arizona Research, Innovation & Impact",
     description: "Led migration of KMap to NextJS, improving SEO and CTR by over 6x. Managed the web development team and worked on UI/UX improvements.",
     icon: "Work",
@@ -24,7 +24,7 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "icpc-developer",
-    date: "August 2024",
+    date: "2024-08-01",
     endDate: "current",
     title: "Full-Stack Developer, ICPC",
     description: "Built and maintained systems for 50k+ students worldwide during ICPC programming contests.",
@@ -35,7 +35,7 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "hamilton-engineer",
-    date: "May 2020",
+    date: "2020-05-01",
     title: "Full Stack Software Engineer, Hamilton Innovations",
     description: "Designed frontend UIs with Flutter/React, built APIs in NodeJS, and architected databases in PostgreSQL/MySQL.",
     icon: "Work",
@@ -44,8 +44,8 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "hexagon-intern",
-    date: "January 2020",
-    endDate: "December 2020",
+    date: "2020-01-01",
+    endDate: "2020-12-01",
     title: "Software Development Intern, Hexagon Mining",
     description: "Rewrote the serializer for MPSO in C#, improving performance by 2x and reducing memory usage.",
     icon: "Work",
@@ -54,8 +54,8 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "ta-leader",
-    date: "January 2019",
-    endDate: "May 2020",
+    date: "2019-01-01",
+    endDate: "2020-05-01",
     title: "Section Leader, Department of Computer Science, UArizona",
     description: "Led TA sections for CSc 210 and 252, evaluated assignments, and held office hours.",
     icon: "Leadership",
@@ -64,7 +64,7 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "hereim-project",
-    date: "July 2022",
+    date: "2022-07-01",
     title: "Here I'm – Personal Project",
     description: "A real-time profile sharing app for meetups, built using Flutter and NodeJS, hosted on Google Cloud and MongoDB Atlas.",
     icon: "Code",
@@ -74,7 +74,7 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "lead-hackaz",
-    date: "January 2018",
+    date: "2018-01-01",
     endDate: "current",
     title: "Lead Organizer, Hack Arizona",
     description: "Ran workshops on Android and Flutter, helped find sponsors and organize beginner-friendly sessions.",
@@ -84,7 +84,7 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "publication-jss2025",
-    date: "March 2025",
+    date: "2025-03-01",
     title: "Journal Publication in JSS",
     description: "Co-authored 'Multivocal study on microservice dependencies' published in the Journal of Systems and Software.",
     icon: "Research",
@@ -94,7 +94,7 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     id: "publication-closer2024",
-    date: "April 2024",
+    date: "2024-04-01",
     title: "Conference Publication at CLOSER 2024",
     description: "Co-authored a paper on dependency management and maintainability in microservices.",
     icon: "Research",

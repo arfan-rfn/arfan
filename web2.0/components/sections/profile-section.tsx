@@ -14,7 +14,7 @@ const navItems = [
 export function ProfileSection() {
   return (
     <div className="flex flex-col h-full">
-      <div className="flex flex-col items-center space-y-6">
+      <div className="flex flex-col items-center space-y-6 my-8">
         {/* Profile Image */}
         <div className="relative aspect-square w-full max-w-[300px] md:max-w-[400px] rounded-full overflow-hidden">
           <Image
@@ -28,16 +28,14 @@ export function ProfileSection() {
         </div>
 
         {/* Name and Title */}
-        {/* <div className="text-center space-y-2"> */}
         <h1 className={cn(birthstone.className, "text-7xl font-bold text-center")}>
           Arfan Uddin
         </h1>
         <p className="text-center text-muted-foreground text-pretty tracking-tight">
-          Founder at <Link href="https://connecto.now" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn( "mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link> |
+          Founder at <Link href="https://connecto.now" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link> |
           Pursuing PhD in Software Engineering |
           Full Stack Developer
         </p>
-        {/* </div> */}
 
         {/* Navigation Buttons */}
         <div className="flex flex-wrap justify-center gap-2 w-full max-w-sm mt-auto py-6">
