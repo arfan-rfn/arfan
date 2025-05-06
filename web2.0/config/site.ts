@@ -39,16 +39,16 @@ export const siteConfig = {
   ],
   footer: {
     links: {
-      Features: [
+      "Things I've built": [
         {
-          name: "Home",
-          url: "/",
+          name: "Connecto",
+          url: "https://connecto.now",
         },
       ],
       Resources: [
         {
-          name: "FAQ",
-          url: "/",
+          name: "About Me",
+          url: "/blog/about-me",
         },
         {
           name: "Terms and Conditions",
@@ -62,7 +62,7 @@ export const siteConfig = {
       About: [
         {
           name: "Contact",
-          url: "/",
+          url: "/#contact",
         },
       ],
     },

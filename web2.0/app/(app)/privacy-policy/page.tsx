@@ -28,10 +28,6 @@ export default function PrivacyPolicy() {
 				Last updated: {LastUpdate}
 			</p>
 
-			<p className="text-center text-lg font-semibold">
-				**This is a sample privacy policy generated with AI. Please replace this with your own privacy policy.**
-			</p>
-
 			<div className="m-4">
 				<p className="py-1">
 					Welcome to {ApplicationName}! We are committed to protecting your privacy and ensuring you have a positive experience on our website. This Privacy Policy applies to {WebsiteURL} and governs data collection, processing, and usage in compliance with the privacy laws of the United States. By using the website, you consent to the data practices described in this policy.

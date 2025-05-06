@@ -27,9 +27,6 @@ export default function TermsAndCondition() {
 				Last updated: {LastUpdate}
 			</p>
 
-			<p className="text-center text-lg font-semibold">
-				**This is a sample Terms and Condition generated with AI. Please replace this with your own Terms and Condition.**
-			</p>
 			<div className="m-4">
 				<p className="py-1">
 					Welcome to {ApplicationName}! These terms and conditions outline the rules and regulations for the use of {ApplicationName}’s Website, located at {WebsiteURL}.
