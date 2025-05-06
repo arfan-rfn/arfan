@@ -35,10 +35,9 @@ export function Timeline({ items, className }: TimelineProps) {
       <div className="flex flex-col w-full mr-16">
         {years.map((year) => (
           <div key={year} className="relative mb-8">
-            {/* Sticky year marker on the right */}
-            <div className="sticky top-24 z-10 flex items-center justify-end mb-8">
-              <div className="flex items-center">
-                <div className="mr-4 h-1 w-8 bg-primary/40 rounded-full" />
+            {/* Sticky year marker perfectly centered above the timeline line */}
+            <div className="sticky top-24 z-10 mb-8" style={{ height: '2.5rem' }}>
+              <div className="absolute -right-10 translate-x-1/2 w-10 flex justify-center" style={{ zIndex: 20 }}>
                 <div className="h-10 w-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-2xl font-bold shadow-lg border-4 border-background">
                   {year}
                 </div>
