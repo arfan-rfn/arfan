@@ -11,7 +11,8 @@ export const env = createEnv({
 		AWS_SECRET_ACCESS_KEY: z.string().min(1)
 	},
 	client: {
-		NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string().min(1),
+		NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string().min(0),
+		NEXT_PUBLIC_AHREFS_ANALYTICS_ID: z.string().min(0),
 		NEXT_PUBLIC_BASE_URL: z.string().min(1),
 	},
 
@@ -19,5 +20,6 @@ export const env = createEnv({
 	experimental__runtimeEnv: {
 		NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
 		NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID,
+		NEXT_PUBLIC_AHREFS_ANALYTICS_ID: process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_ID,
 	}
 });
