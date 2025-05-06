@@ -44,6 +44,10 @@ export const siteConfig = {
           name: "Connecto",
           url: "https://connecto.now",
         },
+        {
+          name: "Nextjs Template",
+          url: "https://nextjs.arfanu.com",
+        }
       ],
       Resources: [
         {
