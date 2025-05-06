@@ -52,7 +52,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             ptSans.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
             <QueryProviders>
               <JsonLd />
               <div className="texture" />
