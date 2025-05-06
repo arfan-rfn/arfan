@@ -148,7 +148,7 @@ export function TimelineSection() {
               transition={{ duration: 0.5 }}
               className="text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60"
             >
-              My Journey
+              🚉 The Scenic Route
             </motion.h2>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -166,11 +166,11 @@ export function TimelineSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-muted-foreground text-center max-w-2xl text-lg leading-relaxed"
           >
-            A timeline of my professional and personal milestones, showcasing my growth and experiences.
+            From platform to platform, this is the story of where I paused, where I pushed forward, and where I found purpose.
           </motion.p>
 
           <div className="w-full max-w-5xl">
-            <Timeline items={flattenedTimelineItems}  />
+            <Timeline items={flattenedTimelineItems} />
           </div>
         </motion.div>
       </div>

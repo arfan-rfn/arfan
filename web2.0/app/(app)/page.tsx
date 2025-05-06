@@ -25,7 +25,7 @@ export default function IndexPage() {
         {/* Two-column layout */}
         <div className="flex flex-1 flex-col md:flex-row">
           {/* Left column - sticky on desktop */}
-          <div className="flex-1 p-6 md:p-8 border-b md:border-b-0">
+          <div className="flex-1 p-6 md:p-8 md:border-b-0">
             <div className="md:sticky md:top-8">
               <ProfileSection />
             </div>
