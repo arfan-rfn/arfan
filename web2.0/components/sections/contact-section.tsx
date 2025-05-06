@@ -10,7 +10,7 @@ export function ContactSection() {
         <div className="flex flex-col items-center space-y-8">
           <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
           <p className="text-muted-foreground text-center max-w-2xl">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            {"I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions."}
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 w-full max-w-2xl">
