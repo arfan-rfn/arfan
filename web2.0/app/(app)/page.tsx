@@ -2,6 +2,7 @@ import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/config/site";
 import { getSEOTags } from "@/lib/seo";
 import { ProfileSection } from "@/components/sections/profile-section";
+import { ContactSection } from "@/components/sections/contact-section";
 
 export const metadata = getSEOTags({
   title: siteConfig.name,
@@ -28,12 +29,12 @@ export default function IndexPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <main className="flex min-h-screen flex-col justify-center items-center">
+      <main className="flex min-h-screen flex-col">
         {/* Two-column layout */}
         <div className="flex flex-1 flex-col md:flex-row">
           {/* Left column - sticky on desktop */}
-          <div className="flex-1 p-6 md:p-8">
-            <div className="md:sticky md:top-24">
+          <div className="flex-1 p-6 md:p-8 border-b md:border-b-0">
+            <div className="md:sticky md:top-8">
               <ProfileSection />
             </div>
           </div>
@@ -42,18 +43,13 @@ export default function IndexPage() {
           <div className="flex-1 p-6 md:p-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Right Column</h2>
-              {generateParagraphs(20)}
+              {generateParagraphs(200)}
             </div>
           </div>
         </div>
 
-        {/* Full-width section */}
-        <div className="w-full p-6 md:p-8">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Full Width Section</h2>
-            {generateParagraphs(10)}
-          </div>
-        </div>
+        {/* Contact Section */}
+        <ContactSection />
       </main>
     </>
   );

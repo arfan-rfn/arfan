@@ -65,7 +65,7 @@ export function ProfileSection() {
         {/* </div> */}
 
         {/* Navigation Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 w-full max-w-sm">
+        <div className="flex flex-wrap justify-center gap-2 w-full max-w-sm mt-auto py-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -84,7 +84,7 @@ export function ProfileSection() {
       </div>
 
       {/* Social Links - Fixed to bottom */}
-      <div className="mt-auto pt-6">
+      {/* <div className="mt-auto pt-6">
         <div className="flex justify-center space-x-4">
           {socialLinks.map((link) => {
             const Icon = Icons[link.icon];
@@ -106,7 +106,7 @@ export function ProfileSection() {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
