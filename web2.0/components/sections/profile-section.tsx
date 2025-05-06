@@ -6,7 +6,7 @@ import { birthstone } from "@/lib/fonts";
 import { buttonVariants } from "@/components/ui/button";
 
 const navItems = [
-  { label: "About", href: "/about" },
+  { label: "About", href: "/blog/about-me" },
   { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "#contact" },
