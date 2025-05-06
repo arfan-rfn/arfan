@@ -1,9 +1,10 @@
 import React from "react";
 import { TimelineItem } from "@/types/timeline";
-import { cn } from "@/lib/utils";
+import { cn, toAbsoluteUrl } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Icons } from "@/components/icons";
+import Link from "next/link";
 
 interface TimelineCardProps {
   item: TimelineItem;
@@ -14,8 +15,43 @@ const getIconComponent = (iconName: TimelineItem["icon"]): React.ReactNode => {
   return <IconComponent className="size-6" />;
 };
 
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric'
+  });
+};
+
+const getYearFromDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.getFullYear().toString();
+};
+
+const formatDateRange = (startDate: string, endDate?: string): string => {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : null;
+
+  if (!end) {
+    return formatDate(startDate);
+  }
+
+  // If same year, only show year once
+  if (start.getFullYear() === end.getFullYear()) {
+    const startStr = start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const endStr = end.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return `${startStr} - ${endStr}`;
+  }
+
+  // Different years, show full dates
+  return `${formatDate(startDate)} - ${formatDate(endDate!)}`;
+};
+
 export function TimelineCard({ item }: TimelineCardProps) {
-  return (
+  const dateRange = formatDateRange(item.date, item.endDate);
+  const year = getYearFromDate(item.date);
+
+  const cardContent = (
     <motion.div
       className="relative w-full max-w-2xl"
       whileHover={{ scale: 1.01 }}
@@ -31,7 +67,7 @@ export function TimelineCard({ item }: TimelineCardProps) {
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-2 mb-1">
                 <span className="text-xs font-medium text-muted-foreground">
-                  {item.date}
+                  {dateRange}
                 </span>
                 <span className="text-primary">
                   {getIconComponent(item.icon)}
@@ -61,4 +97,30 @@ export function TimelineCard({ item }: TimelineCardProps) {
       </Card>
     </motion.div>
   );
+
+  if (item.url) {
+    const absoluteUrl = item.url
+    const isExternal = absoluteUrl.startsWith('http://') || absoluteUrl.startsWith('https://');
+
+    if (isExternal) {
+      return (
+        <a
+          href={absoluteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block"
+        >
+          {cardContent}
+        </a>
+      );
+    }
+
+    return (
+      <Link href={item.url} className="block">
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return cardContent;
 }

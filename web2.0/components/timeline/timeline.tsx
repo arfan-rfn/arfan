@@ -5,11 +5,17 @@ import { TimelineCard } from "./timeline-card";
 import { Icons } from "@/components/icons";
 import { TimelineItem, TimelineProps } from "@/types/timeline";
 
+const getYearFromDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.getFullYear().toString();
+};
+
 export function Timeline({ items, className }: TimelineProps) {
   // Group items by year for sticky year markers
   const grouped = items.reduce((acc, item) => {
-    if (!acc[item.year]) acc[item.year] = [];
-    acc[item.year].push(item);
+    const year = getYearFromDate(item.date);
+    if (!acc[year]) acc[year] = [];
+    acc[year].push(item);
     return acc;
   }, {} as Record<string, TimelineItem[]>);
   const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
