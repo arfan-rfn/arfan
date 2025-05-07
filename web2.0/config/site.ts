@@ -39,7 +39,7 @@ export const siteConfig = {
   ],
   footer: {
     links: {
-      "Things I've built": [
+      "Build by Me": [
         {
           name: "Connecto",
           url: "https://getconnecto.app",
