@@ -37,7 +37,7 @@ export function ProfileSectionCompact() {
           </h1>
         </Link>
         <p className="text-center text-muted-foreground text-xs text-pretty tracking-tight line-clamp-3">
-          Founder at <Link href="https://connecto.now" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className="text-muted-foreground underline underline-offset-3 hover:underline-offset-2">Connecto</Link> | Pursuing PhD in Software Engineering | Full Stack Developer
+          Founder at <Link href="https://getconnecto.app" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className="text-muted-foreground underline underline-offset-3 hover:underline-offset-2">Connecto</Link> | Pursuing PhD in Software Engineering | Full Stack Developer
         </p>
 
         {/* Navigation Buttons */}

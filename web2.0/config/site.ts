@@ -42,7 +42,7 @@ export const siteConfig = {
       "Things I've built": [
         {
           name: "Connecto",
-          url: "https://connecto.now",
+          url: "https://getconnecto.app",
         },
         {
           name: "Nextjs Template",

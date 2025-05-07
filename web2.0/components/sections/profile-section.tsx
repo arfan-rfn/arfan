@@ -32,7 +32,7 @@ export function ProfileSection() {
           Arfan Uddin
         </h1>
         <p className="text-center text-muted-foreground text-pretty tracking-tight">
-          Founder at <Link href="https://connecto.now" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link> |
+          Founder at <Link href="https://getconnecto.app" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link> |
           Pursuing PhD in Software Engineering |
           Full Stack Developer
         </p>
