@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/json-ld";
+
 export const metadata = {
   title: "Hello, I'm Arfan 👋",
   description: "A quick introduction to my work, interests, and what you'll find on this site.",
@@ -9,29 +11,120 @@ export const metadata = {
   },
 };
 
+<JsonLd data={{
+  "@context": "https://schema.org",
+  "@type": ["Person", "ProfilePage"],
+  "name": "Md Arfan Uddin",
+  "givenName": "Arfan",
+  "familyName": "Uddin",
+  "url": metadata.alternates.canonical,
+  "image": {
+    "@type": "ImageObject",
+    "url": "/images/arfan.png",
+    "contentUrl": "/images/arfan.png",
+    "caption": "Md Arfan Uddin"
+  },
+  "description": metadata.description,
+  "sameAs": [
+    "https://www.linkedin.com/in/rfn/",
+    "https://github.com/arfan-rfn",
+    "https://getconnecto.app"
+  ],
+  "affiliation": {
+    "@type": "Organization",
+    "name": "University of Arizona",
+    "url": "https://www.arizona.edu"
+  },
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "University of Arizona"
+  },
+  "jobTitle": "Ph.D. Student in Software Engineering",
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "Connecto",
+      "url": "https://getconnecto.app",
+      "foundingDate": "2025",
+      "founder": {
+        "@type": "Person",
+        "name": "Md Arfan Uddin"
+      }
+    }
+  ],
+  "knowsAbout": [
+    "Software Engineering",
+    "Artificial Intelligence",
+    "Large Language Models",
+    "Microservices",
+    "Root Cause Analysis",
+    "Full-stack Development",
+    "Mobile Development"
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": metadata.alternates.canonical,
+    "datePublished": metadata.date,
+    "dateModified": metadata.date,
+    "author": {
+      "@type": "Person",
+      "name": metadata.author
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": metadata.author
+    },
+    "headline": metadata.title,
+    "keywords": metadata.tags.join(", "),
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Arfan's Blog",
+      "url": "https://arfan.dev"
+    }
+  },
+  "award": [
+    "Graduate Assistantship in Software Engineering",
+    "Startup Milestone Funding from Startup Wildcats"
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Software Engineer and Researcher",
+    "skills": [
+      "Next.js",
+      "Spring Boot",
+      "Kafka",
+      "Redis",
+      "Supabase",
+      "DevSecOps",
+      "Microservice Architecture"
+    ]
+  }
+}} />
+
 # 👋 Meet Arfan
 
-Hey there! I'm **Md Arfan Uddin**, and I’m excited you’ve found your way here.
+Hey there! I'm **Md Arfan Uddin**, and I'm excited you've found your way here.
 
-I'm currently a **Ph.D. student in Software Engineering** at the University of Arizona. My research lies at the intersection of **AI and microservices**, focusing on using **Large Language Models (LLMs)** to improve **Root Cause Analysis (RCA)** in distributed systems. Imagine systems that can automatically analyze logs and traces to tell you what went wrong and how to fix it—this is the future I’m building toward.
+I'm currently a **Ph.D. student in Software Engineering** at the University of Arizona. My research lies at the intersection of **AI and microservices**, focusing on using **Large Language Models (LLMs)** to improve **Root Cause Analysis (RCA)** in distributed systems. Imagine systems that can automatically analyze logs and traces to tell you what went wrong and how to fix it—this is the future I'm building toward.
 
-But my journey didn’t start in research labs.
+But my journey didn't start in research labs.
 
 ### From Code to Cloud to Research
 
 With over **4 years of professional experience** as a full-stack and mobile developer, I've worked across multiple domains—from research platforms to real-time apps. I led engineering for **KMap**, a campus-wide research visualization tool, and co-created **ScholarPaw**, a scholarship management platform. I've always been passionate about building systems that don't just work—but scale, evolve, and empower.
 
-Along the way, I’ve adopted tools like **Next.js**, **Spring Boot**, **Kafka**, **Redis**, and **Supabase**, and embraced principles of DevSecOps, microservice architecture, and automation. These experiences have deeply shaped how I approach both system design and research.
+Along the way, I've adopted tools like **Next.js**, **Spring Boot**, **Kafka**, **Redis**, and **Supabase**, and embraced principles of DevSecOps, microservice architecture, and automation. These experiences have deeply shaped how I approach both system design and research.
 
 ### Building Connecto: From Frustration to Founding
 
 In 2024, I founded [**Connecto**](https://getconnecto.app)—a real-time networking app built to solve a common but overlooked problem: people attending the same event often miss opportunities to meet others around them.
 
-Connecto helps users **find and connect with people nearby at events, meetups, or even coffee shops**—all in real time. Whether you're looking to expand your network, meet fellow attendees, or simply find someone with shared interests, Connecto makes that happen effortlessly. It’s a startup born out of personal frustration, refined by user feedback, and built for human connection in physical spaces.
+Connecto helps users **find and connect with people nearby at events, meetups, or even coffee shops**—all in real time. Whether you're looking to expand your network, meet fellow attendees, or simply find someone with shared interests, Connecto makes that happen effortlessly. It's a startup born out of personal frustration, refined by user feedback, and built for human connection in physical spaces.
 
 ### Why This Blog Exists
 
-This blog is a journal of my journey—part research log, part builder’s notebook, and part personal reflection. You’ll find posts on:
+This blog is a journal of my journey—part research log, part builder's notebook, and part personal reflection. You'll find posts on:
 
 - 🚀 AI and LLM applications in software engineering
 - 🧠 Research insights on debugging microservices
@@ -39,8 +132,8 @@ This blog is a journal of my journey—part research log, part builder’s noteb
 - 💼 Lessons from transitioning into tech entrepreneurship
 - 🧑‍🏫 Life as a PhD + MBA student juggling research, coding, and startups
 
-### Let’s Connect
+### Let's Connect
 
-If you’re a fellow researcher, engineer, builder, or just someone curious—I’d love to connect. You can find me on [LinkedIn](https://www.linkedin.com/in/rfn/), check out my [GitHub](https://github.com/arfan-rfn), or explore [Connecto](https://getconnecto.app).
+If you're a fellow researcher, engineer, builder, or just someone curious—I'd love to connect. You can find me on [LinkedIn](https://www.linkedin.com/in/rfn/), check out my [GitHub](https://github.com/arfan-rfn), or explore [Connecto](https://getconnecto.app).
 
-Thanks for stopping by. Here’s to learning, building, and making meaningful things together. 💫
+Thanks for stopping by. Here's to learning, building, and making meaningful things together. 💫

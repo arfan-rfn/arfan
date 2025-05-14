@@ -1,6 +1,7 @@
 import { MaskedImage } from "@/components/ui/masked-image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import hackaz2025Img from "./hackaz-2025-img.jpeg";
 
 export const metadata = {
@@ -33,6 +34,40 @@ export const StyledLink = ({ href, children }) => {
 		</Link>
 	);
 };
+
+<JsonLd data={{
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": metadata.title,
+	"description": metadata.description,
+	"image": [hackaz2025Img.src],
+	"url": metadata.alternates.canonical,
+	"datePublished": metadata.date,
+	"dateModified": metadata.date,
+	"author": {
+		"@type": "Person",
+		"name": metadata.author,
+		"url": "https://arfanu.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Arfan's Blog",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://arfanu.com/assets/arfan.svg"
+		}
+	},
+	"keywords": metadata.tags.join(", "),
+	"articleBody": "After several quiet years, HackAZ finally came back in 2025. My journey with HackAZ started back in 2017 as a volunteer, then as a core organizer in 2018, and now as an Advisor and Organizer. HackAZ 2025 brought together nearly 250 participants for a weekend of non-stop hacking, learning, and connection.",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": metadata.alternates.canonical
+	},
+	"isAccessibleForFree": "True",
+	"inLanguage": "en-US",
+	"articleSection": "Blog",
+	"wordCount": "1000"
+}} />
 
 # HackAZ 2025: Reigniting a Legacy
 
