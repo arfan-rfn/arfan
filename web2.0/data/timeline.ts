@@ -100,5 +100,16 @@ export const timelineItems: TimelineItem[] = [
     icon: "Research",
     color: "pink",
     tags: ["Conference", "Microservices", "CLOSER", "Publication"],
+  },
+  {
+    id: "hackaz-2025",
+    date: "2025-03-22",
+    endDate: "2025-03-24",
+    title: "HackAZ 2025: Leading as Advisor & Organizer",
+    description: "Organized a successful hackathon with over 200 participants, featuring workshops on Flutter, Android, and more.",
+    icon: "Leadership",
+    color: "yellow",
+    tags: ["Hackathon", "HackAZ", "Workshops", "Leadership", "Organizer"],
+    url: "/blog/hackaz-2025"
   }
 ];

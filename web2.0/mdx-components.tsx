@@ -29,7 +29,7 @@ const components = {
 	),
 	h4: (props: HeadingProps) => <h4 className="font-medium" {...props} />,
 	p: (props: ParagraphProps) => (
-		<p className="text-gray-800 dark:text-zinc-300 leading-snug" {...props} />
+		<p className="text-gray-800 dark:text-zinc-300 leading-snug mt-2" {...props} />
 	),
 	ol: (props: ListProps) => (
 		<ol
@@ -48,7 +48,7 @@ const components = {
 		<em className="font-medium" {...props} />
 	),
 	strong: (props: ComponentPropsWithoutRef<'strong'>) => (
-		<strong className="font-medium" {...props} />
+		<strong className="" {...props} />
 	),
 	a: ({ href, children, ...props }: AnchorProps) => {
 		const className = cn(buttonVariants({ variant: 'link' }), 'mx-0 px-0 underline underline-offset-3 hover:underline-offset-4 decoration-gray-800 dark:hover:decoration-gray-200');

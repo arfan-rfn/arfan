@@ -1,0 +1,74 @@
+import { MaskedImage } from "@/components/ui/masked-image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import hackaz2025Img from "./hackaz-2025-img.jpeg";
+
+export const metadata = {
+	title: "HackAZ 2025: Reigniting a Legacy",
+	description: "My experience bringing back HackAZ, one of the Southwest's most iconic hackathons.",
+	date: "2025-03-22",
+	author: "Arfan",
+	tags: ["HackAZ", "hackathon", "community", "student-life", "leadership"],
+	alternates: {
+		canonical: "/blog/hackaz-2025",
+	},
+};
+
+export const StyledLink = ({ href, children }) => {
+	const isExternal = href.startsWith('http');
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"relative inline-block text-primary",
+				"after:absolute after:bottom-0 after:left-0 after:w-full",
+				"after:h-[2px] after:bg-primary after:origin-bottom-right",
+				"after:scale-x-0 hover:after:scale-x-100 after:transition-transform",
+				"after:duration-300 after:ease-out"
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+# HackAZ 2025: Reigniting a Legacy
+
+After several quiet years, **<StyledLink href="https://hack.arizona.edu">HackAZ</StyledLink>** finally came back in 2025—and I feel incredibly grateful to have been part of it as an **Advisor** and **Organizer**.
+
+My journey with HackAZ started back in **2017**, when I first joined as a **volunteer**, helping with logistics and supporting participants throughout the event. That experience introduced me to the incredible community of builders, learners, and leaders that HackAZ brings together. In **2018**, I stepped up as a **core organizer**, where I focused on sponsorship outreach and helped bring in the funding that made the event possible. I learned how much effort and collaboration goes into running a large-scale student hackathon—and how rewarding it can be.
+
+Then in **2019**, I had the opportunity to **lead two technical workshops**: one on Android app development with Java, and another introducing students to Dart and Flutter. Teaching those sessions was one of the most fulfilling parts of my HackAZ journey—watching students dive in, ask questions, and walk away with something they built themselves. Those moments deepened my connection to the event and reaffirmed my passion for helping others grow through technology.
+
+So when the pandemic brought HackAZ to a halt, it felt deeply personal. I had seen firsthand what HackAZ meant to so many students—including myself—and it was hard to watch it go silent for so long.
+
+But this year, **WE MADE IT HAPPEN**.
+
+HackAZ 2025 took place from March 22 to March 24, a full weekend of non-stop hacking, learning, and connection. With a passionate and dedicated team, we brought HackAZ back to the University of Arizona—and the energy was unreal. We had **nearly 250 participants**, and seeing the event space buzzing with creativity and collaboration again was honestly emotional. Students stayed up through the night, pushing boundaries, turning wild ideas into real prototypes, and supporting each other like they'd known one another for years.
+
+As an advisor, I got to work alongside some of the most hardworking and talented student organizers I've met. I was there to guide, mentor, and cheer them on—but truthfully, I learned a lot from them too. Their determination to revive this tradition and make it inclusive, impactful, and fun reminded me of why events like these matter so much.
+
+<MaskedImage
+	src={hackaz2025Img}
+	alt="HackAZ 2025 Team"
+	width={500}
+	height={500}
+	variant="shape6"
+	className="w-[70%] rounded-lg mx-auto"
+/>
+
+<div className="flex justify-center">
+	<p className="leading-snug mt-2 text-sm">
+		This photo was taken toward the end of the event, and it says it all—smiles, unity, and pride. We pulled it off.
+	</p>
+</div>
+
+### Looking Ahead
+
+HackAZ 2025 wasn't just a restart. It was a **statement**. That even after setbacks and uncertainty, our community is still here—still building, still dreaming, still showing up.
+
+To everyone who participated, organized, mentored, or sponsored—**thank you**. And a **special thanks to Kian**, whose leadership and initiative made this revival possible. Your vision brought us all together.
+
+HackAZ is back, and I can't wait to see where we take it from here.
