@@ -1,6 +1,66 @@
 import { TimelineItem } from "@/types/timeline";
 
+const researchItems: TimelineItem[] = [
+  {
+    id: "pc-ESOCC2025",
+    date: "2024-11-24",
+    title: "PC Member, ESOCC2025",
+    description: "Served as a Program Committee member for the 11th European Conference on Service-Oriented and Cloud Computing (ESOCC 2025), reviewing research papers on cloud computing and service-oriented architectures.",
+    icon: "Research",
+    color: "blue",
+    tags: ["ESOCC2025", "PC Member", "Reviewer"],
+    url: "https://conf.researchr.org/home/esocc-2025"
+  },
+  {
+    id: "pc-ISD2025",
+    date: "2025-06-09",
+    title: "PC Member, ISD2025",
+    description: "Serving as a reviewer for the 33rd International Conference on Information Systems Development (ISD 2025), evaluating research papers in software engineering and information systems.",
+    icon: "Research",
+    color: "blue",
+    tags: ["ISD2025", "PC Member", "Reviewer"],
+    url: "https://isd2025.fon.bg.ac.rs/"
+  },
+
+  {
+    id: "publication-jss2025",
+    date: "2025-03-01",
+    title: "Journal Publication in JSS",
+    description: "Co-authored 'Multivocal study on microservice dependencies' published in the Journal of Systems and Software.",
+    icon: "Research",
+    color: "indigo",
+    tags: ["Publication", "Microservices", "Journal", "JSS"],
+    url: "https://doi.org/10.1016/j.jss.2025.112334"
+  },
+  {
+    id: "publication-closer2024",
+    date: "2024-04-01",
+    title: "Conference Publication at CLOSER 2024",
+    description: "Co-authored a paper on dependency management and maintainability in microservices.",
+    icon: "Research",
+    color: "pink",
+    tags: ["Conference", "Microservices", "CLOSER", "Publication"],
+  },
+  {
+    id: "publication-cisose2025",
+    date: "2025-06-01",
+    title: "IEEE CISOSE 2025 SRC Track Publication",
+    description: "Authored a paper on Graph-Based LLM Prompting for Scalable Microservice API Testing",
+    icon: "Research",
+    color: "pink",
+    tags: ["Conference", "Microservices", "CISOSE", "Publication", "SRC Track"],
+    url: "https://conf.researchr.org/home/cisose-2025"
+  }
+].map(item => ({
+  ...item,
+  icon: "Research",
+  color: item.color || "blue",
+  tags: ["Research", ...item.tags],
+}))
+
+
 export const timelineItems: TimelineItem[] = [
+  ...researchItems,
   {
     id: "phd-arizona",
     date: "2024-08-01",
@@ -63,16 +123,6 @@ export const timelineItems: TimelineItem[] = [
     tags: ["TA", "Mentorship", "Teaching", "University of Arizona"],
   },
   {
-    id: "hereim-project",
-    date: "2022-07-01",
-    title: "Here I'm – Personal Project",
-    description: "A real-time profile sharing app for meetups, built using Flutter and NodeJS, hosted on Google Cloud and MongoDB Atlas.",
-    icon: "Code",
-    color: "cyan",
-    tags: ["Flutter", "NodeJS", "MongoDB", "Google Cloud", "Mobile"],
-    url: "https://hereim.xyz"
-  },
-  {
     id: "lead-hackaz",
     date: "2018-01-01",
     endDate: "current",
@@ -81,25 +131,6 @@ export const timelineItems: TimelineItem[] = [
     icon: "Leadership",
     color: "yellow",
     tags: ["Hackathon", "Leadership", "Workshops", "Android"],
-  },
-  {
-    id: "publication-jss2025",
-    date: "2025-03-01",
-    title: "Journal Publication in JSS",
-    description: "Co-authored 'Multivocal study on microservice dependencies' published in the Journal of Systems and Software.",
-    icon: "Research",
-    color: "indigo",
-    tags: ["Publication", "Microservices", "Journal", "JSS"],
-    url: "https://doi.org/10.1016/j.jss.2025.112334"
-  },
-  {
-    id: "publication-closer2024",
-    date: "2024-04-01",
-    title: "Conference Publication at CLOSER 2024",
-    description: "Co-authored a paper on dependency management and maintainability in microservices.",
-    icon: "Research",
-    color: "pink",
-    tags: ["Conference", "Microservices", "CLOSER", "Publication"],
   },
   {
     id: "hackaz-2025",

@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function toAbsoluteUrl(url: string): string {
-  if (!url) return "";
+  if (!url || url === "" || typeof url !== "string") return "";
 
   if (url.startsWith("http://") || url.startsWith("https://")) {
     return url;

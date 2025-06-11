@@ -11,6 +11,9 @@ const getYearFromDate = (dateString: string): string => {
 };
 
 export function Timeline({ items, className }: TimelineProps) {
+
+  items = items.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
   // Group items by year for sticky year markers
   const grouped = items.reduce((acc, item) => {
     const year = getYearFromDate(item.date);
