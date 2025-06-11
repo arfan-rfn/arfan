@@ -51,7 +51,6 @@ const formatDateRange = (startDate: string, endDate?: string): string => {
       : startStr;
   }
 
-  console.log(start);
   // If same year, only show year once
   if (start.getFullYear() === end.getFullYear()) {
     const startStr = start.toLocaleString('en-US', { month: 'short' });
