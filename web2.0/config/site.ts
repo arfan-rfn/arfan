@@ -35,7 +35,16 @@ export const siteConfig = {
       url: "https://www.linkedin.com/in/rfn/",
       icon: "LinkedIn",
     },
-
+    {
+      name: "ResearchGate",
+      url: "https://www.researchgate.net/profile/Md-Arfan-Uddin",
+      icon: "ResearchGate",
+    },
+    {
+      name: "Google Scholar",
+      url: "https://scholar.google.com/citations?user=0123456789&hl=en&user=fwzzYBsAAAAJ",
+      icon: "GoogleScholar",
+    },
   ],
   footer: {
     links: {

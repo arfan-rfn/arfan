@@ -54,7 +54,7 @@ const research: TimelineItem[] = [
 ].map(item => ({
   ...item,
   icon: "Research",
-  color: item.color || "blue",
+  color: "green",
   tags: ["Research", ...item.tags],
 }))
 
@@ -84,7 +84,8 @@ const workExperiences: TimelineItem[] = [
   },
   {
     id: "hamilton-engineer",
-    date: "2020-05-01",
+    date: "2020-01-20",
+    endDate: "2022-05-01",
     title: "Full Stack Software Engineer, Hamilton Innovations",
     description: "Designed frontend UIs with Flutter/React, built APIs in NodeJS, and architected databases in PostgreSQL/MySQL.",
     icon: "Work",
@@ -93,8 +94,8 @@ const workExperiences: TimelineItem[] = [
   },
   {
     id: "hexagon-intern",
-    date: "2020-01-01",
-    endDate: "2020-12-01",
+    date: "2019-05-01",
+    endDate: "2019-12-01",
     title: "Software Development Intern, Hexagon Mining",
     description: "Rewrote the serializer for MPSO in C#, improving performance by 2x and reducing memory usage.",
     icon: "Work",
@@ -104,15 +105,11 @@ const workExperiences: TimelineItem[] = [
 ].map(item => ({
   ...item,
   icon: "Work",
-  color: item.color || "green",
+  color: "purple",
   tags: ["Work", ...item.tags],
 }))
 
-
-
-export const timelineItems: TimelineItem[] = [
-  ...research,
-  ...workExperiences,
+const education: TimelineItem[] = [
   {
     id: "phd-arizona",
     date: "2024-08-01",
@@ -123,6 +120,39 @@ export const timelineItems: TimelineItem[] = [
     tags: ["PhD", "Software Engineering", "University of Arizona"],
     url: "https://www.arizona.edu"
   },
+  {
+    id: "mba-arizona",
+    date: "2023-08-01",
+    endDate: "2024-05-01",
+    title: "Master of Business Administration",
+    description: "Completed a year of MBA studies at the Eller College of Management at the University of Arizona before withdrawing.",
+    icon: "Education",
+    color: "blue",
+    tags: ["MBA", "Business Administration", "University of Arizona"],
+    url: "https://www.arizona.edu"
+  },
+  {
+    id: "bachelor-arizona",
+    date: "2016-01-01",
+    endDate: "2020-05-01",
+    title: "Bachelor of Science in Computer Science",
+    description: "Graduated from the University of Arizona with a Bachelor of Science in Computer Science.",
+    icon: "Education",
+    color: "blue",
+    tags: ["Bachelor", "Computer Science", "University of Arizona"],
+    url: "https://www.arizona.edu"
+  }
+].map(item => ({
+  ...item,
+  icon: "Education",
+  color: "teal",
+  tags: ["Education", ...item.tags],
+}))
+
+export const timelineItems: TimelineItem[] = [
+  ...research,
+  ...workExperiences,
+  ...education,
   {
     id: "ta-leader",
     date: "2019-01-01",
