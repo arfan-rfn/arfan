@@ -16,7 +16,8 @@ const getIconComponent = (iconName: TimelineItem["icon"]): React.ReactNode => {
 };
 
 const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
+  const [year, month, day] = dateString.split('-').map(Number);
+  const date = new Date(year, month - 1, day);
   return date.toLocaleDateString('en-US', {
     month: 'short',
     year: 'numeric'
@@ -29,8 +30,19 @@ const getYearFromDate = (dateString: string): string => {
 };
 
 const formatDateRange = (startDate: string, endDate?: string): string => {
-  const start = new Date(startDate);
-  const end = endDate?.toLowerCase() === 'current' ? null : endDate ? new Date(endDate) : null;
+  // Force dates to be interpreted at start of day in local timezone
+  const [startYear, startMonth, startDay] = startDate.split('-').map(Number);
+  const start = new Date(startYear, startMonth - 1, startDay);
+
+  const end = endDate?.toLowerCase() === 'current'
+    ? null
+    : endDate
+    ? (() => {
+        const [endYear, endMonth, endDay] = endDate.split('-').map(Number);
+        return new Date(endYear, endMonth - 1, endDay);
+      })()
+    : null;
+
 
   if (!end) {
     const startStr = formatDate(startDate);
@@ -39,10 +51,11 @@ const formatDateRange = (startDate: string, endDate?: string): string => {
       : startStr;
   }
 
+  console.log(start);
   // If same year, only show year once
   if (start.getFullYear() === end.getFullYear()) {
-    const startStr = start.toLocaleDateString('en-US', { month: 'short' });
-    const endStr = end.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    const startStr = start.toLocaleString('en-US', { month: 'short' });
+    const endStr = end.toLocaleString('en-US', { month: 'short', year: 'numeric' });
     return `${startStr} - ${endStr}`;
   }
 

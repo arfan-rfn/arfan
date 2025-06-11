@@ -1,6 +1,6 @@
 import { TimelineItem } from "@/types/timeline";
 
-const researchItems: TimelineItem[] = [
+const research: TimelineItem[] = [
   {
     id: "pc-ESOCC2025",
     date: "2024-11-24",
@@ -58,19 +58,7 @@ const researchItems: TimelineItem[] = [
   tags: ["Research", ...item.tags],
 }))
 
-
-export const timelineItems: TimelineItem[] = [
-  ...researchItems,
-  {
-    id: "phd-arizona",
-    date: "2024-08-01",
-    title: "PhD in Software Engineering",
-    description: "Started PhD at the University of Arizona with a Graduate Assistantship.",
-    icon: "Education",
-    color: "blue",
-    tags: ["PhD", "Software Engineering", "University of Arizona"],
-    url: "https://www.arizona.edu"
-  },
+const workExperiences: TimelineItem[] = [
   {
     id: "kmap-developer",
     date: "2022-05-01",
@@ -82,6 +70,7 @@ export const timelineItems: TimelineItem[] = [
     tags: ["NextJS", "Team Lead", "SEO", "UI/UX", "KMap"],
     url: "https://kmap.arizona.edu"
   },
+
   {
     id: "icpc-developer",
     date: "2024-08-01",
@@ -112,6 +101,28 @@ export const timelineItems: TimelineItem[] = [
     color: "red",
     tags: ["Internship", "C#", "Performance", "Optimization"],
   },
+].map(item => ({
+  ...item,
+  icon: "Work",
+  color: item.color || "green",
+  tags: ["Work", ...item.tags],
+}))
+
+
+
+export const timelineItems: TimelineItem[] = [
+  ...research,
+  ...workExperiences,
+  {
+    id: "phd-arizona",
+    date: "2024-08-01",
+    title: "PhD in Software Engineering",
+    description: "Started PhD at the University of Arizona with a Graduate Assistantship.",
+    icon: "Education",
+    color: "blue",
+    tags: ["PhD", "Software Engineering", "University of Arizona"],
+    url: "https://www.arizona.edu"
+  },
   {
     id: "ta-leader",
     date: "2019-01-01",
@@ -121,6 +132,16 @@ export const timelineItems: TimelineItem[] = [
     icon: "Leadership",
     color: "teal",
     tags: ["TA", "Mentorship", "Teaching", "University of Arizona"],
+  },
+  {
+    id: "cs-mentor",
+    date: "2018-01-01",
+    endDate: "2019-05-01",
+    title: "Mentor, Department of Computer Science, UArizona",
+    description: "Led Raspberry Pi workshops and mentored freshmen on academic/career success strategies.",
+    icon: "Leadership",
+    color: "purple",
+    tags: ["Mentorship", "Teaching", "Raspberry Pi", "University of Arizona"],
   },
   {
     id: "lead-hackaz",
