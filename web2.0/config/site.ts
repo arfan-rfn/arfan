@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   name: "Arfan Uddin",
   description:
-    "This is my personal site — I’m Arfan, a software researcher and founder. Follow along as I work on my PhD and build things.",
+    "Arfan Uddin — founder of Connecto, creator of BDStudents, and Software Engineering PhD candidate. Shipping full-stack products with a mission to create real value in people's lives.",
   mainNav: [
     {
       title: "Home",

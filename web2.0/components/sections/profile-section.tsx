@@ -32,9 +32,10 @@ export function ProfileSection() {
           Arfan Uddin
         </h1>
         <p className="text-center text-muted-foreground text-pretty tracking-tight">
-          Founder at <Link href="https://getconnecto.app" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link> |
-          Pursuing PhD in Software Engineering |
-          Full Stack Developer
+          A random human of planet Earth who accidentally
+          founded <Link href="https://getconnecto.app" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link>,
+          built <Link href="https://bdstudents.org" target="_blank" rel="noopener noreferrer" aria-label="BDStudents" title="BDStudents" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>BDStudents</Link>,
+          and stumbled into a Software Engineering PhD. Now shipping full-stack products with a mission to create real value in people’s lives.
         </p>
 
         {/* Navigation Buttons */}
