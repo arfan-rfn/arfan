@@ -2,6 +2,16 @@ import { TimelineItem } from "@/types/timeline";
 
 const research: TimelineItem[] = [
   {
+    id: "publication-jss-slr-2026",
+    date: "2026-01-01",
+    title: "Journal Publication in JSS - Microservice Logs Analysis Employing AI: A Systematic Literature Review",
+    description: "First-authored systematic literature review on AI techniques for microservice log analysis accepted for publication in the Journal of Systems and Software. Analyzed 82 studies from 2,208 papers.",
+    icon: "Research",
+    color: "indigo",
+    tags: ["Publication", "Microservices", "Journal", "JSS", "AI", "SLR"],
+    url: "/blog/ai-microservice-log-analysis-slr"
+  },
+  {
     id: "pc-ESOCC2025",
     date: "2024-11-24",
     title: "PC Member, ESOCC2025",
