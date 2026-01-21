@@ -1,8 +1,7 @@
-import { MaskedImage } from "@/components/ui/masked-image";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
-import hackaz2025Img from "./hackaz-2025-img.jpeg";
 
 export const metadata = {
 	title: "HackAZ 2025: Reigniting a Legacy",
@@ -61,7 +60,7 @@ export const jsonLdData = {
 	"@type": "BlogPosting",
 	"headline": metadata.title,
 	"description": metadata.description,
-	"image": [hackaz2025Img.src],
+	"image": ["https://arfanu.com/blog/hackaz-2025/hackaz-2025-img.jpeg"],
 	"url": metadata.alternates.canonical,
 	"datePublished": metadata.date,
 	"dateModified": metadata.date,
@@ -108,12 +107,11 @@ HackAZ 2025 took place from March 22 to March 24, a full weekend of non-stop hac
 
 As an advisor, I got to work alongside some of the most hardworking and talented student organizers I've met. I was there to guide, mentor, and cheer them on—but truthfully, I learned a lot from them too. Their determination to revive this tradition and make it inclusive, impactful, and fun reminded me of why events like these matter so much.
 
-<MaskedImage
-	src={hackaz2025Img}
+<Image
+	src="/blog/hackaz-2025/hackaz-2025-img.jpeg"
 	alt="HackAZ 2025 Team"
 	width={500}
 	height={500}
-	variant="shape6"
 	className="w-[70%] rounded-lg mx-auto"
 />
 

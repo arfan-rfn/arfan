@@ -52,14 +52,24 @@ const research: TimelineItem[] = [
     tags: ["Conference", "Microservices", "CLOSER", "Publication"],
   },
   {
+    id: "session-chair-cisose2025",
+    date: "2025-07-21",
+    title: "Session Chair at IEEE CISOSE 2025",
+    description: "Chaired the FITYR Session 2 on advanced system applications at the IEEE International Conference on Service-Oriented System Engineering (CISOSE) 2025 in Tucson, Arizona.",
+    icon: "Research",
+    color: "blue",
+    tags: ["Conference", "CISOSE", "Session Chair", "IEEE"],
+    url: "https://conf.researchr.org/home/cisose-2025"
+  },
+  {
     id: "publication-cisose2025",
-    date: "2025-06-01",
-    title: "IEEE CISOSE 2025 SRC Track Publication",
-    description: "Authored a paper on Graph-Based LLM Prompting for Scalable Microservice API Testing",
+    date: "2025-07-23",
+    title: "2nd Place at IEEE CISOSE 2025 Student Research Competition",
+    description: "Won 2nd Place at IEEE CISOSE 2025 SRC for 'Graph-Based LLM Prompting for Scalable Microservice API Testing' - using Interprocedural Control Flow Graphs to make LLM-based API test generation scalable for microservices.",
     icon: "Research",
     color: "pink",
-    tags: ["Conference", "Microservices", "CISOSE", "Publication", "SRC Track"],
-    url: "https://conf.researchr.org/home/cisose-2025"
+    tags: ["Conference", "Microservices", "CISOSE", "Publication", "SRC Track", "Award", "LLM", "API Testing"],
+    url: "/blog/graph-based-llm-microservice-testing"
   }
 ].map(item => ({
   ...item,

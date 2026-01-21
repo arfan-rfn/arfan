@@ -3,9 +3,6 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { Github, FileText, Eye, Database, AlertTriangle, TrendingUp, Lightbulb } from "lucide-react";
-import taxonomyImg from "./ai-techniques-taxonomy.png";
-import sankeyImg from "./sankey.png";
-import workflowImg from "./slr-workflow.png";
 
 export const metadata = {
 	title: "AI for Microservice Log Analysis: Key Insights from 82 Research Studies",
@@ -123,7 +120,7 @@ export const jsonLdData = {
 	"@type": "BlogPosting",
 	"headline": metadata.title,
 	"description": metadata.description,
-	"image": [taxonomyImg.src],
+	"image": ["https://arfanu.com/blog/ai-microservice-log-analysis-slr/ai-techniques-taxonomy.png"],
 	"url": "https://arfanu.com" + metadata.alternates.canonical,
 	"datePublished": metadata.date,
 	"dateModified": metadata.date,
@@ -172,11 +169,10 @@ Our systematic literature review—**accepted for publication in the <StyledLink
 Before diving into details, here's the landscape of AI-powered log analysis research at a glance:
 
 <Image
-	src={sankeyImg}
+	src="/blog/ai-microservice-log-analysis-slr/sankey.png"
 	alt="Sankey diagram showing the distribution of 82 studies across use cases (AD, RCA, etc.), techniques (DL, GNN, LLM, ML), approaches (Hybrid, Single), and datasets (Synthesized, Generated, Unknown)"
 	width={900}
 	height={550}
-	variant="shape6"
 	className="w-[95%] max-w-3xl rounded-lg mx-auto my-6"
 />
 
@@ -212,11 +208,10 @@ The flow tells a clear story: **Anomaly Detection dominates** the research (72% 
 We identified **87 distinct AI techniques** across five major categories. Here's how they break down:
 
 <Image
-	src={taxonomyImg}
+	src="/blog/ai-microservice-log-analysis-slr/ai-techniques-taxonomy.png"
 	alt="Taxonomy of AI techniques for microservice log analysis, showing hierarchical classification of ML, DL, GNN, LLM, and hybrid approaches"
 	width={700}
 	height={525}
-	variant="shape1"
 	className="w-[85%] max-w-2xl rounded-lg mx-auto my-6"
 />
 
@@ -356,11 +351,10 @@ Several trends point toward the next generation of log analysis AI:
 Our systematic review followed PRISMA guidelines, searching across Scopus, IEEE Xplore, ACM Digital Library, and SpringerLink.
 
 <Image
-	src={workflowImg}
+	src="/blog/ai-microservice-log-analysis-slr/slr-workflow.png"
 	alt="SLR workflow diagram showing the systematic literature review process"
 	width={800}
 	height={400}
-	variant="shape6"
 	className="w-[85%] max-w-2xl rounded-lg mx-auto my-6"
 />
 
