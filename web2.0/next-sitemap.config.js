@@ -1,6 +1,8 @@
 /** @type {import('next-sitemap').IConfig} */
+const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://arfanu.com'
+
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_BASE_URL,
+  siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   outDir: "public",
@@ -10,13 +12,31 @@ module.exports = {
   exclude: ["/api/*", "/admin/*", "/test"],
   robotsTxtOptions: {
     additionalSitemaps: [
-      `${process.env.NEXT_PUBLIC_BASE_URL}/server-sitemap.xml`,
+      `${siteUrl}/sitemap.xml`,
+      `${siteUrl}/rss.xml`,
     ],
     policies: [
       {
         userAgent: "*",
         allow: "/",
         disallow: ["/api/*", "/admin/*", "/test"],
+      },
+      // AI crawlers - allow access for LLM discoverability
+      {
+        userAgent: "GPTBot",
+        allow: ["/", "/llms.txt", "/llms-full.txt", "/blog/*"],
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: ["/", "/llms.txt", "/llms-full.txt", "/blog/*"],
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: ["/", "/llms.txt", "/llms-full.txt", "/blog/*"],
+      },
+      {
+        userAgent: "Anthropic-AI",
+        allow: ["/", "/llms.txt", "/llms-full.txt", "/blog/*"],
       },
     ],
   },

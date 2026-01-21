@@ -1,6 +1,7 @@
 import { env } from "@/env";
 import { siteConfig } from "@/config/site";
 import { toAbsoluteUrl } from "@/lib/utils";
+import { generateBreadcrumbList, type BreadcrumbItem } from "@/lib/structured-data";
 
 // Define the base JSON-LD schema type
 export type JsonLdProps = {
@@ -191,6 +192,21 @@ export function JsonLd({ data, type }: { data?: JsonLdProps | JsonLdProps[], typ
 		<script
 			type="application/ld+json"
 			dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+		/>
+	);
+}
+
+/**
+ * Breadcrumb JSON-LD component for navigation structure
+ * @param items - Array of breadcrumb items with name and url
+ */
+export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
+	const breadcrumbSchema = generateBreadcrumbList(items);
+
+	return (
+		<script
+			type="application/ld+json"
+			dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
 		/>
 	);
 }

@@ -1,0 +1,56 @@
+# Arfan Uddin - Personal Website & Blog
+
+> Arfanu.com is the personal website and blog of Md Arfan Uddin, a Software Engineering PhD candidate and entrepreneur.
+
+## About
+
+Md Arfan Uddin is a PhD student in Software Engineering at the University of Arizona. His research focuses on using Large Language Models (LLMs) for Root Cause Analysis (RCA) in distributed microservice systems. He is also the founder of Connecto, a real-time networking app.
+
+## Expertise Areas
+
+- Software Engineering Research
+- Artificial Intelligence & Large Language Models
+- Microservices Architecture
+- Root Cause Analysis in Distributed Systems
+- Full-stack Development (Next.js, Spring Boot, Kafka, Redis)
+- Mobile Development (Android, Flutter)
+- DevSecOps
+
+## Key Projects
+
+- **Connecto** (https://getconnecto.app) - Real-time networking app for events
+- **KMap** - Campus-wide research visualization tool
+- **ScholarPaw** - Scholarship management platform
+
+## Blog Topics
+
+This blog covers:
+- AI and LLM applications in software engineering
+- Research insights on debugging microservices
+- Building scalable systems and side projects
+- Lessons from tech entrepreneurship
+- Life as a PhD + MBA student
+
+## Important Links
+
+- Homepage: https://arfanu.com
+- Blog: https://arfanu.com/blog
+- About: https://arfanu.com/blog/about-me
+- RSS Feed: https://arfanu.com/rss.xml
+- Full Content: https://arfanu.com/llms-full.txt
+
+## Social Profiles
+
+- LinkedIn: https://www.linkedin.com/in/rfn/
+- GitHub: https://github.com/arfan-rfn
+- X/Twitter: https://x.com/arfan_rfn
+- ResearchGate: https://www.researchgate.net/profile/Md-Arfan-Uddin
+- Google Scholar: https://scholar.google.com/citations?user=fwzzYBsAAAAJ
+
+## Contact
+
+For inquiries, connect via LinkedIn or the contact form on the website.
+
+## License
+
+Content on this site is authored by Md Arfan Uddin unless otherwise noted.

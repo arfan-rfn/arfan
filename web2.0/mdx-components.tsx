@@ -11,23 +11,26 @@ type ListItemProps = ComponentPropsWithoutRef<'li'>;
 type AnchorProps = ComponentPropsWithoutRef<'a'>;
 type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'>;
 
+// Shared heading styles with anchor link support
+const headingBaseStyles = 'group scroll-mt-20 [&_.anchor-link]:opacity-0 [&_.anchor-link]:hover:opacity-100 [&:hover_.anchor-link]:opacity-100 [&_.anchor-link]:transition-opacity [&_.anchor-link]:duration-200 [&_.anchor-link]:text-gray-400 [&_.anchor-link]:hover:text-gray-600 [&_.anchor-link]:dark:text-zinc-500 [&_.anchor-link]:dark:hover:text-zinc-300 [&_.anchor-link]:no-underline [&_.anchor-link]:mr-2 [&_.anchor-link]:text-sm';
+
 const components = {
 	h1: (props: HeadingProps) => (
-		<h1 className="font-bold text-xl pt-12 mb-0" {...props} />
+		<h1 className={cn("font-bold text-xl pt-12 mb-0", headingBaseStyles)} {...props} />
 	),
 	h2: (props: HeadingProps) => (
 		<h2
-			className="text-gray-800 dark:text-zinc-200 font-semibold mt-8 mb-3"
+			className={cn("text-gray-800 dark:text-zinc-200 font-semibold mt-8 mb-3", headingBaseStyles)}
 			{...props}
 		/>
 	),
 	h3: (props: HeadingProps) => (
 		<h3
-			className="text-gray-800 dark:text-zinc-200 font-medium mt-8 mb-3"
+			className={cn("text-gray-800 dark:text-zinc-200 font-medium mt-8 mb-3", headingBaseStyles)}
 			{...props}
 		/>
 	),
-	h4: (props: HeadingProps) => <h4 className="font-medium" {...props} />,
+	h4: (props: HeadingProps) => <h4 className={cn("font-medium", headingBaseStyles)} {...props} />,
 	p: (props: ParagraphProps) => (
 		<p className="text-gray-800 dark:text-zinc-300 leading-snug mt-2" {...props} />
 	),
