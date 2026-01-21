@@ -12,7 +12,6 @@ module.exports = {
   exclude: ["/api/*", "/admin/*", "/test"],
   robotsTxtOptions: {
     additionalSitemaps: [
-      `${siteUrl}/sitemap.xml`,
       `${siteUrl}/rss.xml`,
     ],
     policies: [
