@@ -1,0 +1,335 @@
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+import { FileText, Eye, Award, Zap, Target, RefreshCw, Shield, Layers, Github } from "lucide-react";
+import architectureImg from "./architecture.png";
+import awardImg from "./award-certificate.png";
+
+export const metadata = {
+	title: "Winning 2nd Place at IEEE CISOSE: Graph-Based LLM Prompting for Microservice API Testing",
+	description: "How I used Interprocedural Control Flow Graphs to make LLM-based API test generation scalable for microservices - 2nd place IEEE CISOSE 2025 SRC.",
+	date: "2025-07-23",
+	author: "Arfan Uddin",
+	tags: ["research", "IEEE", "microservices", "API-testing", "LLM", "software-engineering", "award"],
+	paperUrl: "https://doi.org/10.1109/SOSE67019.2025.00034",
+	pdfAttachment: "/blog/graph-based-llm-microservice-testing/paper.pdf",
+	alternates: {
+		canonical: "/blog/graph-based-llm-microservice-testing",
+	},
+	openGraph: {
+		type: 'article',
+		title: "Winning 2nd Place at IEEE CISOSE: Graph-Based LLM Prompting for Microservice API Testing",
+		description: "How I used Interprocedural Control Flow Graphs to make LLM-based API test generation scalable for microservices - 2nd place IEEE CISOSE 2025 SRC.",
+		url: 'https://arfanu.com/blog/graph-based-llm-microservice-testing',
+		siteName: 'Arfan Uddin',
+		images: [{
+			url: 'https://arfanu.com/blog/graph-based-llm-microservice-testing/og-image.png',
+			width: 1200,
+			height: 630,
+			alt: 'ICFG-based LLM prompting architecture for microservice API testing',
+		}],
+		publishedTime: '2025-07-23',
+		authors: ['Arfan Uddin'],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: "Winning 2nd Place at IEEE CISOSE: Graph-Based LLM Prompting for Microservice API Testing",
+		description: "How I used Interprocedural Control Flow Graphs to make LLM-based API test generation scalable for microservices - 2nd place IEEE CISOSE 2025 SRC.",
+		images: ['https://arfanu.com/blog/graph-based-llm-microservice-testing/og-image.png'],
+	},
+};
+
+export const StyledLink = ({ href, children }) => {
+	const isExternal = href.startsWith('http');
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"relative inline-block text-primary",
+				"after:absolute after:bottom-0 after:left-0 after:w-full",
+				"after:h-[2px] after:bg-primary after:origin-bottom-right",
+				"after:scale-x-0 hover:after:scale-x-100 after:transition-transform",
+				"after:duration-300 after:ease-out"
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const ResourceLink = ({ href, children, variant = "primary" }) => {
+	const isExternal = href?.startsWith('http');
+	if (!href) return <span className="text-muted-foreground text-xs">—</span>;
+	const variants = {
+		primary: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/30",
+		github: "bg-gray-900 text-white hover:bg-gray-800 border-gray-700",
+		docs: "bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 border-blue-500/30",
+	};
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md",
+				"border transition-all duration-200 whitespace-nowrap",
+				variants[variant] || variants.primary
+			)}
+		>
+			{variant === "github" && <Github size={14} className="flex-shrink-0" />}
+			{children}
+		</Link>
+	);
+};
+
+export const Callout = ({ type = "info", title, children }) => {
+	const styles = {
+		info: "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800",
+		warning: "bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800",
+		insight: "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800",
+		award: "bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-800",
+	};
+	const icons = {
+		info: <Zap size={18} className="text-blue-600 dark:text-blue-400" />,
+		warning: <Target size={18} className="text-amber-600 dark:text-amber-400" />,
+		insight: <Layers size={18} className="text-emerald-600 dark:text-emerald-800" />,
+		award: <Award size={18} className="text-yellow-600 dark:text-yellow-400" />,
+	};
+	return (
+		<div className={cn("rounded-lg border p-3 sm:p-4 my-6 overflow-hidden", styles[type])}>
+			<div className="flex items-start gap-2 sm:gap-3">
+				<span className="mt-0.5 flex-shrink-0">{icons[type]}</span>
+				<div className="min-w-0 flex-1 break-words">
+					{title && <p className="font-semibold mb-1 text-sm sm:text-base">{title}</p>}
+					<div className="text-xs sm:text-sm leading-relaxed">{children}</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export const ResponsiveTable = ({ children }) => (
+	<div className="overflow-x-auto my-6 max-w-full">
+		<div className="min-w-full">
+			{children}
+		</div>
+	</div>
+);
+
+export const jsonLdData = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": metadata.title,
+	"description": metadata.description,
+	"image": [architectureImg.src],
+	"url": "https://arfanu.com" + metadata.alternates.canonical,
+	"datePublished": metadata.date,
+	"dateModified": metadata.date,
+	"author": {
+		"@type": "Person",
+		"name": "Md Arfan Uddin",
+		"url": "https://arfanu.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Arfan's Blog",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://arfanu.com/assets/arfan.svg"
+		}
+	},
+	"keywords": metadata.tags.join(", "),
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://arfanu.com" + metadata.alternates.canonical
+	},
+	"isAccessibleForFree": "True",
+	"inLanguage": "en-US",
+	"articleSection": "Research",
+	"wordCount": "2000"
+};
+
+<JsonLd data={jsonLdData} />
+
+# Winning 2nd Place at IEEE CISOSE: Graph-Based LLM Prompting for Microservice API Testing
+
+I'm excited to share that my research paper, **"Graph-Based LLM Prompting for Scalable Microservice API Testing,"** won **2nd Place** at the IEEE CISOSE 2025 Student Research Competition. This work tackles a fundamental challenge in modern software testing: how do we leverage LLMs to generate meaningful API tests for microservices without hitting context limits or drowning in noise?
+
+Testing microservice APIs is notoriously difficult. With hundreds of interdependent services, complex data flows, and intricate business logic spread across multiple codebases, traditional testing approaches struggle to keep up. LLMs offer a promising solution—but feeding entire source code into an LLM quickly hits context limits and generates irrelevant test cases. This research presents a different approach.
+
+<div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 my-6 p-3 sm:p-4 bg-primary/10 rounded-lg border border-primary/20">
+	<Link href={metadata.paperUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-sm"><FileText size={16} className="flex-shrink-0" />Read Paper on IEEE</Link>
+	<Link href={metadata.pdfAttachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Eye size={16} className="flex-shrink-0" />View PDF</Link>
+	<Link href="https://github.com/arfan-rfn/ms-testing-llm-icfg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-gray-900 text-white rounded-md font-medium text-xs sm:text-sm hover:bg-gray-800 transition-colors shadow-sm"><Github size={16} className="flex-shrink-0" />View Code</Link>
+</div>
+
+---
+
+## Research Overview
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Aspect</th><th className="text-left py-3 px-4 font-semibold">Details</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Problem</td><td className="py-3 px-4">LLM-based test generation fails at scale—full source code exceeds context limits and introduces noise</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Solution</td><td className="py-3 px-4">Use Interprocedural Control Flow Graphs (ICFGs) to extract only path-specific context for each API endpoint</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Venue</td><td className="py-3 px-4">IEEE International Conference on Service-Oriented System Engineering (CISOSE) 2025</td></tr><tr><td className="py-3 px-4 font-medium">Award</td><td className="py-3 px-4">2nd Place, Student Research Competition (July 23, 2025)</td></tr></tbody></table>
+</ResponsiveTable>
+
+---
+
+## The Problem: Why Current LLM-Based Testing Struggles
+
+Large Language Models have demonstrated impressive code understanding capabilities. Naturally, researchers have explored using them for automated test generation. The idea is simple: feed the LLM your source code, and let it generate comprehensive test cases.
+
+But for microservices, this approach breaks down:
+
+<Callout type="warning" title="Context Limit Problem">
+A typical microservice might have thousands of lines of code across dozens of files. Even a single API endpoint can involve multiple service classes, database repositories, utility functions, and configuration files. Modern LLMs have context windows of 128K-200K tokens—sounds like a lot, but it fills up fast when you include all relevant code.
+</Callout>
+
+<Callout type="warning" title="Noise Problem">
+Even when code fits within context limits, most of it is irrelevant to any specific test case. An endpoint for user registration doesn't need to see code for order processing. Including irrelevant code confuses the LLM, leading to generic test cases that miss critical edge cases.
+</Callout>
+
+<Callout type="warning" title="Scalability Problem">
+Microservice architectures constantly evolve. New endpoints appear, existing ones change, services get refactored. Any testing approach that requires full codebase analysis for every change becomes a bottleneck in CI/CD pipelines.
+</Callout>
+
+---
+
+## The Solution: ICFG-Based Prompting
+
+Instead of feeding entire source code to the LLM, this approach uses **Interprocedural Control Flow Graphs (ICFGs)** to extract precisely the code paths relevant to each API endpoint.
+
+### What is an ICFG?
+
+An ICFG represents program execution flow across function boundaries. Unlike a simple call graph that just shows which functions call which, an ICFG captures:
+
+- **Control flow within functions** (branches, loops, conditions)
+- **Data dependencies** between functions
+- **Complete execution paths** from entry point to exit
+
+For API testing, this means we can trace exactly what code gets executed for any given endpoint request—and nothing more.
+
+<Callout type="insight" title="Key Insight">
+For any API endpoint, only a fraction of the codebase is actually relevant. By using ICFGs to isolate execution paths, we can provide the LLM with focused, relevant context that fits within token limits and produces targeted test cases.
+</Callout>
+
+---
+
+## How It Works
+
+<Image
+	src={architectureImg}
+	alt="Architecture diagram showing the ICFG-based LLM prompting pipeline: API request flows through static analysis to generate ICFGs, then path isolation extracts relevant code, which is sent to the LLM for test case generation"
+	width={900}
+	height={500}
+	className="w-[95%] max-w-3xl rounded-lg mx-auto my-6"
+/>
+
+<div className="flex justify-center mb-8">
+	<span className="leading-snug mt-1 text-sm text-muted-foreground text-center">ICFG-based LLM prompting architecture for microservice API testing</span>
+</div>
+
+The pipeline works in four stages:
+
+### 1. Static Analysis
+The system analyzes the microservice codebase to identify all API endpoints and their handler functions. This creates a mapping between routes (e.g., `POST /users`) and their corresponding code entry points.
+
+### 2. ICFG Construction
+For each endpoint, the system builds an Interprocedural Control Flow Graph starting from the handler function. This graph traces all possible execution paths, including:
+- Service layer method calls
+- Repository/database operations
+- External service invocations
+- Validation and error handling branches
+
+### 3. Path Isolation
+The ICFG is traversed to extract distinct execution paths. Each path represents a specific scenario the endpoint can handle—successful creation, validation failure, duplicate detection, etc. The code along each path is extracted as a focused snippet.
+
+### 4. LLM Prompting
+Each isolated path is sent to the LLM along with:
+- The extracted code snippet (typically 100-500 lines vs. 10,000+)
+- The API endpoint signature
+- Any relevant data models
+- Instructions to generate test cases for that specific path
+
+---
+
+## Key Benefits
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+	<Callout type="insight" title="Scalability">
+		Context stays bounded regardless of codebase size. Adding new services doesn't increase prompt size for existing endpoints.
+	</Callout>
+	<Callout type="insight" title="Precision">
+		Tests target specific code paths rather than generic endpoint behavior. Edge cases and error conditions get proper coverage.
+	</Callout>
+	<Callout type="info" title="Incremental Updates">
+		When code changes, only affected paths need re-analysis. The ICFG approach supports efficient CI/CD integration.
+	</Callout>
+	<Callout type="info" title="Better Coverage">
+		By enumerating all execution paths, the system ensures comprehensive test generation that manual testing often misses.
+	</Callout>
+</div>
+
+<Callout type="insight" title="Privacy Preservation">
+Organizations can use this approach with hosted LLMs while minimizing code exposure. Only path-specific snippets are sent to the LLM, not the entire codebase.
+</Callout>
+
+---
+
+## Future Directions
+
+This work opens several research directions:
+
+**Async Behavior Handling** — Current ICFG construction focuses on synchronous execution paths. Microservices heavily use async patterns (message queues, event-driven architectures) that require extended graph models.
+
+**Cross-Service Integration Testing** — The current approach tests individual microservices. Extending ICFGs across service boundaries could enable integration test generation that covers end-to-end workflows.
+
+**API Contract Enrichment** — Combining ICFG-derived paths with OpenAPI specifications could provide even richer context for test generation, including request/response schema validation.
+
+---
+
+## Award Recognition
+
+<Image
+	src={awardImg}
+	alt="IEEE CISOSE 2025 Student Research Competition 2nd Place certificate awarded to Md Arfan Uddin for Graph-Based LLM Prompting for Scalable Microservice API Testing"
+	width={700}
+	height={500}
+	className="w-[80%] max-w-2xl rounded-lg mx-auto my-6"
+/>
+
+<div className="flex justify-center mb-6">
+	<span className="leading-snug mt-1 text-sm text-muted-foreground text-center">2nd Place, IEEE CISOSE 2025 Student Research Competition</span>
+</div>
+
+<Callout type="award" title="IEEE CISOSE 2025">
+The IEEE International Conference on Service-Oriented System Engineering (CISOSE) is a premier venue for research on service-oriented architectures, microservices, and cloud-native systems. The Student Research Competition showcases innovative work from graduate students worldwide.
+</Callout>
+
+I'm grateful to my advisor <StyledLink href="https://tomas-cerny.github.io/">Dr. Tomas Cerny</StyledLink> and the research group at the University of Arizona for their guidance and support throughout this project.
+
+---
+
+## Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@inproceedings{uddin2025graph,
+  title={Graph-Based LLM Prompting for Scalable Microservice API Testing},
+  author={Uddin, Md Arfan},
+  booktitle={2025 IEEE International Conference on Service-Oriented System Engineering (SOSE)},
+  year={2025},
+  organization={IEEE},
+  doi={10.1109/SOSE67019.2025.00034}
+}
+```
+
+---
+
+## About This Research
+
+This research was conducted at the **University of Arizona** as part of my graduate studies in software engineering. The work focuses on improving developer productivity through intelligent tooling that leverages modern AI capabilities.
+
+The code is available on <StyledLink href="https://github.com/arfan-rfn/ms-testing-llm-icfg">GitHub</StyledLink>. Feel free to <StyledLink href="mailto:arfan@arizona.edu">reach out</StyledLink> if you have questions or want to collaborate on related research.

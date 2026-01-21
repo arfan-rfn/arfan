@@ -4,6 +4,8 @@
 
 The `/research-to-blog` skill converts academic research papers into SEO-optimized, accessible blog posts for the arfanu.com blog.
 
+**This is a project-specific skill** located in `/.claude/skills/research-to-blog/`.
+
 ## Usage
 
 ```
@@ -42,26 +44,70 @@ The skill generates:
 | File | Location |
 |------|----------|
 | Blog post | `/web2.0/app/(app)/blog/[post-slug]/page.mdx` |
-| Images | Same directory as `page.mdx` |
+| Content images | `/web2.0/app/(app)/blog/[post-slug]/*.png` |
+| PDF attachment | `/web2.0/app/(app)/blog/[post-slug]/paper.pdf` |
+| **OG Image** | `/web2.0/public/blog/[post-slug]/og-image.png` |
+
+## Required Files
+
+| File | Location | Purpose |
+|------|----------|---------|
+| `og-image.png` | `/public/blog/[slug]/` | Social sharing preview (1200x630px) |
+| `paper.pdf` | `/app/(app)/blog/[slug]/` | Downloadable PDF attachment |
+
+### Paper URL (Required)
+
+Every research blog post must include the official paper URL (DOI or publisher link) in the metadata:
+
+```typescript
+paperUrl: "https://doi.org/10.1000/xyz123",
+pdfAttachment: "/blog/[slug]/paper.pdf",
+```
 
 ## MDX Format
 
-The generated posts use ES6 exports (not YAML frontmatter):
+The generated posts use ES6 exports (not YAML frontmatter) with full OG metadata:
 
 ```typescript
-import { MaskedImage } from "@/components/ui/masked-image";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
-import featuredImg from "./featured-image.png";
+import taxonomyImg from "./taxonomy.png";
 
 export const metadata = {
   title: "Post Title",
   description: "Meta description...",
   date: "YYYY-MM-DD",
-  author: "Arfan",
+  author: "Arfan Uddin",
   tags: ["tag1", "tag2"],
-  ogImage: "/blog/[slug]/featured-image.png",
+  paperUrl: "https://doi.org/...",
+  pdfAttachment: "/blog/[slug]/paper.pdf",
   alternates: {
     canonical: "/blog/[slug]",
+  },
+  // OpenGraph metadata for social sharing
+  openGraph: {
+    type: 'article',
+    title: "Post Title",
+    description: "Meta description...",
+    url: 'https://arfanu.com/blog/[slug]',
+    siteName: 'Arfan Uddin',
+    images: [{
+      url: 'https://arfanu.com/blog/[slug]/og-image.png',
+      width: 1200,
+      height: 630,
+      alt: 'Descriptive alt text for OG image',
+    }],
+    publishedTime: 'YYYY-MM-DD',
+    authors: ['Arfan Uddin'],
+  },
+  // Twitter Card metadata
+  twitter: {
+    card: 'summary_large_image',
+    title: "Post Title",
+    description: "Meta description...",
+    images: ['https://arfanu.com/blog/[slug]/og-image.png'],
   },
 };
 
@@ -74,19 +120,20 @@ export const jsonLdData = {
 
 ## Key Features
 
-- **OG Images**: Uses `ogImage` metadata field for social sharing
+- **OG Images**: Proper `openGraph` and `twitter` metadata for social sharing previews
 - **Structured Data**: Full JSON-LD for SEO
+- **Paper URL**: Always includes link to original research
+- **PDF Attachment**: Downloadable paper included with post
 - **Accessible**: Proper alt text for all images
 - **StyledLink**: Consistent link styling with hover animations
-- **MaskedImage**: Decorative image masking with variants
 
 ## Skill Files
 
 | File | Purpose |
 |------|---------|
-| `~/.claude/skills/research-to-blog/SKILL.md` | Main skill definition |
-| `~/.claude/skills/research-to-blog/references/blog-structure.md` | Section templates |
-| `~/.claude/skills/research-to-blog/references/figure-guidelines.md` | Figure conventions |
+| `/.claude/skills/research-to-blog/SKILL.md` | Main skill definition |
+| `/.claude/skills/research-to-blog/references/blog-structure.md` | Section templates |
+| `/.claude/skills/research-to-blog/references/figure-guidelines.md` | Figure conventions |
 
 ## Blog Structure
 
@@ -99,23 +146,20 @@ Generated posts follow this structure:
 5. **Citation** - BibTeX block
 6. **About** - Author credentials
 
-## Required Files
-
-| File | Purpose | Notes |
-|------|---------|-------|
-| `featured-image.png` | OG image for social sharing | 1200x630px recommended |
-| `paper.pdf` | Downloadable PDF attachment | Copy of the research paper |
-
-### Paper URL (Required)
-
-Every research blog post must include the official paper URL (DOI or publisher link) in the metadata:
-```typescript
-paperUrl: "https://doi.org/10.1000/xyz123",
-pdfAttachment: "/blog/[slug]/paper.pdf",
-```
-
 ## Figure Requirements
 
 - Use lowercase, hyphenated filenames
 - Recommended size: 1200-2000px wide
-- All images stored in post directory
+- All content images stored in post directory
+- OG image (1200x630px) stored in `/public/blog/[slug]/`
+
+## OG Image Requirements
+
+**CRITICAL**: OG image must be placed in `/public/blog/[slug]/og-image.png`
+
+| Property | Requirement |
+|----------|-------------|
+| Dimensions | 1200x630 pixels (1.91:1 ratio) |
+| Format | PNG or JPG |
+| Location | `/public/blog/[slug]/og-image.png` |
+| URL in metadata | `https://arfanu.com/blog/[slug]/og-image.png` |
