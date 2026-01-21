@@ -34,13 +34,13 @@ const research: TimelineItem[] = [
 
   {
     id: "publication-jss2025",
-    date: "2025-03-01",
-    title: "Journal Publication in JSS",
-    description: "Co-authored 'Multivocal study on microservice dependencies' published in the Journal of Systems and Software.",
+    date: "2025-01-13",
+    title: "Journal Publication in JSS - Multivocal Study on Microservice Dependencies",
+    description: "Co-authored multivocal literature review on microservice dependencies published in the Journal of Systems and Software. Synthesized 2,659 sources to create a comprehensive taxonomy of 28 dependency types across 6 categories.",
     icon: "Research",
     color: "indigo",
-    tags: ["Publication", "Microservices", "Journal", "JSS"],
-    url: "https://doi.org/10.1016/j.jss.2025.112334"
+    tags: ["Publication", "Microservices", "Journal", "JSS", "Dependencies", "MLR"],
+    url: "/blog/microservice-dependencies-taxonomy"
   },
   {
     id: "publication-closer2024",

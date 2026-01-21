@@ -1,0 +1,424 @@
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+import { FileText, Eye, Database, AlertTriangle, TrendingUp, Lightbulb, GitBranch, Layers, Network, Shield, Settings, Workflow } from "lucide-react";
+
+export const metadata = {
+	title: "Understanding Microservice Dependencies: A Complete Taxonomy from 2,659 Sources",
+	description: "A comprehensive taxonomy of microservice dependencies synthesized from academic and industry sources, covering 28 dependency types across 6 categories and their impact on system quality.",
+	date: "2025-01-21",
+	author: "Arfan Uddin",
+	tags: ["microservices", "software-architecture", "dependencies", "distributed-systems", "maintainability", "research"],
+	paperUrl: "https://doi.org/10.1016/j.jss.2025.112334",
+	pdfAttachment: "/blog/microservice-dependencies-taxonomy/paper.pdf",
+	ogImage: "/blog/microservice-dependencies-taxonomy/og-image.png",
+	alternates: {
+		canonical: "/blog/microservice-dependencies-taxonomy",
+	},
+	openGraph: {
+		type: 'article',
+		title: "Understanding Microservice Dependencies: A Complete Taxonomy from 2,659 Sources",
+		description: "A comprehensive taxonomy of microservice dependencies synthesized from academic and industry sources, covering 28 dependency types across 6 categories and their impact on system quality.",
+		url: 'https://arfanu.com/blog/microservice-dependencies-taxonomy',
+		siteName: 'Arfan Uddin',
+		images: [{
+			url: 'https://arfanu.com/blog/microservice-dependencies-taxonomy/og-image.png',
+			width: 1200,
+			height: 630,
+			alt: 'Microservice Dependencies Taxonomy',
+		}],
+		publishedTime: '2025-01-21',
+		authors: ['Arfan Uddin'],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: "Understanding Microservice Dependencies: A Complete Taxonomy",
+		description: "28 dependency types across 6 categories - the complete taxonomy from 2,659 sources",
+		images: ['https://arfanu.com/blog/microservice-dependencies-taxonomy/og-image.png'],
+	},
+};
+
+export const StyledLink = ({ href, children }) => {
+	const isExternal = href.startsWith('http');
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"relative inline-block text-primary",
+				"after:absolute after:bottom-0 after:left-0 after:w-full",
+				"after:h-[2px] after:bg-primary after:origin-bottom-right",
+				"after:scale-x-0 hover:after:scale-x-100 after:transition-transform",
+				"after:duration-300 after:ease-out"
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const ResourceLink = ({ href, children, variant = "primary" }) => {
+	const isExternal = href?.startsWith('http');
+	if (!href) return <span className="text-muted-foreground text-xs">—</span>;
+	const variants = {
+		primary: "bg-primary/10 text-primary hover:bg-primary/20 border-primary/30",
+		github: "bg-gray-900 text-white hover:bg-gray-800 border-gray-700",
+		docs: "bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 border-blue-500/30",
+	};
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md",
+				"border transition-all duration-200 whitespace-nowrap",
+				variants[variant] || variants.primary
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const Callout = ({ type = "info", title, children }) => {
+	const styles = {
+		info: "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800",
+		warning: "bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800",
+		insight: "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800",
+	};
+	const icons = {
+		info: <Lightbulb size={18} className="text-blue-600 dark:text-blue-400" />,
+		warning: <AlertTriangle size={18} className="text-amber-600 dark:text-amber-400" />,
+		insight: <TrendingUp size={18} className="text-emerald-600 dark:text-emerald-800" />,
+	};
+	return (
+		<div className={cn("rounded-lg border p-3 sm:p-4 my-6 overflow-hidden", styles[type])}>
+			<div className="flex items-start gap-2 sm:gap-3">
+				<span className="mt-0.5 flex-shrink-0">{icons[type]}</span>
+				<div className="min-w-0 flex-1 break-words">
+					{title && <p className="font-semibold mb-1 text-sm sm:text-base">{title}</p>}
+					<div className="text-xs sm:text-sm leading-relaxed">{children}</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export const ResponsiveTable = ({ children }) => (
+	<div className="overflow-x-auto my-6 max-w-full">
+		<div className="min-w-full">
+			{children}
+		</div>
+	</div>
+);
+
+export const jsonLdData = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": metadata.title,
+	"description": metadata.description,
+	"image": ["https://arfanu.com/blog/microservice-dependencies-taxonomy/og-image.png"],
+	"url": "https://arfanu.com" + metadata.alternates.canonical,
+	"datePublished": metadata.date,
+	"dateModified": metadata.date,
+	"author": {
+		"@type": "Person",
+		"name": "Md Arfan Uddin",
+		"url": "https://arfanu.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Arfan's Blog",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://arfanu.com/assets/arfan.svg"
+		}
+	},
+	"keywords": metadata.tags.join(", "),
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://arfanu.com" + metadata.alternates.canonical
+	},
+	"isAccessibleForFree": "True",
+	"inLanguage": "en-US",
+	"articleSection": "Research",
+	"wordCount": "4500"
+};
+
+<JsonLd data={jsonLdData} />
+
+# Understanding Microservice Dependencies: A Complete Taxonomy from 2,659 Sources
+
+In microservice architectures, **dependencies are the invisible threads** that hold everything together—and when they break, your entire system can unravel. Yet despite their critical importance, there's been no unified framework for understanding, categorizing, and managing these dependencies.
+
+Our multivocal literature review—**published in the <StyledLink href="https://www.sciencedirect.com/journal/journal-of-systems-and-software">Journal of Systems and Software (JSS)</StyledLink>**—synthesized **2,659 sources** (1,733 academic papers + 926 grey literature articles) to create the first comprehensive taxonomy of microservice dependencies. We identified **28 distinct dependency types** across **6 categories**, plus **11 symptom patterns** that indicate underlying dependency issues.
+
+<div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 my-6 p-3 sm:p-4 bg-primary/10 rounded-lg border border-primary/20">
+	<Link href={metadata.paperUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-sm"><FileText size={16} className="flex-shrink-0" />Read Paper (DOI)</Link>
+	<Link href={metadata.pdfAttachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Eye size={16} className="flex-shrink-0" />View PDF</Link>
+	<Link href="https://zenodo.org/records/14208294" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Database size={16} className="flex-shrink-0" />Replication Package</Link>
+</div>
+
+---
+
+## The Big Picture
+
+Before diving into details, here's how the 90 synthesized studies map across dependency types, tools, and quality impacts:
+
+<Image
+	src="/blog/microservice-dependencies-taxonomy/sankey-diagram.png"
+	alt="Sankey diagram showing the flow from dependency types to detection tools to quality impacts across 90 synthesized studies"
+	width={1200}
+	height={700}
+	className="w-[95%] max-w-3xl rounded-lg mx-auto my-6"
+	priority
+/>
+
+<div className="flex justify-center mb-8">
+	<span className="leading-snug mt-1 text-sm text-muted-foreground text-center">How dependencies flow from types to tools to quality impacts</span>
+</div>
+
+The flow reveals a critical insight: **Control Dependencies dominate** research attention, while **Semantic and Quality Attribute Dependencies** remain underexplored—despite their significant impact on system maintainability.
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 my-8">
+	<div className="text-center p-2 sm:p-4 bg-primary/5 rounded-lg">
+		<div className="text-2xl sm:text-3xl font-bold text-primary">2,659</div>
+		<div className="text-xs sm:text-sm text-muted-foreground">Sources Reviewed</div>
+	</div>
+	<div className="text-center p-2 sm:p-4 bg-primary/5 rounded-lg">
+		<div className="text-2xl sm:text-3xl font-bold text-primary">90</div>
+		<div className="text-xs sm:text-sm text-muted-foreground">Studies Synthesized</div>
+	</div>
+	<div className="text-center p-2 sm:p-4 bg-primary/5 rounded-lg">
+		<div className="text-2xl sm:text-3xl font-bold text-primary">28</div>
+		<div className="text-xs sm:text-sm text-muted-foreground">Dependency Types</div>
+	</div>
+	<div className="text-center p-2 sm:p-4 bg-primary/5 rounded-lg">
+		<div className="text-2xl sm:text-3xl font-bold text-primary">20+</div>
+		<div className="text-xs sm:text-sm text-muted-foreground">Tools Identified</div>
+	</div>
+</div>
+
+---
+
+## The Unified Dependency Taxonomy
+
+We developed a comprehensive taxonomy that organizes all identified dependencies into **6 primary categories** and **4 symptom categories**. This framework provides a common vocabulary for both researchers and practitioners.
+
+### The 6 Primary Dependency Categories (D1-D6)
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Category</th><th className="text-left py-3 px-4 font-semibold">Dependency Types</th><th className="text-left py-3 px-4 font-semibold">Associated Artifacts</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">D1. Data Dependency</td><td className="py-3 px-4">Data Schema, Parametric</td><td className="py-3 px-4">ORM, DTO, API parameters</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">D2. Control Dependency</td><td className="py-3 px-4">Synchronous, Asynchronous, Call-Return, Transaction</td><td className="py-3 px-4">Endpoints, Message Events, Method Calls</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">D3. Resource Dependency</td><td className="py-3 px-4">Source Code, Core, Starter, Database, Environment, Cluster, Network</td><td className="py-3 px-4">Libraries, Containers, Config Files</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">D4. Semantic Dependency</td><td className="py-3 px-4">Semantic (functional similarities)</td><td className="py-3 px-4">Method Definitions</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">D5. Quality Attributes</td><td className="py-3 px-4">Quality Attributes, Security</td><td className="py-3 px-4">SLA Documents, Policies</td></tr><tr><td className="py-3 px-4 font-medium">D6. Requirement Dependency</td><td className="py-3 px-4">Functional/Domain</td><td className="py-3 px-4">Business Process Documents</td></tr></tbody></table>
+</ResponsiveTable>
+
+<Callout type="insight" title="Key Finding">
+**Control Dependencies** (D2) receive the most research attention, but our analysis shows that **Resource Dependencies** (D3) cause the most cascading failures in production systems. The gap between research focus and practical impact suggests opportunities for tool development.
+</Callout>
+
+---
+
+## Understanding Each Dependency Category
+
+### D1. Data Dependency
+
+Data dependencies arise when microservices share or interact with common data entities.
+
+**Data Schema Dependency** occurs when multiple services interact with overlapping database schemas or data transfer objects (DTOs). Changes to schema design can cascade across all dependent services.
+
+**Parametric Dependency** describes how input parameters influence service behavior and inter-service communication. Configuration changes can silently break downstream services.
+
+<Callout type="warning" title="Common Pitfall">
+Shared database schemas between microservices create hidden coupling. When Service A modifies a table structure, Services B, C, and D may fail silently or corrupt data.
+</Callout>
+
+### D2. Control Dependency
+
+Control dependencies govern how services interact and coordinate their execution.
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Type</th><th className="text-left py-3 px-4 font-semibold">Description</th><th className="text-left py-3 px-4 font-semibold">Impact</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Synchronous</td><td className="py-3 px-4">Service waits for response before proceeding</td><td className="py-3 px-4">Tight coupling, latency propagation</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Asynchronous</td><td className="py-3 px-4">Services communicate via message brokers</td><td className="py-3 px-4">Temporal decoupling, eventual consistency</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Call-Return</td><td className="py-3 px-4">Method invocations between services</td><td className="py-3 px-4">Functional coupling</td></tr><tr><td className="py-3 px-4 font-medium">Transaction</td><td className="py-3 px-4">Database transactions spanning services</td><td className="py-3 px-4">Consistency requirements, distributed locks</td></tr></tbody></table>
+</ResponsiveTable>
+
+### D3. Resource Dependency
+
+Resource dependencies (also called Technology Dependencies) occur when services share infrastructure or code resources.
+
+- **Source Code Dependency**: Shared libraries between services
+- **Database Dependency**: Multiple services accessing the same database instance
+- **Environment Dependency**: Configuration settings, credentials, environment variables
+- **Cluster Dependency**: Services relying on specific containerized environments (Docker, Kubernetes pods)
+- **Network Dependency**: Reliance on network protocols (HTTP, gRPC, message queues)
+
+### D4. Semantic Dependency
+
+Semantic dependencies emerge from functional similarities between services. Services performing similar tasks may need coordinated updates to maintain consistency across the system.
+
+### D5. Quality Attributes Dependency
+
+These dependencies relate to non-functional requirements:
+- **Security**: Authentication, authorization, encryption dependencies
+- **SLA Requirements**: Performance, availability, and reliability constraints
+
+### D6. Requirement Dependency
+
+Functional dependencies based on business process flows, often mapped using Domain-Driven Design (DDD) principles.
+
+---
+
+## Dependency Symptoms (S1-S4)
+
+Beyond the primary categories, we identified **symptom patterns**—manifestations of underlying dependencies that indicate potential issues.
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Symptom Category</th><th className="text-left py-3 px-4 font-semibold">Types</th><th className="text-left py-3 px-4 font-semibold">Description</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">S1. Stage of Operation</td><td className="py-3 px-4">Development, Deployment, Runtime</td><td className="py-3 px-4">When the dependency manifests in the lifecycle</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">S2. Level of Criticality</td><td className="py-3 px-4">Hard, Soft</td><td className="py-3 px-4">Impact severity when dependency fails</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">S3. Temporal</td><td className="py-3 px-4">Temporal</td><td className="py-3 px-4">Time-sensitive relationships and state changes</td></tr><tr><td className="py-3 px-4 font-medium">S4. Various</td><td className="py-3 px-4">Null, Inter-Microservice, Cyclic, Transitive, Inferred</td><td className="py-3 px-4">Cross-cutting dependency patterns</td></tr></tbody></table>
+</ResponsiveTable>
+
+<Callout type="warning" title="Critical Symptom: Cyclic Dependencies">
+**Cyclic dependencies** (S4) occur when services form dependency loops, creating deployment nightmares and scalability barriers. Our review found this pattern in 23% of analyzed systems, often requiring architectural refactoring to resolve.
+</Callout>
+
+---
+
+## Tools for Industry Practitioners
+
+Our review identified **20+ tools** for dependency detection and management. Here are the most useful ones organized by use case:
+
+### Dependency Analysis & Visualization
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Purpose</th><th className="text-left py-3 px-4 font-semibold">Analysis Type</th><th className="text-left py-3 px-4 font-semibold">Languages</th><th className="text-left py-3 px-4 font-semibold">Link</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">GSMART</td><td className="py-3 px-4">Generates Service Dependency Graphs (SDGs)</td><td className="py-3 px-4">Static</td><td className="py-3 px-4">Java</td><td className="py-3 px-4"><ResourceLink href="https://github.com/FudanSELab/GSMART" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">MicroDepGraph</td><td className="py-3 px-4">Analyzes Docker configs to reveal dependencies</td><td className="py-3 px-4">Static</td><td className="py-3 px-4">Java</td><td className="py-3 px-4"><ResourceLink href="https://github.com/clowee/MicroDepGraph" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">SYMBIOTE</td><td className="py-3 px-4">Monitors coupling evolution and architectural degradation</td><td className="py-3 px-4">Dynamic</td><td className="py-3 px-4">Java</td><td className="py-3 px-4"><ResourceLink href="https://github.com/daniloapolinario/symbiote" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Code Compass</td><td className="py-3 px-4">Deep parsing and visualization of large codebases</td><td className="py-3 px-4">Static</td><td className="py-3 px-4">C/C++, Java, JS</td><td className="py-3 px-4"><ResourceLink href="https://github.com/Ericsson/CodeCompass" variant="github">Code</ResourceLink></td></tr><tr><td className="py-3 px-4 font-medium">MAAT</td><td className="py-3 px-4">Evaluates microservice architecture quality</td><td className="py-3 px-4">Both</td><td className="py-3 px-4">Java, C#, Python</td><td className="py-3 px-4"><ResourceLink href="https://github.com/simasuiyuan/MAAT" variant="github">Code</ResourceLink></td></tr></tbody></table>
+</ResponsiveTable>
+
+### Root Cause Analysis & Fault Diagnosis
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Purpose</th><th className="text-left py-3 px-4 font-semibold">Key Innovation</th><th className="text-left py-3 px-4 font-semibold">Link</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">TraceNet</td><td className="py-3 px-4">Root cause localization via trace analysis</td><td className="py-3 px-4">Operation-level SDG construction</td><td className="py-3 px-4"><ResourceLink href="https://github.com/IntelligentDDS/TraceNet" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">T-Rank</td><td className="py-3 px-4">Performance diagnosis using spectrum-based analysis</td><td className="py-3 px-4">Lightweight, high accuracy</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr><td className="py-3 px-4 font-medium">Triple</td><td className="py-3 px-4">Interpretable anomaly detection</td><td className="py-3 px-4">STGCN-based Deep SVDD</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr></tbody></table>
+</ResponsiveTable>
+
+### Resource Management & Autoscaling
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Purpose</th><th className="text-left py-3 px-4 font-semibold">Approach</th><th className="text-left py-3 px-4 font-semibold">Link</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">ChainsFormer</td><td className="py-3 px-4">Optimizes resource allocation via dependency chains</td><td className="py-3 px-4">Reinforcement learning</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr><td className="py-3 px-4 font-medium">DeepScaler</td><td className="py-3 px-4">SLA-aware autoscaling</td><td className="py-3 px-4">Deep learning with attention-based GCN</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr></tbody></table>
+</ResponsiveTable>
+
+### Industry-Grade Observability Platforms
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Platform</th><th className="text-left py-3 px-4 font-semibold">Dependency Features</th><th className="text-left py-3 px-4 font-semibold">Languages</th><th className="text-left py-3 px-4 font-semibold">Link</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">New Relic</td><td className="py-3 px-4">Dependencies UI for upstream/downstream visualization</td><td className="py-3 px-4">Java, .NET, Node.js, Python, Go, Ruby</td><td className="py-3 px-4"><ResourceLink href="https://newrelic.com" variant="docs">Site</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Ortelius</td><td className="py-3 px-4">Deployment dependency tracking, version control</td><td className="py-3 px-4">Java, JavaScript, Python</td><td className="py-3 px-4"><ResourceLink href="https://ortelius.io" variant="docs">Site</ResourceLink></td></tr><tr><td className="py-3 px-4 font-medium">OpenTelemetry</td><td className="py-3 px-4">Standardized observability framework</td><td className="py-3 px-4">Multi-language</td><td className="py-3 px-4"><ResourceLink href="https://opentelemetry.io" variant="docs">Site</ResourceLink></td></tr></tbody></table>
+</ResponsiveTable>
+
+---
+
+## Impact on Software Quality
+
+Our review examined how dependencies affect key quality attributes:
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Quality Attribute</th><th className="text-left py-3 px-4 font-semibold">Impacting Dependencies</th><th className="text-left py-3 px-4 font-semibold">Management Strategy</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Maintainability</td><td className="py-3 px-4">Data Schema, Source Code, Cyclic</td><td className="py-3 px-4">Loose coupling, interface contracts, dependency inversion</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Performance</td><td className="py-3 px-4">Synchronous, Network, Transaction</td><td className="py-3 px-4">Async patterns, caching, circuit breakers</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Availability</td><td className="py-3 px-4">Hard Dependencies, Runtime, Database</td><td className="py-3 px-4">Fault tolerance, graceful degradation, bulkheads</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Scalability</td><td className="py-3 px-4">Control Flow, Cluster, Resource</td><td className="py-3 px-4">Horizontal scaling, service mesh, load balancing</td></tr><tr><td className="py-3 px-4 font-medium">Security</td><td className="py-3 px-4">Security, Environment, Network</td><td className="py-3 px-4">Zero trust, secrets management, mTLS</td></tr></tbody></table>
+</ResponsiveTable>
+
+<Callout type="insight" title="Key Insight">
+**56% of studies** found that poorly managed dependencies directly impact system maintainability. The most effective mitigation strategy is proactive dependency detection during the development phase, before issues propagate to production.
+</Callout>
+
+---
+
+## Practical Recommendations
+
+### For Architects and Team Leads
+
+1. **Map dependencies early** — Use tools like GSMART or MicroDepGraph during design reviews
+2. **Classify by criticality** — Distinguish hard vs. soft dependencies to prioritize resilience efforts
+3. **Monitor coupling evolution** — Tools like SYMBIOTE can detect architectural degradation before it becomes critical
+4. **Adopt interface-first development** — Define contracts before implementation to prevent hidden dependencies
+
+### For Developers
+
+1. **Avoid shared databases** — Expose data through dedicated services with REST APIs
+2. **Prefer asynchronous communication** — Reduces temporal coupling and improves resilience
+3. **Use feature flags for gradual rollouts** — Enables backward-compatible API evolution
+4. **Implement circuit breakers** — Prevents cascading failures from dependency issues
+
+### For DevOps Teams
+
+1. **Integrate dependency scanning into CI/CD** — Catch issues before deployment
+2. **Use observability platforms** — New Relic, Ortelius, or OpenTelemetry for runtime dependency tracking
+3. **Containerize with clear dependency boundaries** — Explicit Dockerfile and Kubernetes manifests
+4. **Automate dependency updates** — But with careful testing to prevent breaking changes
+
+---
+
+## Benchmarks for Testing
+
+The research community has developed several benchmarks for testing dependency-related tools:
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Benchmark</th><th className="text-left py-3 px-4 font-semibold">Microservices</th><th className="text-left py-3 px-4 font-semibold">Primary Use</th><th className="text-left py-3 px-4 font-semibold">Link</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Train-Ticket</td><td className="py-3 px-4">41</td><td className="py-3 px-4">Latency analysis, fault injection</td><td className="py-3 px-4"><ResourceLink href="https://github.com/FudanSELab/train-ticket" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Online-Boutique</td><td className="py-3 px-4">11</td><td className="py-3 px-4">E-commerce microservices demo</td><td className="py-3 px-4"><ResourceLink href="https://github.com/GoogleCloudPlatform/microservices-demo" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Hipster-Shop</td><td className="py-3 px-4">10</td><td className="py-3 px-4">Network failure testing</td><td className="py-3 px-4"><ResourceLink href="https://github.com/GoogleCloudPlatform/microservices-demo" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Sock-Shop</td><td className="py-3 px-4">14</td><td className="py-3 px-4">Cloud-native testing</td><td className="py-3 px-4"><ResourceLink href="https://github.com/microservices-demo/microservices-demo" variant="github">Code</ResourceLink></td></tr><tr><td className="py-3 px-4 font-medium">AcmeAir</td><td className="py-3 px-4">5</td><td className="py-3 px-4">Monolith-to-microservice migration</td><td className="py-3 px-4"><ResourceLink href="https://github.com/acmeair" variant="github">Code</ResourceLink></td></tr></tbody></table>
+</ResponsiveTable>
+
+---
+
+## Open Challenges
+
+Despite significant progress, several challenges remain:
+
+1. **Automated taxonomy application** — No tools yet automatically classify dependencies into our taxonomy
+2. **Cross-language dependency detection** — Most tools focus on single languages (Java dominates)
+3. **Runtime vs. design-time gap** — Static analysis misses dynamic dependencies; dynamic analysis is resource-intensive
+4. **Semantic dependency detection** — Understanding functional similarities requires advanced NLP/ML approaches
+5. **Quality attribute integration** — Connecting dependencies to SLA violations remains manual
+
+---
+
+## Citation
+
+```bibtex
+@article{abdelfattah2025multivocal,
+  title={Multivocal study on microservice dependencies},
+  author={Abdelfattah, Amr S. and Cerny, Tomas and Chy, Md Showkat Hossain
+          and Uddin, Md Arfan and Perry, Samantha and Brown, Cameron
+          and Goodrich, Lauren and Hurtado, Miguel and Hassan, Muhid
+          and Cai, Yuanfang and Kazman, Rick},
+  journal={The Journal of Systems and Software},
+  volume={222},
+  pages={112334},
+  year={2025},
+  publisher={Elsevier},
+  doi={10.1016/j.jss.2025.112334}
+}
+```
+
+---
+
+## About This Research
+
+This work was conducted at the **University of Arizona** in collaboration with the **University of Hawaii** and **Drexel University**. Our team combines expertise in software architecture, microservices, and empirical software engineering.
+
+The paper has been **published in the <StyledLink href="https://www.sciencedirect.com/journal/journal-of-systems-and-software">Journal of Systems and Software (JSS)</StyledLink>**, a top-tier software engineering journal. The <StyledLink href="https://zenodo.org/records/14208294">complete replication package</StyledLink> including all synthesized studies and extracted data is available on Zenodo.
+
+---
+
+## Appendix: Complete Tool Reference
+
+For practitioners looking for a comprehensive reference, here's the full catalog of dependency management tools organized by category.
+
+### Dependency Analysis Tools
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Dependencies Detected</th><th className="text-left py-3 px-4 font-semibold">Analysis</th><th className="text-left py-3 px-4 font-semibold">Input</th><th className="text-left py-3 px-4 font-semibold">Source</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">ChainsFormer</td><td className="py-3 px-4">Control Flow, Call-Return</td><td className="py-3 px-4">Dynamic</td><td className="py-3 px-4">Traces</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">GDC-DVF</td><td className="py-3 px-4">Control Flow, Call-Return</td><td className="py-3 px-4">Both</td><td className="py-3 px-4">Source Code, Traces</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">CMEA</td><td className="py-3 px-4">Data Schema, Control Flow</td><td className="py-3 px-4">Static</td><td className="py-3 px-4">Source Code</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">MicroQA</td><td className="py-3 px-4">Control Flow, Sync/Async</td><td className="py-3 px-4">Dynamic</td><td className="py-3 px-4">Source Code, Configs</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr><td className="py-3 px-4 font-medium">FSB-RWRank</td><td className="py-3 px-4">Control Flow, Call-Return</td><td className="py-3 px-4">Both</td><td className="py-3 px-4">Traces, Runtime Data</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr></tbody></table>
+</ResponsiveTable>
+
+### Dependency Visualization Tools
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Visualization Type</th><th className="text-left py-3 px-4 font-semibold">Key Feature</th><th className="text-left py-3 px-4 font-semibold">Source</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">EDM/DDM</td><td className="py-3 px-4">Endpoint & Data Matrices</td><td className="py-3 px-4">Static analysis of Spring Boot apps</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">uViz</td><td className="py-3 px-4">Multi-scale views (logical, physical, traces)</td><td className="py-3 px-4">Flip Zooming for context preservation</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">ChainDet</td><td className="py-3 px-4">Network traffic patterns</td><td className="py-3 px-4">Real-time dynamic dependency detection</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr><td className="py-3 px-4 font-medium">MCI Tool</td><td className="py-3 px-4">Coupling metrics</td><td className="py-3 px-4">Relative dependency measurements</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr></tbody></table>
+</ResponsiveTable>
+
+### Supporting Frameworks
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Resource</th><th className="text-left py-3 px-4 font-semibold">Type</th><th className="text-left py-3 px-4 font-semibold">Description</th><th className="text-left py-3 px-4 font-semibold">Link</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">OpenTelemetry</td><td className="py-3 px-4">Standard</td><td className="py-3 px-4">Observability framework for traces, metrics, logs</td><td className="py-3 px-4"><ResourceLink href="https://opentelemetry.io/docs/specs/otlp/" variant="docs">Docs</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Istio</td><td className="py-3 px-4">Service Mesh</td><td className="py-3 px-4">Traffic management, security, observability</td><td className="py-3 px-4"><ResourceLink href="https://istio.io" variant="docs">Docs</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Jaeger</td><td className="py-3 px-4">Tracing</td><td className="py-3 px-4">Distributed tracing platform</td><td className="py-3 px-4"><ResourceLink href="https://www.jaegertracing.io" variant="docs">Docs</ResourceLink></td></tr><tr><td className="py-3 px-4 font-medium">Zipkin</td><td className="py-3 px-4">Tracing</td><td className="py-3 px-4">Distributed tracing system</td><td className="py-3 px-4"><ResourceLink href="https://zipkin.io" variant="docs">Docs</ResourceLink></td></tr></tbody></table>
+</ResponsiveTable>

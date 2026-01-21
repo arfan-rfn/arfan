@@ -40,6 +40,9 @@ export async function getRecentBlogPosts(): Promise<BlogPost[]> {
 					// Use default reading time if file can't be read
 				}
 
+				// Extract image - prefer local ogImage path over external openGraph URL
+				const ogImage = metadata.ogImage || metadata.openGraph?.images?.[0]?.url || undefined
+
 				return {
 					slug,
 					title: metadata.title || 'Untitled',
@@ -47,7 +50,7 @@ export async function getRecentBlogPosts(): Promise<BlogPost[]> {
 					author: metadata.author || null,
 					description: metadata.description || '',
 					tags: metadata.tags || [],
-					ogImage: metadata.ogImage || undefined,
+					ogImage,
 					readingTime,
 				}
 			})

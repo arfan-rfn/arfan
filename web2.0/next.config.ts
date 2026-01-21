@@ -8,9 +8,10 @@ const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["mdx", "ts", "tsx"],
   images: {
-    remotePatterns: [{
-      hostname: "*.amazonaws.com"
-    }],
+    remotePatterns: [
+      { hostname: "*.amazonaws.com" },
+      { hostname: "arfanu.com" },
+    ],
   },
   experimental: {
     mdxRs: true,
