@@ -74,20 +74,28 @@ export const Callout = ({ type = "info", title, children }) => {
 	const icons = {
 		info: <Lightbulb size={18} className="text-blue-600 dark:text-blue-400" />,
 		warning: <AlertTriangle size={18} className="text-amber-600 dark:text-amber-400" />,
-		insight: <TrendingUp size={18} className="text-emerald-600 dark:text-emerald-400" />,
+		insight: <TrendingUp size={18} className="text-emerald-600 dark:text-emerald-800" />,
 	};
 	return (
-		<div className={cn("rounded-lg border p-4 my-6", styles[type])}>
-			<div className="flex items-start gap-3">
+		<div className={cn("rounded-lg border p-3 sm:p-4 my-6 overflow-hidden", styles[type])}>
+			<div className="flex items-start gap-2 sm:gap-3">
 				<span className="mt-0.5 flex-shrink-0">{icons[type]}</span>
-				<div>
-					{title && <p className="font-semibold mb-1">{title}</p>}
-					<div className="text-sm leading-relaxed">{children}</div>
+				<div className="min-w-0 flex-1 break-words">
+					{title && <p className="font-semibold mb-1 text-sm sm:text-base">{title}</p>}
+					<div className="text-xs sm:text-sm leading-relaxed">{children}</div>
 				</div>
 			</div>
 		</div>
 	);
 };
+
+export const ResponsiveTable = ({ children }) => (
+	<div className="overflow-x-auto my-6 max-w-full">
+		<div className="min-w-full">
+			{children}
+		</div>
+	</div>
+);
 
 export const jsonLdData = {
 	"@context": "https://schema.org",
@@ -130,10 +138,10 @@ Enterprise microservices generate terabytes of logs daily. With systems spanning
 
 Our systematic literature review—**accepted for publication in the <StyledLink href="https://www.sciencedirect.com/journal/journal-of-systems-and-software">Journal of Systems and Software (JSS)</StyledLink>**—analyzed **82 primary studies** from 2,208 papers published between 2018 and 2025, examining how AI is being applied to microservice log analysis. The findings reveal both exciting progress and significant gaps between academic research and enterprise needs.
 
-<div className="flex flex-wrap justify-center gap-3 my-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
-	<Link href={metadata.paperUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors shadow-sm"><FileText size={16} className="flex-shrink-0" />Read Paper on SSRN</Link>
-	<Link href={metadata.pdfAttachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-sm hover:bg-primary/10 transition-colors shadow-sm"><Eye size={16} className="flex-shrink-0" />View PDF</Link>
-	<Link href="https://zenodo.org/records/17497780" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-sm hover:bg-primary/10 transition-colors shadow-sm"><Database size={16} className="flex-shrink-0" />Replication Package</Link>
+<div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 my-6 p-3 sm:p-4 bg-primary/10 rounded-lg border border-primary/20">
+	<Link href={metadata.paperUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-sm"><FileText size={16} className="flex-shrink-0" />Read Paper on SSRN</Link>
+	<Link href={metadata.pdfAttachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Eye size={16} className="flex-shrink-0" />View PDF</Link>
+	<Link href="https://zenodo.org/records/17497780" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Database size={16} className="flex-shrink-0" />Replication Package</Link>
 </div>
 
 ---
@@ -157,22 +165,22 @@ Before diving into details, here's the landscape of AI-powered log analysis rese
 
 The flow tells a clear story: **Anomaly Detection dominates** the research (72% of studies), **hybrid approaches** are the preferred methodology (53.9%), and there's a concerning reliance on **synthetic or private datasets** (79.3%).
 
-<div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
-	<div className="text-center p-4 bg-primary/5 rounded-lg">
-		<div className="text-3xl font-bold text-primary">2,208</div>
-		<div className="text-sm text-muted-foreground">Papers Reviewed</div>
+<div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 my-8">
+	<div className="text-center p-2 sm:p-4 bg-primary/5 rounded-lg">
+		<div className="text-2xl sm:text-3xl font-bold text-primary">2,208</div>
+		<div className="text-xs sm:text-sm text-muted-foreground">Papers Reviewed</div>
 	</div>
-	<div className="text-center p-4 bg-primary/5 rounded-lg">
-		<div className="text-3xl font-bold text-primary">82</div>
-		<div className="text-sm text-muted-foreground">Primary Studies</div>
+	<div className="text-center p-2 sm:p-4 bg-primary/5 rounded-lg">
+		<div className="text-2xl sm:text-3xl font-bold text-primary">82</div>
+		<div className="text-xs sm:text-sm text-muted-foreground">Primary Studies</div>
 	</div>
-	<div className="text-center p-4 bg-primary/5 rounded-lg">
-		<div className="text-3xl font-bold text-primary">87</div>
-		<div className="text-sm text-muted-foreground">AI Techniques</div>
+	<div className="text-center p-2 sm:p-4 bg-primary/5 rounded-lg">
+		<div className="text-2xl sm:text-3xl font-bold text-primary">87</div>
+		<div className="text-xs sm:text-sm text-muted-foreground">AI Techniques</div>
 	</div>
-	<div className="text-center p-4 bg-primary/5 rounded-lg">
-		<div className="text-3xl font-bold text-primary">10</div>
-		<div className="text-sm text-muted-foreground">Public Datasets</div>
+	<div className="text-center p-2 sm:p-4 bg-primary/5 rounded-lg">
+		<div className="text-2xl sm:text-3xl font-bold text-primary">10</div>
+		<div className="text-xs sm:text-sm text-muted-foreground">Public Datasets</div>
 	</div>
 </div>
 
@@ -203,9 +211,9 @@ The research trajectory is clear: early work focused on traditional ML methods, 
 
 ### Why Different Techniques Excel
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">AI Category</th><th className="text-left py-3 px-4 font-semibold">Usage</th><th className="text-left py-3 px-4 font-semibold">Best For</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Deep Learning</td><td className="py-3 px-4">27.6%</td><td className="py-3 px-4">Pattern recognition across diverse log formats</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">GNNs</td><td className="py-3 px-4">19.5%</td><td className="py-3 px-4">Modeling service dependencies and call graphs</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">LLMs</td><td className="py-3 px-4">12.6%</td><td className="py-3 px-4">Semantic understanding without manual parsing</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Traditional ML</td><td className="py-3 px-4">16.1%</td><td className="py-3 px-4">Resource-constrained environments, interpretability</td></tr><tr><td className="py-3 px-4 font-medium">Hybrid</td><td className="py-3 px-4">53.9%</td><td className="py-3 px-4">Complex enterprise scenarios requiring multiple capabilities</td></tr></tbody></table>
-</div>
+</ResponsiveTable>
 
 ---
 
@@ -213,9 +221,9 @@ The research trajectory is clear: early work focused on traditional ML methods, 
 
 Not all log analysis tasks receive equal attention. Here's where researchers focus their efforts:
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Use Case</th><th className="text-left py-3 px-4 font-semibold">% of Studies</th><th className="text-left py-3 px-4 font-semibold">Maturity</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Anomaly Detection</td><td className="py-3 px-4">72%</td><td className="py-3 px-4">Most mature, many open-source tools</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Root Cause Analysis</td><td className="py-3 px-4">18%</td><td className="py-3 px-4">Growing but challenging</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Fault Diagnosis</td><td className="py-3 px-4">6%</td><td className="py-3 px-4">Significantly underexplored</td></tr><tr><td className="py-3 px-4 font-medium">Dependency Modeling</td><td className="py-3 px-4">4%</td><td className="py-3 px-4">Critical gap for practitioners</td></tr></tbody></table>
-</div>
+</ResponsiveTable>
 
 <Callout type="warning" title="The Missing Pieces">
 Detecting an anomaly is only useful if operators can quickly identify its cause. The relative neglect of **fault diagnosis** (6%) and **dependency modeling** (4%) represents a significant research-practice gap.
@@ -233,9 +241,9 @@ Models trained on clean, well-structured synthetic data may struggle with the no
 
 For researchers looking to improve reproducibility:
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Dataset</th><th className="text-left py-3 px-4 font-semibold">Source</th><th className="text-left py-3 px-4 font-semibold">Size</th><th className="text-left py-3 px-4 font-semibold">Primary Use</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">HDFS</td><td className="py-3 px-4">Hadoop Distributed File System</td><td className="py-3 px-4">~1.5GB</td><td className="py-3 px-4">Log parsing, anomaly detection</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">BGL</td><td className="py-3 px-4">Blue Gene/L supercomputer</td><td className="py-3 px-4">~700MB</td><td className="py-3 px-4">Failure prediction</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Thunderbird</td><td className="py-3 px-4">HPC cluster (USENIX)</td><td className="py-3 px-4">1.9GB</td><td className="py-3 px-4">System diagnostics</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">OpenStack</td><td className="py-3 px-4">Cloud infrastructure</td><td className="py-3 px-4">Varies</td><td className="py-3 px-4">Trace analysis</td></tr><tr><td className="py-3 px-4 font-medium">TrainTicket</td><td className="py-3 px-4">Microservice demo app</td><td className="py-3 px-4">Varies</td><td className="py-3 px-4">End-to-end testing</td></tr></tbody></table>
-</div>
+</ResponsiveTable>
 
 ---
 
@@ -272,9 +280,9 @@ Our review identified numerous open-source implementations. Here are the most no
 
 When AI techniques work, they work impressively well:
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Achievement</th><th className="text-left py-3 px-4 font-semibold">Result</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4">F1 Score improvement</td><td className="py-3 px-4 font-medium">4.5% – 19.3% over baselines</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4">Real-time processing</td><td className="py-3 px-4 font-medium">&lt;5 seconds for 5,000+ services</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4">Hidden failure detection</td><td className="py-3 px-4 font-medium">88.9% accuracy</td></tr><tr><td className="py-3 px-4">RCA accuracy gains</td><td className="py-3 px-4 font-medium">18-20% improvement</td></tr></tbody></table>
-</div>
+</ResponsiveTable>
 
 ### What's Challenging
 
@@ -371,30 +379,30 @@ For practitioners looking for a comprehensive reference, here's the full catalog
 
 ### Sequence-Based Tools (LSTM/RNN)
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Technique</th><th className="text-left py-3 px-4 font-semibold">Use Case</th><th className="text-left py-3 px-4 font-semibold">Key Innovation</th><th className="text-left py-3 px-4 font-semibold">Source</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">DeepLog</td><td className="py-3 px-4">LSTM Neural Networks</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Learns sequential log patterns to detect abnormal events</td><td className="py-3 px-4"><ResourceLink href="https://github.com/wuyifan18/DeepLog" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">LogAnomaly</td><td className="py-3 px-4">LSTM + Template2Vec</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Captures structure and semantics of logs</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">PLELog</td><td className="py-3 px-4">Attention GRU + HD-CNN</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Label estimation with hierarchical classification</td><td className="py-3 px-4"><ResourceLink href="https://github.com/LeonYang95/PLELog" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">LTTng-LSTM</td><td className="py-3 px-4">LSTM + LTTng Tracer</td><td className="py-3 px-4">AD, Debugging</td><td className="py-3 px-4">Distributed tracing with NLP analysis</td><td className="py-3 px-4"><ResourceLink href="https://github.com/kohyar/LTTng_LSTM_Anomaly_Detection" variant="github">Code</ResourceLink></td></tr><tr><td className="py-3 px-4 font-medium">MAAD</td><td className="py-3 px-4">CNN + LSTM + FCN</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Distributed multi-agent architecture</td><td className="py-3 px-4"><ResourceLink href="https://github.com/jzxycsjzy/multi_agent_anomaly_detection" variant="github">Code</ResourceLink></td></tr></tbody></table>
-</div>
+</ResponsiveTable>
 
 ### Transformer and LLM-Based Tools
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Technique</th><th className="text-left py-3 px-4 font-semibold">Use Case</th><th className="text-left py-3 px-4 font-semibold">Key Innovation</th><th className="text-left py-3 px-4 font-semibold">Source</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">LogBERT</td><td className="py-3 px-4">BERT Language Model</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Template-free log-sequence AD using pre-trained BERT</td><td className="py-3 px-4"><ResourceLink href="https://github.com/HelenGuohx/logbert" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">LogLLM</td><td className="py-3 px-4">BERT + LLaMA</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Hybrid transformer encoders for contextualized AD</td><td className="py-3 px-4"><ResourceLink href="https://anonymous.4open.science/r/LogLLM-B7EA" variant="primary">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">LogFiT</td><td className="py-3 px-4">RoBERTa + Fine-tuning</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Adapts pre-trained transformers to log formats</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">LogELECTRA</td><td className="py-3 px-4">ELECTRA + Self-supervised</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Efficient masked discrimination with minimal labels</td><td className="py-3 px-4"><ResourceLink href={null} /></td></tr><tr><td className="py-3 px-4 font-medium">LasRCA</td><td className="py-3 px-4">GPT-4 + Prompt Tuning</td><td className="py-3 px-4">AD, RCA</td><td className="py-3 px-4">In-context LLM reasoning for anomaly explanation</td><td className="py-3 px-4"><ResourceLink href="https://github.com/AmanecerTrio/LasRCA" variant="github">Code</ResourceLink></td></tr></tbody></table>
-</div>
+</ResponsiveTable>
 
 ### Graph Neural Network Tools
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Technique</th><th className="text-left py-3 px-4 font-semibold">Use Case</th><th className="text-left py-3 px-4 font-semibold">Key Innovation</th><th className="text-left py-3 px-4 font-semibold">Source</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">TraceCRL</td><td className="py-3 px-4">GNN + Contrastive Learning</td><td className="py-3 px-4">AD, Dependency</td><td className="py-3 px-4">Preserves graph structure with operation-level embeddings</td><td className="py-3 px-4"><ResourceLink href="https://fudanselab.github.io/TraceCRL/" variant="docs">Site</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">DeepTraLog</td><td className="py-3 px-4">GGNN + DeepSVDD</td><td className="py-3 px-4">AD, Dependency</td><td className="py-3 px-4">Models spatial-temporal trace event graphs</td><td className="py-3 px-4"><ResourceLink href="https://github.com/FudanSELab/DeepTraLog" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">PUTraceAD</td><td className="py-3 px-4">GNN + PU Learning</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Span causal graphs with positive-unlabeled learning</td><td className="py-3 px-4"><ResourceLink href="https://github.com/PUTraceAD/PUTraceAD" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">DiagFusion</td><td className="py-3 px-4">GNN + FastText</td><td className="py-3 px-4">RCA, Dependency</td><td className="py-3 px-4">Multi-source observability fusion</td><td className="py-3 px-4"><ResourceLink href="https://anonymous.4open.science/r/DiagFusion-AD52" variant="primary">Code</ResourceLink></td></tr><tr><td className="py-3 px-4 font-medium">TraceAnomaly</td><td className="py-3 px-4">Deep Bayesian + Posterior</td><td className="py-3 px-4">AD, Dependency</td><td className="py-3 px-4">Unifies invocation path and response time analysis</td><td className="py-3 px-4"><ResourceLink href="https://github.com/NetManAIOps/TraceAnomaly" variant="github">Code</ResourceLink></td></tr></tbody></table>
-</div>
+</ResponsiveTable>
 
 ### Active Learning and Human-in-the-Loop Tools
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-left py-3 px-4 font-semibold">Technique</th><th className="text-left py-3 px-4 font-semibold">Use Case</th><th className="text-left py-3 px-4 font-semibold">Key Innovation</th><th className="text-left py-3 px-4 font-semibold">Source</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">AcLog</td><td className="py-3 px-4">LSTM + Active Learning</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Integrates human knowledge for few-shot learning</td><td className="py-3 px-4"><ResourceLink href="https://github.com/Dcm-dcm-dcm/AcLog" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">AFALog</td><td className="py-3 px-4">Active Learning + Transformer</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Mitigates class imbalance with active feedback</td><td className="py-3 px-4"><ResourceLink href="https://github.com/Dcm-dcm-dcm/AFALog" variant="github">Code</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">ServiceAnomaly</td><td className="py-3 px-4">Annotated CPG + Classifier</td><td className="py-3 px-4">AD, Dependency</td><td className="py-3 px-4">Constructs causal context graphs for anomalies</td><td className="py-3 px-4"><ResourceLink href="https://github.com/M-panahandeh/ServiceAnomaly" variant="github">Code</ResourceLink></td></tr><tr><td className="py-3 px-4 font-medium">UAC-AD</td><td className="py-3 px-4">Transformer + CNN + GAN</td><td className="py-3 px-4">Anomaly Detection</td><td className="py-3 px-4">Adversarial training with contrastive learning</td><td className="py-3 px-4"><ResourceLink href="https://github.com/lhysgithub/UAC-AD" variant="github">Code</ResourceLink></td></tr></tbody></table>
-</div>
+</ResponsiveTable>
 
 ### Supporting Frameworks and Libraries
 
-<div className="overflow-x-auto my-6">
+<ResponsiveTable>
 <table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Resource</th><th className="text-left py-3 px-4 font-semibold">Type</th><th className="text-left py-3 px-4 font-semibold">Description</th><th className="text-left py-3 px-4 font-semibold">Link</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">HuggingFace Transformers</td><td className="py-3 px-4">Library</td><td className="py-3 px-4">Pre-trained transformer models (BERT, RoBERTa, etc.)</td><td className="py-3 px-4"><ResourceLink href="https://huggingface.co/docs/transformers" variant="docs">Docs</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">PyTorch Geometric</td><td className="py-3 px-4">Library</td><td className="py-3 px-4">GNN implementations for graph-based learning</td><td className="py-3 px-4"><ResourceLink href="https://pytorch-geometric.readthedocs.io" variant="docs">Docs</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">OpenTelemetry</td><td className="py-3 px-4">Standard</td><td className="py-3 px-4">Observability framework for traces, metrics, and logs</td><td className="py-3 px-4"><ResourceLink href="https://opentelemetry.io/docs/specs/otlp/" variant="docs">Docs</ResourceLink></td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">LogHub</td><td className="py-3 px-4">Dataset</td><td className="py-3 px-4">Collection of system log datasets for benchmarking</td><td className="py-3 px-4"><ResourceLink href="https://github.com/logpai/loghub" variant="github">Code</ResourceLink></td></tr><tr><td className="py-3 px-4 font-medium">MEPFL</td><td className="py-3 px-4">Framework</td><td className="py-3 px-4">Ensemble-based detection using trace and metric signals</td><td className="py-3 px-4"><ResourceLink href="https://fudanselab.github.io/Research/MEPFL" variant="docs">Site</ResourceLink></td></tr></tbody></table>
-</div>
+</ResponsiveTable>

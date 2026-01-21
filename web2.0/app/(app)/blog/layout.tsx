@@ -15,7 +15,7 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
 					<aside className="hidden md:block sticky top-4 h-fit">
 						<ProfileSectionCompact />
 					</aside>
-					<main className="flex-1">
+					<main className="flex-1 min-w-0 overflow-hidden">
 						{children}
 					</main>
 				</div>
