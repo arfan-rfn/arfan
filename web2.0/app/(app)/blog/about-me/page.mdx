@@ -9,6 +9,27 @@ export const metadata = {
   alternates: {
     canonical: "/blog/about-me",
   },
+  openGraph: {
+    type: 'article',
+    title: "Hello, I'm Arfan 👋",
+    description: "A quick introduction to my work, interests, and what you'll find on this site.",
+    url: 'https://arfanu.com/blog/about-me',
+    siteName: 'Arfan Uddin',
+    images: [{
+      url: 'https://arfanu.com/og-default.png',
+      width: 1200,
+      height: 630,
+      alt: 'Arfan Uddin - Software Engineer & Researcher',
+    }],
+    publishedTime: '2025-05-05',
+    authors: ['Arfan Uddin'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Hello, I'm Arfan 👋",
+    description: "A quick introduction to my work, interests, and what you'll find on this site.",
+    images: ['https://arfanu.com/og-default.png'],
+  },
 };
 
 export const jsonLdData = {

@@ -13,6 +13,27 @@ export const metadata = {
 	alternates: {
 		canonical: "/blog/hackaz-2025",
 	},
+	openGraph: {
+		type: 'article',
+		title: "HackAZ 2025: Reigniting a Legacy",
+		description: "My experience bringing back HackAZ, one of the Southwest's most iconic hackathons.",
+		url: 'https://arfanu.com/blog/hackaz-2025',
+		siteName: 'Arfan Uddin',
+		images: [{
+			url: 'https://arfanu.com/blog/hackaz-2025/og-image.jpeg',
+			width: 1200,
+			height: 630,
+			alt: 'HackAZ 2025 Team',
+		}],
+		publishedTime: '2025-03-22',
+		authors: ['Arfan Uddin'],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: "HackAZ 2025: Reigniting a Legacy",
+		description: "My experience bringing back HackAZ, one of the Southwest's most iconic hackathons.",
+		images: ['https://arfanu.com/blog/hackaz-2025/og-image.jpeg'],
+	},
 };
 
 export const StyledLink = ({ href, children }) => {
