@@ -35,7 +35,7 @@ export const StyledLink = ({ href, children }) => {
 	);
 };
 
-<JsonLd data={{
+export const jsonLdData = {
 	"@context": "https://schema.org",
 	"@type": "BlogPosting",
 	"headline": metadata.title,
@@ -67,7 +67,9 @@ export const StyledLink = ({ href, children }) => {
 	"inLanguage": "en-US",
 	"articleSection": "Blog",
 	"wordCount": "1000"
-}} />
+};
+
+<JsonLd data={jsonLdData} />
 
 # HackAZ 2025: Reigniting a Legacy
 

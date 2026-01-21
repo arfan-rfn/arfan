@@ -1,4 +1,4 @@
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 import { ProfileSectionCompact } from '@/components/sections/profile-section-compact';
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {

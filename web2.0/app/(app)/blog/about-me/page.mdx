@@ -11,7 +11,7 @@ export const metadata = {
   },
 };
 
-<JsonLd data={{
+export const jsonLdData = {
   "@context": "https://schema.org",
   "@type": ["Person", "ProfilePage"],
   "name": "Md Arfan Uddin",
@@ -100,7 +100,9 @@ export const metadata = {
       "Microservice Architecture"
     ]
   }
-}} />
+};
+
+<JsonLd data={jsonLdData} />
 
 # 👋 Meet Arfan
 
