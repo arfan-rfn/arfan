@@ -3,7 +3,7 @@ name: research-to-blog
 description: Convert academic research papers into engaging, SEO-optimized blog posts. Use when asked to (1) create a blog post from a research paper/preprint, (2) summarize research for general audiences, (3) promote published papers via blog content, or (4) convert academic writing to accessible MDX.
 metadata:
   author: arfan
-  version: "2.1.0"
+  version: "3.0.0"
   argument-hint: <paper-pdf-or-link>
 ---
 
@@ -35,16 +35,18 @@ Available social links from config:
 ┌─────────────────────────────────────────────────────────────────┐
 │  1. ANALYZE    →  Read paper, extract key elements              │
 │                                                                 │
-│  2. REQUEST    →  Prompt user for ALL figures/tables needed     │
+│  2. REQUEST    →  Prompt user for remote asset URLs             │
 │                   ⚠️  STOP HERE - Wait for user to provide      │
 │                                                                 │
-│  3. WRITE      →  Generate blog post with provided figures      │
+│  3. WRITE      →  Generate blog post with remote image URLs     │
 │                                                                 │
-│  4. FINALIZE   →  Confirm all images are in place               │
+│  4. TIMELINE   →  Update/create timeline entry in timeline.ts   │
+│                                                                 │
+│  5. FINALIZE   →  Confirm all remote URLs are accessible        │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**CRITICAL**: Do NOT proceed to writing (Phase 3) until user provides the requested figures.
+**CRITICAL**: Do NOT proceed to writing (Phase 3) until user provides the requested remote URLs.
 
 ## Input Handling
 
@@ -137,68 +139,68 @@ For URLs, use WebFetch to retrieve the paper content.
 
 ### Phase 2: Figure & Data Request (REQUIRED)
 
-**IMPORTANT**: Before writing any content, you MUST analyze the paper and prompt the user for all important visual assets. Do not proceed to Phase 3 until the user provides the requested figures.
+**IMPORTANT**: Before writing any content, you MUST analyze the paper and prompt the user for all important visual assets. Do not proceed to Phase 3 until the user provides the requested URLs.
 
-After analyzing the paper, present the user with a comprehensive figure request:
+All assets should be hosted remotely on `assets.arfanu.com`. After analyzing the paper, present the user with a comprehensive figure request:
 
 ```
 ## Figures & Data Needed for Your Blog Post
 
 I've analyzed your paper and identified the following visuals that will make your blog post more engaging and informative.
 
-### Required: Paper URL, PDF & OG Image
+### Required: Paper URL, PDF & OG Image (Remote URLs)
 
-| Item | Description | Location |
-|------|-------------|----------|
+| Item | Description | Expected URL Pattern |
+|------|-------------|---------------------|
 | **Paper URL** | DOI or official publisher link | In metadata `paperUrl` field |
-| **PDF File** | Copy of the research paper | `/web2.0/app/(app)/blog/[slug]/paper.pdf` |
-| **OG Image** | Social sharing preview (1200x630px) | `/web2.0/public/blog/[slug]/og-image.png` |
+| **PDF File** | Remote URL to research paper | `https://assets.arfanu.com/research-article/[folder]/paper.pdf` |
+| **OG Image** | Social sharing preview (1200x630px) | `https://assets.arfanu.com/research-article/[folder]/og-image.png` |
 
 ### Required Figures (for blog content)
 
-| # | Paper Reference | What It Shows | Save As | Location |
-|---|-----------------|---------------|---------|----------|
-| 1 | [Figure X / Page Y] | [Description] | `[name].png` | `/web2.0/app/(app)/blog/[slug]/` |
-| 2 | [Figure X / Page Y] | [Description] | `[name].png` | `/web2.0/app/(app)/blog/[slug]/` |
+| # | Paper Reference | What It Shows | Filename | Expected URL |
+|---|-----------------|---------------|----------|--------------|
+| 1 | [Figure X / Page Y] | [Description] | `fig-1.png` | `https://assets.arfanu.com/research-article/[folder]/fig-1.png` |
+| 2 | [Figure X / Page Y] | [Description] | `fig-2.png` | `https://assets.arfanu.com/research-article/[folder]/fig-2.png` |
 
 ### Key Results & Benchmarks
 
-| # | Paper Reference | Data/Results | Save As | Blog Section |
-|---|-----------------|--------------|---------|--------------|
+| # | Paper Reference | Data/Results | Filename | Blog Section |
+|---|-----------------|--------------|----------|--------------|
 | 1 | [Table X / Page Y] | [Performance metrics / benchmarks] | `results-[metric].png` | Key Finding #N |
 | 2 | [Figure X / Page Y] | [Comparison chart / benchmark] | `benchmark-comparison.png` | Key Finding #N |
 
 ### Data Visualizations (if applicable)
 
-| # | Paper Reference | Visualization Type | Save As | Purpose |
-|---|-----------------|-------------------|---------|---------|
+| # | Paper Reference | Visualization Type | Filename | Purpose |
+|---|-----------------|-------------------|----------|---------|
 | 1 | [Figure X] | [Sankey/Heatmap/Distribution] | `[type]-diagram.png` | Shows [relationship/pattern] |
 
 ### Tables to Export as Images (if complex)
 
-| # | Paper Reference | Table Content | Save As | Note |
-|---|-----------------|---------------|---------|------|
+| # | Paper Reference | Table Content | Filename | Note |
+|---|-----------------|---------------|----------|------|
 | 1 | [Table X / Page Y] | [Description] | `table-[name].png` | Complex table better as image |
 
 ---
 
 **Instructions:**
 1. **Provide the paper URL** (DOI preferred, or publisher link)
-2. **Copy the PDF** to `/web2.0/app/(app)/blog/[post-slug]/paper.pdf`
-3. **Create OG image** (1200x630px) and save to `/web2.0/public/blog/[post-slug]/og-image.png`
+2. **Upload the PDF** to `https://assets.arfanu.com/research-article/[folder]/paper.pdf`
+3. **Upload OG image** (1200x630px) to `https://assets.arfanu.com/research-article/[folder]/og-image.png`
 4. Export each figure from your paper (screenshot or PDF export)
-5. Save figures with the filenames listed above
-6. Place content figures in: `/web2.0/app/(app)/blog/[post-slug]/`
-7. Recommended image size: 1200-2000px wide, PNG format
+5. Upload figures with the filenames listed above to the same folder
+6. Recommended image size: 1200-2000px wide, PNG format
 
-**File locations summary:**
-- OG Image: `/web2.0/public/blog/[slug]/og-image.png` (for social preview)
-- PDF: `/web2.0/app/(app)/blog/[slug]/paper.pdf` (for download)
-- Figures: `/web2.0/app/(app)/blog/[slug]/` (for blog content)
+**Remote URL pattern:**
+All assets should be hosted at: `https://assets.arfanu.com/research-article/[folder]/`
+- PDF: `paper.pdf`
+- OG Image: `og-image.png`
+- Figures: `fig-1.png`, `fig-2.png`, `taxonomy.png`, `workflow.png`, etc.
 
-**Accepted formats**: PNG (preferred), JPG, SVG, PDF (I'll convert PDFs to PNG)
+**Accepted formats**: PNG (preferred), JPG, SVG
 
-**Please provide these files and the paper URL, then I'll proceed with writing your blog post.**
+**Please provide the remote URLs for these assets and the paper URL, then I'll proceed with writing your blog post.**
 ```
 
 #### What to Identify from the Paper
@@ -274,13 +276,13 @@ Structure the blog post following `references/blog-structure.md`. Key sections:
 **Output location**: `/web2.0/app/(app)/blog/[post-slug]/page.mdx`
 
 **Images**:
-- Content figures: Same directory as `page.mdx`, import as ES6 modules
-- OG Image: `/web2.0/public/blog/[post-slug]/og-image.png`
+- All images use remote URLs from `assets.arfanu.com`
+- No local file imports needed (except the MDX file itself)
 
 **CRITICAL - Before writing MDX:**
-1. **Verify all image files exist** before adding imports. Missing imports will cause build errors.
+1. **Confirm remote URLs are accessible** - User should verify assets are uploaded to `assets.arfanu.com`
 2. **Read site config** at `/web2.0/config/site.ts` for author info and social links.
-3. Only import images that the user has confirmed are in place.
+3. **Ensure `next.config.ts`** has `assets.arfanu.com` in `remotePatterns` for Image optimization
 
 Generate MDX file using this exact format (ES6 exports, NOT YAML frontmatter):
 
@@ -289,10 +291,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
-// ONLY import images that exist - verify with user first!
-// import taxonomyImg from "./taxonomy.png";
-// import workflowImg from "./workflow.png";
-// Additional image imports - ADD ONLY AFTER USER CONFIRMS FILES EXIST
+// No local image imports needed - all images use remote URLs from assets.arfanu.com
 
 export const metadata = {
   title: "[Engaging title - not the paper title]",
@@ -302,7 +301,7 @@ export const metadata = {
   tags: ["keyword-1", "keyword-2", "keyword-3"],
   // Research paper metadata (REQUIRED)
   paperUrl: "[DOI or publisher URL - e.g., https://doi.org/10.1000/xyz123]",
-  pdfAttachment: "/blog/[slug]/paper.pdf",
+  pdfAttachment: "https://assets.arfanu.com/research-article/[folder]/paper.pdf",
   alternates: {
     canonical: "/blog/[slug]",
   },
@@ -314,7 +313,7 @@ export const metadata = {
     url: 'https://arfanu.com/blog/[slug]',
     siteName: 'Arfan Uddin',
     images: [{
-      url: 'https://arfanu.com/blog/[slug]/og-image.png',
+      url: 'https://assets.arfanu.com/research-article/[folder]/og-image.png',
       width: 1200,
       height: 630,
       alt: '[Descriptive alt text for OG image]',
@@ -327,7 +326,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "[Same as title above]",
     description: "[Same as description above]",
-    images: ['https://arfanu.com/blog/[slug]/og-image.png'],
+    images: ['https://assets.arfanu.com/research-article/[folder]/og-image.png'],
   },
 };
 
@@ -401,7 +400,7 @@ export const jsonLdData = {
 | [Scope metric 2] | [Value] |
 
 <Image
-  src={workflowImg}
+  src="https://assets.arfanu.com/research-article/[folder]/workflow.png"
   alt="[Descriptive alt text]"
   width={800}
   height={450}
@@ -451,26 +450,26 @@ Feel free to <StyledLink href="/#contact">reach out</StyledLink>!
 
 | File Type | Location | Purpose |
 |-----------|----------|---------|
-| Blog post MDX | `/web2.0/app/(app)/blog/[slug]/page.mdx` | Main blog content |
-| Content figures | `/web2.0/app/(app)/blog/[slug]/*.png` | Imported in MDX |
-| PDF attachment | `/web2.0/app/(app)/blog/[slug]/paper.pdf` | Download link |
-| **OG Image** | `/web2.0/public/blog/[slug]/og-image.png` | Social sharing preview |
+| Blog post MDX | `/web2.0/app/(app)/blog/[slug]/page.mdx` | Main blog content (local file) |
+| Content figures | `https://assets.arfanu.com/research-article/[folder]/*.png` | Remote URL in MDX |
+| PDF attachment | `https://assets.arfanu.com/research-article/[folder]/paper.pdf` | Download link |
+| **OG Image** | `https://assets.arfanu.com/research-article/[folder]/og-image.png` | Social sharing preview |
 
-**IMPORTANT**: The OG image MUST be in the `/public` directory for proper social media previews. Next.js serves static files from `/public` at the root URL.
+**IMPORTANT**: All assets (except the MDX file) are hosted remotely on `assets.arfanu.com`. Ensure `next.config.ts` has `assets.arfanu.com` in `remotePatterns` for Next.js Image optimization.
 
 ## Pre-Write Verification
 
 **CRITICAL**: Before writing the MDX file, you MUST:
 
-1. **Verify images exist** - Use `ls` to check that all images are in place:
-   ```bash
-   ls -la /Users/rfnmac/projects/arfan/web2.0/app/\(app\)/blog/[slug]/
-   ls -la /Users/rfnmac/projects/arfan/web2.0/public/blog/[slug]/
-   ```
+1. **Confirm remote URLs are accessible** - Ask user to verify that all assets have been uploaded to `assets.arfanu.com`:
+   - PDF: `https://assets.arfanu.com/research-article/[folder]/paper.pdf`
+   - OG Image: `https://assets.arfanu.com/research-article/[folder]/og-image.png`
+   - Figures: `https://assets.arfanu.com/research-article/[folder]/[figure-name].png`
 
-2. **Only import existing images** - Do NOT add import statements for images that don't exist. This causes build errors:
-   ```
-   Module not found: Can't resolve './architecture.png'
+2. **Verify next.config.ts configuration** - Ensure `assets.arfanu.com` is in `remotePatterns`:
+   ```bash
+   # Check that remote patterns include assets.arfanu.com
+   grep -A5 "remotePatterns" /Users/rfnmac/projects/arfan/web2.0/next.config.ts
    ```
 
 3. **Read site config** for author info:
@@ -484,21 +483,21 @@ Feel free to <StyledLink href="/#contact">reach out</StyledLink>!
 Before finalizing, confirm with user:
 
 ```
-## Files Checklist
+## Remote Assets Checklist
 
-Please confirm you have these files ready:
+Please confirm you have uploaded these files to `assets.arfanu.com`:
 
-### Required Files
-| File | Location | Status |
-|------|----------|--------|
-| `og-image.png` (1200x630px) | `/web2.0/public/blog/[slug]/` | [ ] |
-| `paper.pdf` | `/web2.0/app/(app)/blog/[slug]/` | [ ] |
+### Required Remote Assets
+| File | Remote URL | Status |
+|------|-----------|--------|
+| `og-image.png` (1200x630px) | `https://assets.arfanu.com/research-article/[folder]/og-image.png` | [ ] |
+| `paper.pdf` | `https://assets.arfanu.com/research-article/[folder]/paper.pdf` | [ ] |
 
-### Content Figures
-| File | Location | Status |
-|------|----------|--------|
-| `[figure-1].png` | `/web2.0/app/(app)/blog/[slug]/` | [ ] |
-| `[figure-2].png` | `/web2.0/app/(app)/blog/[slug]/` | [ ] |
+### Content Figures (Remote URLs)
+| File | Remote URL | Status |
+|------|-----------|--------|
+| `[figure-1].png` | `https://assets.arfanu.com/research-article/[folder]/[figure-1].png` | [ ] |
+| `[figure-2].png` | `https://assets.arfanu.com/research-article/[folder]/[figure-2].png` | [ ] |
 
 ### Required Information
 | Item | Value | Status |
@@ -506,21 +505,18 @@ Please confirm you have these files ready:
 | Paper URL (DOI preferred) | `https://doi.org/...` | [ ] |
 | Code/Data repository URL | (if available) | [ ] |
 
-**Image usage in MDX:**
+**Image usage in MDX (remote URLs):**
 
-// Content figures (imported from local directory)
-import taxonomyImg from "./taxonomy.png";
-import workflowImg from "./workflow.png";
-
+// No local imports needed - use remote URLs directly
 <Image
-  src={workflowImg}
+  src="https://assets.arfanu.com/research-article/[folder]/workflow.png"
   alt="Descriptive alt text"
   width={800}
   height={450}
   className="w-[70%] rounded-lg mx-auto my-6"
 />
 
-// OG image is referenced via URL in metadata.openGraph.images
+// OG image is referenced via remote URL in metadata.openGraph.images
 ```
 
 ## Quick Reference
@@ -557,14 +553,13 @@ mv output-name-1.png output-name.png
 
 ## OG Image Requirements
 
-**CRITICAL**: OG image must be placed in `/web2.0/public/blog/[slug]/og-image.png`
+**CRITICAL**: OG image must be uploaded to the remote assets server.
 
 | Property | Requirement |
 |----------|-------------|
 | Dimensions | 1200x630 pixels (1.91:1 ratio) |
 | Format | PNG or JPG |
-| Location | `/web2.0/public/blog/[slug]/og-image.png` |
-| URL in metadata | `https://arfanu.com/blog/[slug]/og-image.png` |
+| Remote URL | `https://assets.arfanu.com/research-article/[folder]/og-image.png` |
 
 The OG image URL is used in:
 - `metadata.openGraph.images[0].url`
@@ -629,3 +624,58 @@ pdftotext -f 10 -l 15 -layout paper.pdf results.txt
 # Extract last 3 pages (conclusion)
 pdftotext -l 3 -layout paper.pdf conclusion.txt  # -l alone gets last N pages
 ```
+
+## Timeline Update Reminder (REQUIRED)
+
+**CRITICAL**: After creating a research blog post, you MUST update the timeline entry in `/web2.0/data/timeline.ts`.
+
+### Workflow
+
+1. **Check if timeline entry exists** for this publication:
+   ```bash
+   grep -i "[paper-title-or-venue]" /Users/rfnmac/projects/arfan/web2.0/data/timeline.ts
+   ```
+
+2. **If entry EXISTS**: Update it to add the blog URL
+   - Add or update the `url` field to point to the new blog post
+
+3. **If entry does NOT exist**: Create a new timeline entry
+
+### Timeline Entry Format
+
+```typescript
+{
+  id: "publication-[venue-abbrev][year]",
+  date: "YYYY-MM-DD",  // Publication date
+  title: "[Publication Type] at [Venue]",
+  description: "[Brief description of the research]. Extended version published in [Journal/Conference details].",
+  icon: "Research",
+  color: "pink",
+  tags: ["Conference", "Microservices", "Machine Learning", ...],
+  url: "/blog/[slug]"  // Link to the new blog post
+}
+```
+
+### Example Timeline Entry
+
+```typescript
+{
+  id: "publication-jss2024",
+  date: "2024-06-15",
+  title: "Journal Publication in JSS",
+  description: "AI-powered log analysis for microservices debugging. Extended version published in Journal of Systems and Software.",
+  icon: "Research",
+  color: "pink",
+  tags: ["Journal", "Microservices", "Machine Learning", "Log Analysis"],
+  url: "/blog/ai-microservice-log-analysis"
+}
+```
+
+### Checklist
+
+After writing the blog post, confirm:
+
+- [ ] Checked if timeline entry exists for this publication
+- [ ] Updated existing entry with blog URL OR created new entry
+- [ ] Verified `url` field points to correct blog slug
+- [ ] Tags are relevant and consistent with other entries
