@@ -214,5 +214,15 @@ export const timelineItems: TimelineItem[] = [
     color: "yellow",
     tags: ["Hackathon", "HackAZ", "Workshops", "Leadership", "Organizer"],
     url: "/blog/hackaz-2025"
+  },
+  {
+    id: "startup-wildcats-connecto-2025",
+    date: "2025-04-15",
+    title: "Won $500 Milestone Funding from Startup Wildcats",
+    description: "Pitched Connecto, a real-time event networking app, at Startup Night and won $500 milestone funding from Startup Wildcats / Tech Launch Arizona.",
+    icon: "Leadership",
+    color: "green",
+    tags: ["Startup", "Connecto", "Funding", "Entrepreneurship", "Pitch"],
+    url: "/blog/startup-wildcats-connecto-funding"
   }
 ];

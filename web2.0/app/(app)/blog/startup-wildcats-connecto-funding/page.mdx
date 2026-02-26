@@ -1,0 +1,204 @@
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+
+export const metadata = {
+	title: "From Pitch to Funding: How Connecto Won $500 at Startup Night",
+	description: "The story of pitching Connecto at Startup Wildcats' Startup Night and winning $500 in milestone funding—from nervous preparation to the moment of validation.",
+	date: "2025-04-15",
+	author: "Arfan",
+	tags: ["startup", "connecto", "entrepreneurship", "funding", "startup-wildcats", "university-of-arizona", "pitch"],
+	alternates: {
+		canonical: "/blog/startup-wildcats-connecto-funding",
+	},
+	openGraph: {
+		type: 'article',
+		title: "From Pitch to Funding: How Connecto Won $500 at Startup Night",
+		description: "The story of pitching Connecto at Startup Wildcats' Startup Night and winning $500 in milestone funding.",
+		url: 'https://arfanu.com/blog/startup-wildcats-connecto-funding',
+		siteName: 'Arfan Uddin',
+		images: [{
+			url: 'https://assets.arfanu.com/blogs/startup-wildcats/og-image.jpeg',
+			width: 1200,
+			height: 630,
+			alt: 'Arfan pitching Connecto at Startup Night',
+		}],
+		publishedTime: '2025-04-15',
+		authors: ['Arfan Uddin'],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: "From Pitch to Funding: How Connecto Won $500 at Startup Night",
+		description: "The story of pitching Connecto at Startup Wildcats' Startup Night and winning $500 in milestone funding.",
+		images: ['https://assets.arfanu.com/blogs/startup-wildcats/og-image.jpeg'],
+	},
+};
+
+export const StyledLink = ({ href, children }) => {
+	const isExternal = href.startsWith('http');
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"relative inline-block text-primary",
+				"after:absolute after:bottom-0 after:left-0 after:w-full",
+				"after:h-[2px] after:bg-primary after:origin-bottom-right",
+				"after:scale-x-0 hover:after:scale-x-100 after:transition-transform",
+				"after:duration-300 after:ease-out"
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const jsonLdData = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": metadata.title,
+	"description": metadata.description,
+	"image": ["https://assets.arfanu.com/blogs/startup-wildcats/og-image.jpeg"],
+	"url": metadata.alternates.canonical,
+	"datePublished": metadata.date,
+	"dateModified": metadata.date,
+	"author": {
+		"@type": "Person",
+		"name": metadata.author,
+		"url": "https://arfanu.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Arfan's Blog",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://arfanu.com/assets/arfan.svg"
+		}
+	},
+	"keywords": metadata.tags.join(", "),
+	"articleBody": "The story of pitching Connecto at Startup Wildcats' Startup Night and winning $500 in milestone funding. From the nervousness of stepping on stage to the validation of receiving funding for an idea I believe in.",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": metadata.alternates.canonical
+	},
+	"isAccessibleForFree": "True",
+	"inLanguage": "en-US",
+	"articleSection": "Blog",
+	"wordCount": "1200"
+};
+
+<JsonLd data={jsonLdData} />
+
+# From Pitch to Funding: How Connecto Won $500 at Startup Night
+
+The room was buzzing with energy. Student founders, mentors, and investors filled the space, all gathered for **Startup Night**—the final showcase of the Spring 2025 semester hosted by <StyledLink href="https://startupwildcats.com">Startup Wildcats</StyledLink>. I stood near the stage, rehearsing my pitch one last time in my head, palms slightly sweaty, heart beating just a bit faster than usual.
+
+This was the moment I'd been working toward.
+
+<Image
+	src="https://assets.arfanu.com/blogs/startup-wildcats/og-image.jpeg"
+	alt="Arfan pitching Connecto on stage at Startup Night"
+	width={600}
+	height={300}
+	className="w-[70%] rounded-lg mx-auto object-cover"
+/>
+
+<div className="flex justify-center">
+	<div className="leading-snug mt-2 text-sm">
+		On stage, pitching Connecto to the crowd at Startup Night.
+	</div>
+</div>
+
+## The Problem I Set Out to Solve
+
+It started with a familiar frustration. I'd been to countless conferences, meetups, and networking events. Each time, the same awkward dance: scanning the room, hoping to spot someone you recognize, shuffling around with a name tag, trying to figure out who to approach and what to say.
+
+Networking shouldn't feel like guesswork.
+
+That frustration became the seed for **Connecto**—a real-time event networking app designed to make in-person connections actually happen. The idea was simple: what if you could see who else was at an event, what they're working on, and have a natural conversation starter before you even walked up to them?
+
+No more wandering. No more awkward cold approaches. Just genuine connections, powered by technology that gets out of the way.
+
+## Preparing for the Pitch
+
+Getting to Startup Night wasn't just about having an idea. It was about refining it, stress-testing it, and learning to tell its story in a way that resonated.
+
+**<StyledLink href="https://startupwildcats.com">Startup Wildcats</StyledLink>**, part of <StyledLink href="https://techlauncharizona.com">Tech Launch Arizona</StyledLink>, provided exactly the environment I needed. Through their program, I connected with mentors who challenged my assumptions, received feedback that sharpened my pitch, and joined a community of student founders who understood the hustle.
+
+The milestone funding program was particularly motivating. It wasn't just about the money—$500 is meaningful, but what it represents matters more. Milestone funding is validation. It says: *we see what you're building, and we believe it's worth supporting.*
+
+In the weeks leading up to Startup Night, I practiced my pitch obsessively. In front of mirrors, to friends who would give honest feedback, during late nights when I should have been sleeping. I focused on three things:
+
+1. **The problem**—make it relatable and real
+2. **The solution**—keep it clear and compelling
+3. **The traction**—show that this isn't just an idea, it's actually being built
+
+## The Pitch Night Experience
+
+April 15, 2025. I arrived early, checking in at the venue and greeting familiar faces from the Startup Wildcats community. The energy was electric—a mix of nervous excitement and genuine support. We were all there cheering each other on, even as we competed for the same funding.
+
+When my name was called, I walked to the stage, took the microphone, and looked out at the audience. Time seemed to slow down for just a moment. Then I began.
+
+I talked about the problem—how we've all felt lost at networking events, how much potential goes unrealized when people don't connect. I demonstrated Connecto's GPS-based check-in, showed how attendees can discover who's nearby, explained the multiple profile modes that let users control exactly how they present themselves.
+
+I emphasized privacy—no background tracking, user controls their visibility, professional networking that respects boundaries.
+
+And then I shared the traction: Connecto was already live. Not just a prototype, but a real app being used at **IEEE CISOSE 2025**.
+
+The audience leaned in. I could feel the energy shifting from polite attention to genuine interest.
+
+## The Moment of Truth
+
+After all the pitches were delivered, the judges deliberated. The wait felt eternal.
+
+Then the announcements began. Names were called—Natalie R., Cole Withers, Manglam Srivastav, Becca Sanders—all incredible student founders with amazing projects. Over **$5,000** was being distributed across five of us.
+
+And then: "**Connecto—Arfan Uddin.**"
+
+I walked up to receive the check, feeling a wave of validation wash over me. This wasn't just $500. This was a signal that what I was building mattered to people beyond just me.
+
+<Image
+	src="https://assets.arfanu.com/blogs/startup-wildcats/arfan-own-for-connecto.webp"
+	alt="Arfan holding the $500 milestone funding check for Connecto"
+	width={500}
+	height={280}
+	className="w-[60%] rounded-lg mx-auto object-cover"
+/>
+
+<div className="flex justify-center">
+	<div className="leading-snug mt-2 text-sm">
+		Holding the check—still processing that this was real.
+	</div>
+</div>
+
+<Image
+	src="https://assets.arfanu.com/blogs/startup-wildcats/award.webp"
+	alt="Close-up of the $500 milestone funding check from Startup Wildcats"
+	width={450}
+	height={220}
+	className="w-[50%] rounded-lg mx-auto mt-6 object-cover"
+/>
+
+<div className="flex justify-center">
+	<div className="leading-snug mt-2 text-sm">
+		$500 Milestone Funding from Startup Wildcats.
+	</div>
+</div>
+
+## What's Next for Connecto
+
+The funding is already being put to work. Connecto is live on both **iOS** and **Android**, and we're actively improving the experience based on real user feedback from events like IEEE CISOSE 2025.
+
+The roadmap includes enhanced conversation starters powered by shared interests, better event organizer tools, and expanded privacy controls. The goal remains the same: make networking at events feel natural, not awkward.
+
+If you're curious, you can try Connecto yourself at **<StyledLink href="https://getconnecto.app">getconnecto.app</StyledLink>**.
+
+## For Other Student Founders
+
+If you're a student with an idea—whether it's a fully functioning app or just a spark of an insight—I can't recommend **<StyledLink href="https://startupwildcats.com">Startup Wildcats</StyledLink>** enough. The mentorship, the community, the opportunity to pitch and receive funding—it all adds up to something genuinely valuable.
+
+You don't need to have everything figured out. You just need to start.
+
+**Thank you** to Startup Wildcats, Tech Launch Arizona, and everyone who believed in Connecto. This milestone is just the beginning.
