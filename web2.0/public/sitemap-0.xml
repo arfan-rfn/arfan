@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://arfanu.com/blog/about-me</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/blog/ai-microservice-log-analysis-slr</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/blog/graph-based-llm-microservice-testing</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/blog/hackaz-2025</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/blog/microservice-dependencies-taxonomy</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/blog</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/privacy-policy</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/terms-conditions</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/llms-full.txt</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://arfanu.com/rss.xml</loc><lastmod>2026-01-21T07:30:06.611Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/about-me</loc><lastmod>2026-02-26T20:54:55.060Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/ai-microservice-log-analysis-slr</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/graph-based-llm-microservice-testing</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/hackaz-2025</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/microservice-dependencies-maintainability</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/microservice-dependencies-taxonomy</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/privacy-policy</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/terms-conditions</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/llms-full.txt</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/rss.xml</loc><lastmod>2026-02-26T20:54:55.061Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

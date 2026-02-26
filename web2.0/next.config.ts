@@ -11,6 +11,7 @@ const nextConfig = {
     remotePatterns: [
       { hostname: "*.amazonaws.com" },
       { hostname: "arfanu.com" },
+      { hostname: "assets.arfanu.com" },
     ],
   },
   experimental: {

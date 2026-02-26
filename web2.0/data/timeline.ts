@@ -46,10 +46,11 @@ const research: TimelineItem[] = [
     id: "publication-closer2024",
     date: "2024-04-01",
     title: "Conference Publication at CLOSER 2024",
-    description: "Co-authored a paper on dependency management and maintainability in microservices.",
+    description: "Co-authored a paper on dependency management and maintainability in microservices. Extended version published in Springer CCIS 2851.",
     icon: "Research",
     color: "pink",
-    tags: ["Conference", "Microservices", "CLOSER", "Publication"],
+    tags: ["Conference", "Microservices", "CLOSER", "Publication", "Dependencies"],
+    url: "/blog/microservice-dependencies-maintainability"
   },
   {
     id: "session-chair-cisose2025",
