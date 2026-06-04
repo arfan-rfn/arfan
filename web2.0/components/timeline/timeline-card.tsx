@@ -1,8 +1,8 @@
 import React from "react";
 import { TimelineItem } from "@/types/timeline";
-import { motion } from "framer-motion";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
+import { TornPaper, tiltFromString, washiTapeColor } from "@/components/ui/torn-paper";
 
 interface TimelineCardProps {
   item: TimelineItem;
@@ -55,61 +55,23 @@ const formatDateRange = (startDate: string, endDate?: string): string => {
   return `${formatDate(startDate)} - ${formatDate(endDate!)}`;
 };
 
-// Deterministic, gentle tilt per card so the timeline reads like scraps
-// casually taped into a journal rather than a rigid grid. Range ~[-2deg, +2deg].
-const tiltFor = (id: string): number => {
-  let h = 0;
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
-  return (h % 161) / 40 - 2;
-};
-
 export function TimelineCard({ item }: TimelineCardProps) {
   const dateRange = formatDateRange(item.date, item.endDate);
-  const tilt = tiltFor(item.id);
 
   // Tone the raw category color down so it harmonizes with the warm
   // parchment palette instead of shouting like a default web color.
   const accentSoft = `color-mix(in oklab, ${item.color} 16%, var(--card))`;
   const accentInk = `color-mix(in oklab, ${item.color} 55%, var(--foreground))`;
-  // Washi-tape color encodes the category. Pulled partly toward the olive
-  // primary so every tape reads as the same set of tape, not raw web colors,
-  // then made translucent for the tape look.
-  const tapeColor = `color-mix(in oklab, color-mix(in oklab, ${item.color} 88%, var(--primary)) 62%, transparent)`;
 
   const cardContent = (
-    <motion.div
-      className="group relative w-full max-w-2xl"
-      initial={false}
-      animate={{ rotate: tilt, y: 0 }}
-      whileHover={{ rotate: 0, y: -4 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    <TornPaper
+      className="w-full max-w-2xl"
+      contentClassName="px-5 py-7 sm:px-7"
+      tilt={tiltFromString(item.id)}
+      tapeColor={washiTapeColor(item.color)}
+      interactive
     >
-      {/* Torn paper backing: an SVG turbulence filter frays the edges, then a
-          drop-shadow (chained after) hugs the ragged silhouette. Kept behind
-          the text so the displacement never blurs the content. */}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, color-mix(in oklab, var(--card) 70%, white) 0%, color-mix(in oklab, var(--card) 88%, white) 18%, color-mix(in oklab, var(--card) 92%, white) 100%)",
-          filter:
-            "url(#torn-paper) drop-shadow(0 5px 5px rgba(60,42,20,0.18)) drop-shadow(0 1px 0 rgba(60,42,20,0.12))",
-        }}
-      />
-
-      {/* Washi tape pinning the scrap at the top */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-3 left-1/2 z-20 h-6 w-24 -translate-x-1/2 -rotate-3 rounded-[2px] sm:h-7 sm:w-28"
-        style={{
-          background: `repeating-linear-gradient(45deg, rgba(255,255,255,0.16) 0 5px, rgba(255,255,255,0) 5px 10px), ${tapeColor}`,
-          boxShadow:
-            "0 2px 4px rgba(60,42,20,0.28), inset 0 0 0 1px rgba(255,255,255,0.18)",
-        }}
-      />
-
-      <div className="relative z-10 px-5 py-7 sm:px-7">
+      <>
         {/* Stamp header: ticket-stub date on the left, stamp badge on the right */}
         <div className="flex items-center justify-between gap-3 mb-3">
           <span className="font-typewriter text-[11px] sm:text-xs uppercase tracking-[0.1em] text-muted-foreground">
@@ -146,8 +108,8 @@ export function TimelineCard({ item }: TimelineCardProps) {
             </div>
           </>
         )}
-      </div>
-    </motion.div>
+      </>
+    </TornPaper>
   );
 
   if (item.url) {

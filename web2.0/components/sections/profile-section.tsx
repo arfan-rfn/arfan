@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icons } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { birthstone } from "@/lib/fonts";
-import { buttonVariants } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 
 const navItems = [
   { label: "About", href: "/blog/about-me" },
@@ -15,16 +15,38 @@ export function ProfileSection() {
   return (
     <div className="flex flex-col h-full">
       <div className="flex flex-col items-center space-y-6 my-8">
-        {/* Profile Image */}
-        <div className="relative aspect-square w-full max-w-[300px] md:max-w-[400px] rounded-full overflow-hidden">
-          <Image
-            src="/assets/arfan.svg"
-            alt="Profile Picture"
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 300px, 400px"
+        {/* Profile Image — a sketched portrait taped into the journal as a polaroid */}
+        <div
+          className="relative -rotate-2 rounded-[3px] p-3 pb-10 w-full max-w-[300px] md:max-w-[380px]"
+          style={{
+            backgroundColor: "color-mix(in oklab, var(--card) 42%, white)",
+            boxShadow: "0 8px 22px rgba(60,42,20,0.30)",
+          }}
+        >
+          {/* Washi tape pinning the photo */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-4 left-1/2 z-20 h-8 w-32 -translate-x-1/2 -rotate-2 rounded-[2px]"
+            style={{
+              background:
+                "repeating-linear-gradient(45deg, rgba(255,255,255,0.16) 0 6px, rgba(255,255,255,0) 6px 12px), color-mix(in oklab, var(--primary) 52%, transparent)",
+              boxShadow:
+                "0 2px 5px rgba(60,42,20,0.28), inset 0 0 0 1px rgba(255,255,255,0.18)",
+            }}
           />
+          <div
+            className="relative aspect-square w-full overflow-hidden"
+            style={{ backgroundColor: "color-mix(in oklab, var(--card) 72%, white)" }}
+          >
+            <Image
+              src="/assets/arfan.svg"
+              alt="Arfan Uddin"
+              fill
+              className="object-contain p-1"
+              priority
+              sizes="(max-width: 768px) 300px, 380px"
+            />
+          </div>
         </div>
 
         {/* Name and Title */}
@@ -38,49 +60,46 @@ export function ProfileSection() {
           and stumbled into a Software Engineering PhD. Now shipping full-stack products with a mission to create real value in people’s lives.
         </p>
 
-        {/* Navigation Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 w-full max-w-sm mt-auto py-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-label={item.label}
-              title={item.label}
-              className={cn(
-                buttonVariants({ variant: "ghost", size: "sm" }),
-                "text-sm"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </div>
+        {/* Navigation — handwritten index, matching the journal language */}
+        <nav aria-label="Site" className="w-full pt-2">
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-6 gap-y-2">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-label={item.label}
+                  title={item.label}
+                  className="group/nav inline-flex items-center gap-1.5 text-sm sm:text-base text-foreground/80 transition-colors hover:text-primary"
+                >
+                  <span className="size-1 rotate-45 bg-primary/50 transition-colors group-hover/nav:bg-primary" />
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      {/* Social Links - Fixed to bottom */}
-      {/* <div className="mt-auto pt-6">
-        <div className="flex justify-center space-x-4">
-          {socialLinks.map((link) => {
-            const Icon = Icons[link.icon];
+        {/* Social links */}
+        <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 pt-1">
+          {siteConfig.socials.map(({ name, url, icon }) => {
+            const SocialIcon = Icons[icon as keyof typeof Icons];
+            if (!SocialIcon) return null;
             return (
               <Link
-                key={link.name}
-                href={link.url}
+                key={name}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  "text-muted-foreground hover:text-foreground transition-colors",
-                  "rounded-full p-2 hover:bg-muted"
-                )}
-                aria-label={link.name}
-                title={link.name}
+                aria-label={name}
+                title={name}
+                className="text-muted-foreground transition-colors hover:text-primary"
               >
-                <Icon className="h-5 w-5" />
+                <SocialIcon className="size-5" />
               </Link>
             );
           })}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

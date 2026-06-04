@@ -54,6 +54,10 @@ export const siteConfig = {
           url: "https://getconnecto.app",
         },
         {
+          name: "BDStudents",
+          url: "https://bdstudents.org",
+        },
+        {
           name: "Nextjs Template",
           url: "https://nextjs.arfanu.com",
         }

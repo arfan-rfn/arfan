@@ -10,7 +10,14 @@ import { birthstone } from '@/lib/fonts';
 
 export function Footer() {
 	return (
-		<footer className="relative bottom-0 bg-accent p-4 text-accent-foreground">
+		<footer className="relative bottom-0 bg-accent p-4 pt-10 text-accent-foreground">
+			{/* Torn top edge — the footer reads as a strip of paper laid at the base
+			    of the page. Only the top frays; the block stays a solid anchor. */}
+			<div
+				aria-hidden
+				className="pointer-events-none absolute inset-x-0 -top-3 h-7 bg-accent"
+				style={{ filter: "url(#torn-paper)" }}
+			/>
 			<div className="container mx-auto text-left">
 				<div className="flex flex-wrap justify-start">
 					<div className="w-full p-4 md:w-2/5">

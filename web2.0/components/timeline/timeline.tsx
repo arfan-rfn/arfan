@@ -26,28 +26,6 @@ export function Timeline({ items, className }: TimelineProps) {
 
   return (
     <div className={cn("relative flex w-full", className)}>
-      {/* Shared torn-paper edge filter, referenced by every TimelineCard's
-          paper backing. Rendered once to avoid duplicate filter ids. */}
-      <svg className="absolute size-0" aria-hidden focusable="false">
-        <defs>
-          <filter id="torn-paper" x="-8%" y="-12%" width="116%" height="124%">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.014 0.036"
-              numOctaves={4}
-              seed={7}
-              result="noise"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="noise"
-              scale={12}
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-        </defs>
-      </svg>
       {/* Vertical timeline line on the right */}
       <div className="absolute right-6 top-0 h-full w-1 bg-gradient-to-b from-primary/30 via-primary/60 to-primary/30 rounded-full" />
       <div className="flex flex-col w-full mr-16">
