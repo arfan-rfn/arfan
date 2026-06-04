@@ -71,6 +71,10 @@ export function TimelineCard({ item }: TimelineCardProps) {
   // parchment palette instead of shouting like a default web color.
   const accentSoft = `color-mix(in oklab, ${item.color} 16%, var(--card))`;
   const accentInk = `color-mix(in oklab, ${item.color} 55%, var(--foreground))`;
+  // Washi-tape color encodes the category. Pulled partly toward the olive
+  // primary so every tape reads as the same set of tape, not raw web colors,
+  // then made translucent for the tape look.
+  const tapeColor = `color-mix(in oklab, color-mix(in oklab, ${item.color} 88%, var(--primary)) 62%, transparent)`;
 
   const cardContent = (
     <motion.div
@@ -99,8 +103,7 @@ export function TimelineCard({ item }: TimelineCardProps) {
         aria-hidden
         className="pointer-events-none absolute -top-3 left-1/2 z-20 h-6 w-24 -translate-x-1/2 -rotate-3 rounded-[2px] sm:h-7 sm:w-28"
         style={{
-          background:
-            "repeating-linear-gradient(45deg, rgba(255,255,255,0.14) 0 5px, rgba(255,255,255,0) 5px 10px), color-mix(in oklab, var(--primary) 55%, transparent)",
+          background: `repeating-linear-gradient(45deg, rgba(255,255,255,0.16) 0 5px, rgba(255,255,255,0) 5px 10px), ${tapeColor}`,
           boxShadow:
             "0 2px 4px rgba(60,42,20,0.28), inset 0 0 0 1px rgba(255,255,255,0.18)",
         }}
@@ -109,11 +112,7 @@ export function TimelineCard({ item }: TimelineCardProps) {
       <div className="relative z-10 px-5 py-7 sm:px-7">
         {/* Stamp header: ticket-stub date on the left, stamp badge on the right */}
         <div className="flex items-center justify-between gap-3 mb-3">
-          <span className="font-typewriter inline-flex items-center gap-2 text-[11px] sm:text-xs uppercase tracking-[0.1em] text-muted-foreground">
-            <span
-              className="size-2 shrink-0 rounded-full ring-2 ring-card"
-              style={{ backgroundColor: accentInk }}
-            />
+          <span className="font-typewriter text-[11px] sm:text-xs uppercase tracking-[0.1em] text-muted-foreground">
             {dateRange}
           </span>
           <span
