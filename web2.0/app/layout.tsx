@@ -2,7 +2,7 @@ import "@/styles/globals.css"
 import { Metadata, Viewport } from "next"
 
 import { siteConfig } from "@/config/site"
-import { nunito, ptSans } from "@/lib/fonts"
+import { fraunces, newsreader, specialElite } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -48,8 +48,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased relative",
-            nunito.variable,
-            ptSans.variable
+            fraunces.variable,
+            newsreader.variable,
+            specialElite.variable
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>

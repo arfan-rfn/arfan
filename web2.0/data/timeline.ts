@@ -142,6 +142,16 @@ const education: TimelineItem[] = [
     url: "https://www.arizona.edu"
   },
   {
+    id: "ms-software-engineering-arizona",
+    date: "2026-05-15",
+    title: "MS in Software Engineering",
+    description: "Earned a Master of Science in Software Engineering at the University of Arizona as a milestone on the PhD path, anchored by published research on microservice log analysis, dependency taxonomies, and graph-based LLM API testing.",
+    icon: "Education",
+    color: "blue",
+    tags: ["MS", "Software Engineering", "University of Arizona"],
+    url: "/blog/ms-software-engineering-arizona"
+  },
+  {
     id: "mba-arizona",
     date: "2023-08-01",
     endDate: "2024-05-01",

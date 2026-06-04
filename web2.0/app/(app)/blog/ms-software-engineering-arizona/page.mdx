@@ -1,0 +1,157 @@
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+
+export const metadata = {
+	title: "Master's Complete: MS in Software Engineering at Arizona",
+	description: "I earned my MS in Software Engineering at the University of Arizona on the way to the PhD. A milestone worth pausing on: what it took, what it taught me, and what comes next.",
+	date: "2026-05-15",
+	author: "Arfan",
+	tags: ["MS", "Software Engineering", "University of Arizona", "PhD", "milestone", "research"],
+	alternates: {
+		canonical: "/blog/ms-software-engineering-arizona",
+	},
+	openGraph: {
+		type: 'article',
+		title: "Master's Complete: MS in Software Engineering at Arizona",
+		description: "I earned my MS in Software Engineering at the University of Arizona on the way to the PhD. A milestone worth pausing on: what it took, what it taught me, and what comes next.",
+		url: 'https://arfanu.com/blog/ms-software-engineering-arizona',
+		siteName: 'Arfan Uddin',
+		images: [{
+			url: 'https://assets.arfanu.com/blogs/ms-software-engineering-arizona/ms-graduation-stage.jpg',
+			width: 1200,
+			height: 630,
+			alt: 'Arfan Uddin, MS in Software Engineering, University of Arizona',
+		}],
+		publishedTime: '2026-05-15',
+		authors: ['Arfan Uddin'],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: "Master's Complete: MS in Software Engineering at Arizona",
+		description: "I earned my MS in Software Engineering at the University of Arizona on the way to the PhD.",
+		images: ['https://assets.arfanu.com/blogs/ms-software-engineering-arizona/ms-graduation-stage.jpg'],
+	},
+};
+
+export const StyledLink = ({ href, children }) => {
+	const isExternal = href.startsWith('http');
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"relative inline-block text-primary",
+				"after:absolute after:bottom-0 after:left-0 after:w-full",
+				"after:h-[2px] after:bg-primary after:origin-bottom-right",
+				"after:scale-x-0 hover:after:scale-x-100 after:transition-transform",
+				"after:duration-300 after:ease-out"
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const jsonLdData = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": metadata.title,
+	"description": metadata.description,
+	"image": ["https://assets.arfanu.com/blogs/ms-software-engineering-arizona/ms-graduation-stage.jpg"],
+	"url": metadata.alternates.canonical,
+	"datePublished": metadata.date,
+	"dateModified": metadata.date,
+	"author": {
+		"@type": "Person",
+		"name": metadata.author,
+		"url": "https://arfanu.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Arfan's Blog",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://arfanu.com/assets/arfan.svg"
+		}
+	},
+	"keywords": metadata.tags.join(", "),
+	"articleBody": "I earned my MS in Software Engineering at the University of Arizona, completed as a milestone on the way to my PhD. It marks the research foundation I built over the first stretch of doctoral work, including systematic reviews of microservice log analysis, a taxonomy of microservice dependencies, and graph-based LLM prompting for scalable API testing, along with the people who made it possible.",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": metadata.alternates.canonical
+	},
+	"isAccessibleForFree": "True",
+	"inLanguage": "en-US",
+	"articleSection": "Blog",
+	"wordCount": "950"
+};
+
+<JsonLd data={jsonLdData} />
+
+# Master's Complete: MS in Software Engineering at Arizona
+
+<Image
+	src="https://assets.arfanu.com/blogs/ms-software-engineering-arizona/ms-graduation-stage.jpg"
+	alt="Arfan Uddin on stage at the University of Arizona commencement, fireworks banner behind"
+	width={1200}
+	height={675}
+	className="w-full rounded-lg mx-auto"
+	priority
+/>
+
+It's official. I've earned my **Master of Science in Software Engineering** at the **<StyledLink href="https://www.arizona.edu">University of Arizona</StyledLink>**. 🎓
+
+I want to be honest about what this milestone is, because the honest version is the better story. I didn't set out to do a standalone master's. I came back to Arizona to do a **PhD in Software Engineering**, and the MS is the degree you earn along the way, the marker that the research foundation is in place and the doctoral work can really begin. So this isn't a finish line. It's a checkpoint. But it's one worth pausing on, because the road to it was anything but straight.
+
+<Image
+	src="https://assets.arfanu.com/blogs/ms-software-engineering-arizona/ms-graduation-portrait.jpg"
+	alt="Arfan Uddin in cap and gown on graduation day"
+	width={600}
+	height={900}
+	className="w-[65%] rounded-lg mx-auto"
+/>
+
+## The long way around
+
+If you've seen <StyledLink href="/">my timeline</StyledLink>, you know this wasn't a tidy path: a **CS bachelor's** here in 2020, a few years building software in industry, a year in an **MBA** at Eller before I changed course, and finally the **PhD program in 2024**. Every detour felt uncertain while I was in it.
+
+None of it was wasted. The years writing production code (APIs, the KMap migration, systems serving **50,000+ students worldwide for ICPC**) are exactly what make my research questions feel real instead of academic. I'm not studying microservices from the outside; I'm studying problems I've had to ship around at 2 a.m.
+
+## What the master's actually represents
+
+The coursework gets you the credits, but the part I'm proud of is the research foundation underneath the degree:
+
+- A first-authored **systematic literature review on AI techniques for microservice log analysis**, accepted in the *Journal of Systems and Software*, where we screened 2,208 papers down to 82 studies to map the field.
+- A co-authored **multivocal study on microservice dependencies**, also in *JSS*, synthesizing thousands of sources into a taxonomy of 28 dependency types.
+- And the work I'm most excited about: **graph-based LLM prompting for scalable microservice API testing**, which earned **1st runner-up in the Student Research Competition at IEEE CISOSE 2025**.
+
+Three years ago "publish in a top journal" was an abstract ambition. Getting the MS means those weren't flukes; they're the start of a research agenda I get to keep building on.
+
+<Image
+	src="https://assets.arfanu.com/blogs/ms-software-engineering-arizona/ms-graduation-engineering.jpg"
+	alt="Arfan Uddin crossing the stage at the University of Arizona College of Engineering commencement"
+	width={1200}
+	height={1500}
+	className="w-full rounded-lg mx-auto"
+/>
+
+## Building on the side
+
+The MS years weren't only research. I started two projects I care deeply about: **<StyledLink href="https://getconnecto.app">Connecto</StyledLink>**, a real-time networking app for making the right connections in the room before the moment passes, and **<StyledLink href="https://bdstudents.org">BDStudents</StyledLink>**, an effort to connect Bangladeshi students across the world so no one has to navigate a new country alone. Both came from problems I lived, and both keep me building outside the lab.
+
+## The people who got me here
+
+Most of all, to my **wife**: thank you for walking this whole road with me. The path was hard. We did it with a new baby, through missed weekends, late nights, and everything in between, and you carried more of it than anyone will ever see. This degree is as much yours as it is mine, and you deserve every bit of it.
+
+To my **advisor and lab**, thank you for the hard questions and for treating my industry instincts as an asset rather than something to unlearn. To my **collaborators** on every paper, who made the long review cycles bearable. And to the **faculty and family** who kept showing up through a couple of false starts, thank you.
+
+## What comes next
+
+The MS closes one chapter and opens the real one. The PhD is where the questions get harder, and I can't wait. The thread I'm pulling on, **making microservice systems more testable, observable, and maintainable, increasingly with LLMs in the loop**, is one I expect to spend years on.
+
+If there's one thing I'd tell anyone on a winding path of their own: the detours aren't the cost of the journey. Sometimes they're what makes the destination worth reaching.
+
+On to the next chapter. **Bear Down.** 🐾
