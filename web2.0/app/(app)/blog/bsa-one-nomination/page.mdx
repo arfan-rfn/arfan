@@ -1,0 +1,142 @@
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+
+export const metadata = {
+	title: "One Nomination",
+	description: "I took over a 150-member student organization that had received exactly one leadership nomination. Eight months later it had 39. Here is what actually happened in between, and the part nobody puts on a resume.",
+	date: "2026-04-20",
+	author: "Arfan",
+	tags: ["leadership", "community", "BSA", "institutional-memory", "university-of-arizona"],
+	alternates: {
+		canonical: "/blog/bsa-one-nomination",
+	},
+	openGraph: {
+		type: 'article',
+		title: "One Nomination",
+		description: "I took over a 150-member student organization that had received exactly one leadership nomination. Eight months later it had 39. Here is what actually happened in between.",
+		url: 'https://arfanu.com/blog/bsa-one-nomination',
+		siteName: 'Arfan Uddin',
+		images: [{
+			url: 'https://assets.arfanu.com/blogs/bsa-one-nomination/bsa-president-2026.webp',
+			width: 1200,
+			height: 630,
+			alt: 'Bangladeshi Student Association at the University of Arizona',
+		}],
+		publishedTime: '2026-04-20',
+		authors: ['Arfan Uddin'],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: "One Nomination",
+		description: "I took over a 150-member student organization that had received exactly one leadership nomination. Eight months later it had 39.",
+		images: ['https://assets.arfanu.com/blogs/bsa-one-nomination/bsa-president-2026.webp'],
+	},
+};
+
+export const StyledLink = ({ href, children }) => {
+	const isExternal = href.startsWith('http');
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"relative inline-block text-primary",
+				"after:absolute after:bottom-0 after:left-0 after:w-full",
+				"after:h-[2px] after:bg-primary after:origin-bottom-right",
+				"after:scale-x-0 hover:after:scale-x-100 after:transition-transform",
+				"after:duration-300 after:ease-out"
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const jsonLdData = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": metadata.title,
+	"description": metadata.description,
+	"image": ["https://assets.arfanu.com/blogs/bsa-one-nomination/bsa-president-2026.webp"],
+	"url": metadata.alternates.canonical,
+	"datePublished": metadata.date,
+	"dateModified": metadata.date,
+	"author": {
+		"@type": "Person",
+		"name": metadata.author,
+		"url": "https://arfanu.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Arfan's Blog",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://arfanu.com/assets/arfan.svg"
+		}
+	},
+	"keywords": metadata.tags.join(", "),
+	"articleBody": "When I took over the Bangladeshi Student Association at the University of Arizona, the organization had received exactly one nomination for its leadership election out of around 150 members. An organization where one person out of a hundred and fifty is willing to lead does not have a leadership problem—it has a belonging problem. Over eight months, four people ran the 150-member organization by reliably showing up: weekly events, tournaments, re-engaging alumni, and giving undergraduates ownership. By the end, the one nomination had become thirty-nine for thirteen roles. But a spike is not a system, and the real test is whether it survives the people who built it.",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": metadata.alternates.canonical
+	},
+	"isAccessibleForFree": "True",
+	"inLanguage": "en-US",
+	"articleSection": "Blog",
+	"wordCount": "1100"
+};
+
+<JsonLd data={jsonLdData} />
+
+# One Nomination
+
+When I took over the Bangladeshi Student Association at the University of Arizona, the organization had received exactly one nomination for its leadership election. The chapter had around 150 members.
+
+That one nomination was not mine. Someone else had put their name forward; I came in a different way. The community gathered at a meeting and selected me as interim president, because the alternative was an empty chair. I did not win the role. There was nothing to win. That is the honest version, and it matters, because it changes what the problem actually was.
+
+An organization where one person out of a hundred and fifty is willing to lead does not have a leadership problem. It has a belonging problem. People do not volunteer to run something they do not feel part of. The single nomination was not the disease. It was one symptom. A community that has to gather in a room and appoint someone because almost nobody will step forward on their own was the other.
+
+<Image
+	src="https://assets.arfanu.com/blogs/bsa-one-nomination/bsa-president-2026.webp"
+	alt="Bangladeshi Student Association at the University of Arizona"
+	width={1200}
+	height={630}
+	className="w-full rounded-lg mx-auto"
+/>
+
+## Four people and eight months
+
+The structure on paper had six leadership positions. We had four people. Those four ran a 150-member organization for eight months, which mostly meant doing the unglamorous things repeatedly and in public. We held events nearly every week. We ran tournaments, because nothing rebuilds a group of people who have drifted apart faster than putting them on opposing teams and letting them argue about the score afterward. We went back to the alumni who had quietly disengaged and gave them a reason to show up again. We made the undergraduates feel like the organization was theirs and not a thing run over their heads by graduate students.
+
+None of that is strategy. It is just attendance. You become the thing people can rely on by reliably being there, and there is no shortcut that skips the showing up. The metrics moved because the room stopped being empty, not the other way around.
+
+## What I would tell the next person
+
+A few things became clear that I did not expect going in.
+
+The first is that you should not compete with last year's committee. Every new leader inherits the instinct to out-do the people before them, and it is a trap. A previous team optimized for their own constraints and their own strengths, and trying to beat them on their terms means you are tuning yourself against someone else's local maximum instead of finding your own. You will lose, and worse, you will spend your energy on the wrong axis. Run your organization on what you are actually good at.
+
+The second is counterintuitive and I got it wrong before I got it right. When a community has sub-groups inside it, the temptation is to pull a representative from each one into central leadership, on the theory that this unifies everyone. It does the opposite. You do not unify a community by extracting its parts into a committee. You aggregate the sub-groups by giving them room to exist and connecting them, not by dissolving them into a leadership table where they stop being themselves. Expanding our leadership from six roles to thirteen was about giving more of the community real representation, not about manufacturing seats — but the principle underneath it was that representation works when groups stay intact, not when they get absorbed.
+
+The third is the one I still think about, and it is an engineering problem disguised as a community one.
+
+## The org had no version control
+
+Everything I learned about running a cultural night, a picnic, the annual events, the funding requests — all of it lived in someone's head. There was no record. Each leadership team rediscovered the same problems from scratch every year, made the same mistakes, and then graduated and took the solutions with them. As a software engineer this was physically uncomfortable to watch. It is an organization with no version control, no commit history, no documentation, restarting from a blank file every twelve months and wondering why it never compounds.
+
+So before I left I did two things. I documented the operational knowledge — how things actually get done, where they break, what the funding process really looks like underneath the official description. And I created a dedicated role on the board whose entire job is to keep that documentation alive, because a document nobody owns is a document that rots.
+
+This is the part I am least certain about, and I want to be honest that it is unfinished. Writing things down once is not the same as building a system that survives the people who built it.
+
+## The numbers, and the caveat
+
+By the end of the eight months, the one nomination had become thirty-nine, for thirteen roles, and the organization had thirteen elected officials where it had recently had four exhausted volunteers. Those are real and I am proud of them.
+
+But a spike is not a system. The honest test of any of this is not what the participation looked like the month I left. It is what it looks like two and three years from now, after the people who remember me are also gone. If it snaps back to one nomination, then what I built was a personality, not an institution, and the documentation was the only part that actually mattered.
+
+I do not get to know that yet. You do not get to call a turnaround a success until it survives you, and mine has not had the chance to be tested. I wrote a letter to whoever runs this next. Most of it was not about what we achieved. It was about the parts that are still load-bearing and easy to break.
+
+That felt like the right thing to leave behind. Not a record of what we did, but an honest map of where the floor is thin.

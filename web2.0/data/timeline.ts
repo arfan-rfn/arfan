@@ -178,7 +178,7 @@ export const timelineItems: TimelineItem[] = [
     id: "ta-leader",
     date: "2019-01-01",
     endDate: "2020-05-01",
-    title: "Section Leader, Department of Computer Science, UArizona",
+    title: "Section Leader, Department of Computer Science, University of Arizona",
     description: "Led TA sections for CSc 210 and 252, evaluated assignments, and held office hours.",
     icon: "Leadership",
     color: "teal",
@@ -188,7 +188,7 @@ export const timelineItems: TimelineItem[] = [
     id: "cs-mentor",
     date: "2018-01-01",
     endDate: "2019-05-01",
-    title: "Mentor, Department of Computer Science, UArizona",
+    title: "Mentor, Department of Computer Science, University of Arizona",
     description: "Led Raspberry Pi workshops and mentored freshmen on academic/career success strategies.",
     icon: "Leadership",
     color: "purple",
@@ -224,5 +224,15 @@ export const timelineItems: TimelineItem[] = [
     color: "green",
     tags: ["Startup", "Connecto", "Funding", "Entrepreneurship", "Pitch"],
     url: "/blog/startup-wildcats-connecto-funding"
+  },
+  {
+    id: "bsa-president-2026",
+    date: "2026-04-18",
+    title: "President, Bangladeshi Student Association, University of Arizona",
+    description: "Stepped in as interim president of a 150-member organization that had drawn just one leadership nomination. Over eight months, a team of four rebuilt belonging through weekly events and tournaments, expanded leadership from 6 roles to 13, and documented institutional knowledge to outlast its founders. Nominations grew from 1 to 39 by election day.",
+    icon: "Leadership",
+    color: "orange",
+    tags: ["Leadership", "Community", "BSA", "Institutional Memory", "University of Arizona"],
+    url: "/blog/bsa-one-nomination"
   }
 ];
