@@ -1,0 +1,174 @@
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+
+export const metadata = {
+	title: "Where It Started: My B.S. in Computer Science at Arizona",
+	description: "In 2020 I graduated from the University of Arizona with a B.S. in Computer Science, and the U.S. Embassy in Dhaka featured my story. A look back at the teaching, mentoring, and first builds that started it all.",
+	date: "2020-05-15",
+	author: "Arfan",
+	tags: ["Bachelor", "Computer Science", "University of Arizona", "Dean's List", "US Embassy", "milestone", "teaching"],
+	alternates: {
+		canonical: "/blog/bsc-cs-uarizona",
+	},
+	openGraph: {
+		type: 'article',
+		title: "Where It Started: My B.S. in Computer Science at Arizona",
+		description: "In 2020 I graduated from the University of Arizona with a B.S. in Computer Science, and the U.S. Embassy in Dhaka featured my story.",
+		url: 'https://arfanu.com/blog/bsc-cs-uarizona',
+		siteName: 'Arfan Uddin',
+		images: [{
+			url: 'https://assets.arfanu.com/blogs/bsc-cs-uarizona/Arfan-Uddin-bsc-Celebration.jpg',
+			width: 1280,
+			height: 720,
+			alt: 'Md Arfan Uddin, Bachelor of Science in Computer Science, University of Arizona graduation recognition',
+		}],
+		publishedTime: '2020-05-15',
+		authors: ['Arfan Uddin'],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: "Where It Started: My B.S. in Computer Science at Arizona",
+		description: "In 2020 I graduated from the University of Arizona with a B.S. in Computer Science, and the U.S. Embassy in Dhaka featured my story.",
+		images: ['https://assets.arfanu.com/blogs/bsc-cs-uarizona/Arfan-Uddin-bsc-Celebration.jpg'],
+	},
+};
+
+export const StyledLink = ({ href, children }) => {
+	const isExternal = href.startsWith('http');
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"relative inline-block text-primary",
+				"after:absolute after:bottom-0 after:left-0 after:w-full",
+				"after:h-[2px] after:bg-primary after:origin-bottom-right",
+				"after:scale-x-0 hover:after:scale-x-100 after:transition-transform",
+				"after:duration-300 after:ease-out"
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const jsonLdData = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": metadata.title,
+	"description": metadata.description,
+	"image": ["https://assets.arfanu.com/blogs/bsc-cs-uarizona/Arfan-Uddin-bsc-Celebration.jpg"],
+	"url": metadata.alternates.canonical,
+	"datePublished": metadata.date,
+	"dateModified": metadata.date,
+	"author": {
+		"@type": "Person",
+		"name": metadata.author,
+		"url": "https://arfanu.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Arfan's Blog",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://arfanu.com/assets/arfan.svg"
+		}
+	},
+	"keywords": metadata.tags.join(", "),
+	"articleBody": "In May 2020 I graduated from the University of Arizona with a Bachelor of Science in Computer Science. During my undergraduate years I worked as an Undergraduate Teaching Assistant and Section Leader in the Department of Computer Science, mentored students for three semesters, made the Dean's List with Distinction in 2018, interned at Hexagon Mining, and started building software professionally. The U.S. Embassy in Dhaka featured my graduation as part of its #BDUSGrads2020 series celebrating Bangladeshi students graduating from U.S. universities.",
+	"about": {
+		"@type": "EducationalOccupationalCredential",
+		"credentialCategory": "Bachelor's Degree",
+		"educationalLevel": "Undergraduate",
+		"about": "Computer Science",
+		"recognizedBy": {
+			"@type": "CollegeOrUniversity",
+			"name": "University of Arizona",
+			"url": "https://www.arizona.edu"
+		}
+	},
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": metadata.alternates.canonical
+	},
+	"isAccessibleForFree": "True",
+	"inLanguage": "en-US",
+	"articleSection": "Blog",
+	"wordCount": "1050"
+};
+
+<JsonLd data={jsonLdData} />
+
+# Where It Started: My B.S. in Computer Science at Arizona
+
+<Image
+	src="https://assets.arfanu.com/blogs/bsc-cs-uarizona/Arfan-Uddin-bsc-Celebration.jpg"
+	alt="University of Arizona graduation recognition for Md Arfan Uddin, Bachelor of Science in Computer Science, with a dedication to his parents"
+	width={1280}
+	height={720}
+	className="w-full rounded-lg mx-auto"
+	priority
+/>
+
+<p className="text-sm text-muted-foreground text-center -mt-4">
+	The University of Arizona's graduation recognition, where I dedicated my degree to my two superheroes: my parents.
+</p>
+
+Every road I've been on since, the research, the startups, the late-night debugging, traces back to one beginning: in May 2020 I graduated from the **<StyledLink href="https://www.arizona.edu">University of Arizona</StyledLink>** with a **Bachelor of Science in Computer Science**. 🎓
+
+It's easy to skip past the bachelor's degree once the fancier titles arrive. But the truth is that everything I value about how I work, teaching, building, showing up for the people around me, was forged in those undergrad years. So this is the post I should have written a long time ago.
+
+## A graduation that traveled home
+
+A few weeks after commencement, something happened that I still find hard to put into words. The **U.S. Embassy in Dhaka** featured my graduation on its official social media as part of its **#BDUSGrads2020** series, celebrating Bangladeshi students who graduated from U.S. universities that year.
+
+<div className="relative w-full max-w-[476px] mx-auto my-8 aspect-[476/591]">
+<iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fbangladesh.usembassy%2Fvideos%2F1407538476098782%2F&show_text=true&width=476" className="absolute inset-0 h-full w-full rounded-lg border-0 overflow-hidden" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="U.S. Embassy Dhaka feature congratulating Md Arfan Uddin" />
+</div>
+
+> "Join us in congratulating Md Arfan Uddin!! 👏 He graduated from The University of Arizona with a Bachelor of Science in Computer Science. During his time at #UofA, Arfan served as an Undergraduate Teaching Assistant and as a mentor in the Department of Computer Science... for three semesters, and all while making the Dean's List with Distinction in 2018. Way to go Arfan!! As they say at The University of Arizona, #BearDown!"
+>
+> — **U.S. Embassy in Dhaka**
+
+For a kid who grew up in Bangladesh and crossed the world to study, having my home country's U.S. Embassy say *we see you* was surreal. It reframed the degree for me. It wasn't just my milestone, it was a small marker that the bet my family made on me had paid off.
+
+<p className="text-sm text-muted-foreground text-center -mt-4">
+	Can't see the video? <StyledLink href="https://www.facebook.com/bangladesh.usembassy/videos/1407538476098782/">Watch it on Facebook</StyledLink> or view the <StyledLink href="https://assets.arfanu.com/blogs/bsc-cs-uarizona/us-embassy-fb-preview.png">archived screenshot</StyledLink>.
+</p>
+
+## Dean's List with Distinction
+
+In **2018** I made the **Dean's List with Distinction**. I mention it not as a trophy, but because of what it represented: I had finally found the rhythm of college far from home, in a second language, while working on the side. The grades were the easy part to measure. The harder, better part was realizing I could carry a heavy load and still do it well.
+
+## Teaching is how I actually learned
+
+The thing the embassy caption got exactly right is that my undergrad years were as much about teaching as about taking classes.
+
+I served as an **Undergraduate Teaching Assistant and Section Leader** in the Department of Computer Science. I TA'd **CSc 252** and led a recitation section of **37 students** for **CSc 210**, two hours a week, plus office hours, grading assignments, quizzes, and exams. Separately, I spent three semesters as a **departmental mentor**, running a **Raspberry Pi workshop** to get students excited about hardware and helping freshmen find their footing both academically and in their careers.
+
+Standing in front of a room and explaining pointers, recursion, or why their code segfaulted taught me something no exam could: if you can't explain it simply, you don't understand it yet. That instinct, to break hard systems down until they're teachable, is the same instinct that drives my research today.
+
+## Building before I knew it was a career
+
+I didn't wait for graduation to start shipping. Two experiences stand out.
+
+I interned at **Hexagon Mining** as a Software Development Intern, where I rewrote the serializer for their MinePlane Schedule Optimizer (MPSO) in **C# and Json.net**. The rewrite ran roughly **2x faster** and used **2-3x less memory** on our benchmarks, my first real lesson that the way you model data is the performance.
+
+By my final semester I had joined **Hamilton Innovations** as a Full Stack Software Engineer, building frontends in **Flutter and React**, APIs in **Node.js (TypeScript)** with **JEST** tests, and designing schemas in **PostgreSQL and MySQL**. It was the first time I owned features end to end, from database table to UI.
+
+## Giving back to the community that raised me
+
+Alongside all of it, I kept showing up for **<StyledLink href="/blog/hackaz-2025">Hack Arizona</StyledLink>**, our student hackathon. I ran workshops on **Android development with Dart and Flutter**, and helped find sponsors and organize beginner-friendly sessions so first-timers had a way in. Some of the people I mentored at those events went on to build things far bigger than mine. That's the whole point.
+
+## What the degree set in motion
+
+Looking back, the bachelor's wasn't a finish line, it was the launchpad. The teaching became a lifelong habit. The internships became a craft. The community work became **<StyledLink href="https://bdstudents.org">BDStudents</StyledLink>** and **<StyledLink href="https://getconnecto.app">Connecto</StyledLink>** years later. And the research instinct that started with explaining code to 37 students eventually became published work and a PhD.
+
+If you've <StyledLink href="/">followed the rest of my timeline</StyledLink>, you know the path after this got winding, industry, an MBA detour, and finally back to Arizona for the PhD. But it all rests on this foundation.
+
+To my **family**, who sent me across the world and believed before there was any proof: this one was always for you. And to the University of Arizona, thank you for the start.
+
+**Bear Down.** 🐾

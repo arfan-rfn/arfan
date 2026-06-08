@@ -167,11 +167,11 @@ const education: TimelineItem[] = [
     date: "2016-01-01",
     endDate: "2020-05-01",
     title: "Bachelor of Science in Computer Science",
-    description: "Graduated from the University of Arizona with a Bachelor of Science in Computer Science.",
+    description: "Graduated from the University of Arizona with a Bachelor of Science in Computer Science. Made the Dean's List with Distinction, served as an Undergraduate TA and departmental mentor, and was featured by the U.S. Embassy in Dhaka as part of its #BDUSGrads2020 series.",
     icon: "Education",
     color: "blue",
-    tags: ["Bachelor", "Computer Science", "University of Arizona"],
-    url: "https://www.arizona.edu"
+    tags: ["Bachelor", "Computer Science", "University of Arizona", "Dean's List", "US Embassy"],
+    url: "/blog/bsc-cs-uarizona"
   }
 ].map(item => ({
   ...item,
