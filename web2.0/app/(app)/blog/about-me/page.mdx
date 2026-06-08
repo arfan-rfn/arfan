@@ -5,7 +5,7 @@ export const metadata = {
   description: "A quick introduction to my work, interests, and what you'll find on this site.",
   date: "2025-05-05",
   author: "Arfan",
-  tags: ["introduction", "software-engineering", "phd", "startup"],
+  tags: ["introduction", "software-engineering", "phd", "startup", "community"],
   alternates: {
     canonical: "/blog/about-me",
   },
@@ -49,7 +49,8 @@ export const jsonLdData = {
   "sameAs": [
     "https://www.linkedin.com/in/rfn/",
     "https://github.com/arfan-rfn",
-    "https://getconnecto.app"
+    "https://getconnecto.app",
+    "https://bdstudents.org"
   ],
   "affiliation": {
     "@type": "Organization",
@@ -71,6 +72,15 @@ export const jsonLdData = {
         "@type": "Person",
         "name": "Md Arfan Uddin"
       }
+    },
+    {
+      "@type": "Organization",
+      "name": "BDStudents",
+      "url": "https://bdstudents.org",
+      "founder": {
+        "@type": "Person",
+        "name": "Md Arfan Uddin"
+      }
     }
   ],
   "knowsAbout": [
@@ -86,7 +96,7 @@ export const jsonLdData = {
     "@type": "WebPage",
     "@id": metadata.alternates.canonical,
     "datePublished": metadata.date,
-    "dateModified": metadata.date,
+    "dateModified": "2026-06-08",
     "author": {
       "@type": "Person",
       "name": metadata.author
@@ -106,7 +116,8 @@ export const jsonLdData = {
   },
   "award": [
     "Graduate Assistantship in Software Engineering",
-    "Startup Milestone Funding from Startup Wildcats"
+    "Startup Milestone Funding from Startup Wildcats",
+    "1st Runner-Up, IEEE CISOSE Student Research Competition 2025"
   ],
   "hasOccupation": {
     "@type": "Occupation",
@@ -131,11 +142,13 @@ Hey there! I'm **Md Arfan Uddin**, and I'm excited you've found your way here.
 
 I'm currently a **Ph.D. student in Software Engineering** at the University of Arizona. My research lies at the intersection of **AI and microservices**, focusing on using **Large Language Models (LLMs)** to improve **Root Cause Analysis (RCA)** in distributed systems. Imagine systems that can automatically analyze logs and traces to tell you what went wrong and how to fix it—this is the future I'm building toward.
 
+This isn't just theory for me. My work has been **published in the _Journal of Systems and Software_ and presented at IEEE conferences** (SOSE, CLOSER), and I was honored as **1st runner-up at the IEEE CISOSE Student Research Competition 2025**. If you're curious, I unpack several of these papers in plain language [elsewhere on this blog](/blog).
+
 But my journey didn't start in research labs.
 
 ### From Code to Cloud to Research
 
-With over **4 years of professional experience** as a full-stack and mobile developer, I've worked across multiple domains—from research platforms to real-time apps. I led engineering for **KMap**, a campus-wide research visualization tool, and co-created **ScholarPaw**, a scholarship management platform. I've always been passionate about building systems that don't just work—but scale, evolve, and empower.
+With over **4 years of professional experience** as a full-stack and mobile developer, I've worked across multiple domains—from research platforms to real-time apps. I led engineering for **KMap**, a campus-wide research visualization tool, where migrating the platform to **Next.js drove a 6x jump in click-through rate**. Today I build full-stack systems for the **International Collegiate Programming Contest (ICPC)**, supporting **50,000+ participants worldwide**, and earlier I co-created **ScholarPaw**, a scholarship management platform. I've always been passionate about building systems that don't just work—but scale, evolve, and empower.
 
 Along the way, I've adopted tools like **Next.js**, **Spring Boot**, **Kafka**, **Redis**, and **Supabase**, and embraced principles of DevSecOps, microservice architecture, and automation. These experiences have deeply shaped how I approach both system design and research.
 
@@ -144,6 +157,16 @@ Along the way, I've adopted tools like **Next.js**, **Spring Boot**, **Kafka**, 
 In 2024, I founded [**Connecto**](https://getconnecto.app)—a real-time networking app built to solve a common but overlooked problem: people attending the same event often miss opportunities to meet others around them.
 
 Connecto helps users **find and connect with people nearby at events, meetups, or even coffee shops**—all in real time. Whether you're looking to expand your network, meet fellow attendees, or simply find someone with shared interests, Connecto makes that happen effortlessly. It's a startup born out of personal frustration, refined by user feedback, and built for human connection in physical spaces.
+
+The traction has been encouraging: Connecto was selected as the **official check-in and identity platform for Hack Arizona 2026**, was used at **IEEE CISOSE 2025**, and earned **Startup Wildcats milestone funding**.
+
+### BDStudents: Connecting Bangladeshi Students Worldwide
+
+I'm also the **founder and president** of [**BDStudents**](https://bdstudents.org)—a global community platform on a mission to connect the **Bangladeshi student diaspora**. Studying far from home can be isolating, and finding your people on an unfamiliar campus is harder than it should be.
+
+BDStudents bridges that gap. It has already reached **106 institutions across 71 cities and 17 countries**, giving students a place to **find their campus chapter, discover student clubs, share through a social feed, and learn from one another**. Under the hood, it's a multi-tenant platform with role-based access for university chapters and clubs, and a two-layer organization model—ambassadors, club leaders, and moderators—so the community can govern itself at scale. It grew out of my own experience as an international student, and a belief that no one should have to navigate that journey alone.
+
+That same instinct shows up offline, too: I served as **interim president of the Bangladeshi Student Association at the University of Arizona**, where a small team helped rebuild a demoralized 150-member chapter and grow election participation from a single nomination to 39.
 
 ### Why This Blog Exists
 
@@ -157,6 +180,6 @@ This blog is a journal of my journey—part research log, part builder's noteboo
 
 ### Let's Connect
 
-If you're a fellow researcher, engineer, builder, or just someone curious—I'd love to connect. You can find me on [LinkedIn](https://www.linkedin.com/in/rfn/), check out my [GitHub](https://github.com/arfan-rfn), or explore [Connecto](https://getconnecto.app).
+If you're a fellow researcher, engineer, builder, or just someone curious—I'd love to connect. You can find me on [LinkedIn](https://www.linkedin.com/in/rfn/), check out my [GitHub](https://github.com/arfan-rfn), explore [Connecto](https://getconnecto.app), or join the community at [BDStudents](https://bdstudents.org).
 
 Thanks for stopping by. Here's to learning, building, and making meaningful things together. 💫
