@@ -50,14 +50,20 @@ export function ProfileSection() {
         </div>
 
         {/* Name and Title */}
-        <h1 className={cn(birthstone.className, "text-7xl font-bold text-center")}>
-          Arfan Uddin
-        </h1>
+        <div className="flex flex-col items-center gap-2">
+          <h1 className={cn(birthstone.className, "text-7xl font-bold text-center leading-none")}>
+            Arfan Uddin
+          </h1>
+          {/* Role byline — typewriter stamp, same micro-label language as the timeline date stubs */}
+          <p className="font-typewriter text-xs sm:text-sm uppercase tracking-[0.2em] text-primary/80 text-center">
+            Founder · Researcher · Builder
+          </p>
+        </div>
         <p className="text-center text-muted-foreground text-pretty tracking-tight">
           A random human of planet Earth who accidentally
           founded <Link href="https://getconnecto.app" target="_blank" rel="noopener noreferrer" aria-label="Connecto: Real-Time Networking App" title="Connecto: Real-Time Networking App" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>Connecto</Link>,
           built <Link href="https://bdstudents.org" target="_blank" rel="noopener noreferrer" aria-label="BDStudents" title="BDStudents" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>BDStudents</Link>,
-          and stumbled into a Software Engineering PhD. Now shipping full-stack products with a mission to create real value in people’s lives.
+          and stumbled into a Software Engineering PhD. Now building <Link href="https://aridnova.net" target="_blank" rel="noopener noreferrer" aria-label="AridNova: Microservice Analysis Tool" title="AridNova: Microservice Analysis Tool" className={cn("mx-0 px-0 text-muted-foreground underline underline-offset-3 hover:underline-offset-2")}>AridNova</Link> and shipping full-stack products with a mission to create real value in people’s lives.
         </p>
 
         {/* Navigation — handwritten index, matching the journal language */}

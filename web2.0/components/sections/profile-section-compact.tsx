@@ -56,9 +56,14 @@ export function ProfileSectionCompact() {
               </h1>
             </Link>
 
+            {/* Role byline — typewriter stamp, mirrors the home hero */}
+            <p className="hidden md:block font-typewriter text-[10px] uppercase tracking-[0.15em] text-primary/80 mt-1.5">
+              Founder · Researcher · Builder
+            </p>
+
             {/* Blurb — desktop only, to keep the mobile bar slim */}
-            <p className="hidden md:block text-muted-foreground text-xs text-pretty leading-snug mt-1 line-clamp-3">
-              Founder at{" "}
+            <p className="hidden md:block text-muted-foreground text-xs text-pretty leading-snug mt-1.5 line-clamp-3">
+              Building{" "}
               <Link
                 href="https://getconnecto.app"
                 target="_blank"
@@ -67,7 +72,16 @@ export function ProfileSectionCompact() {
               >
                 Connecto
               </Link>{" "}
-              · Pursuing a PhD in Software Engineering · Full-Stack Developer
+              &{" "}
+              <Link
+                href="https://bdstudents.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-primary"
+              >
+                BDStudents
+              </Link>{" "}
+              while pursuing a Software Engineering PhD at Arizona.
             </p>
 
             {/* Handwritten index / nav */}
