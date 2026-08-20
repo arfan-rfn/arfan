@@ -2,7 +2,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
-import { FileText, Eye, Database, AlertTriangle, TrendingUp, Lightbulb, GitBranch, Layers, Network, Shield, Settings, Workflow } from "lucide-react";
+import { FileText, Database, AlertTriangle, TrendingUp, Lightbulb } from "lucide-react";
 
 export const metadata = {
 	title: "Understanding Microservice Dependencies: A Complete Taxonomy from 2,659 Sources",
@@ -11,8 +11,7 @@ export const metadata = {
 	author: "Arfan Uddin",
 	tags: ["microservices", "software-architecture", "dependencies", "distributed-systems", "maintainability", "research"],
 	paperUrl: "https://doi.org/10.1016/j.jss.2025.112334",
-	pdfAttachment: "/blog/microservice-dependencies-taxonomy/paper.pdf",
-	ogImage: "/blog/microservice-dependencies-taxonomy/og-image.png",
+	ogImage: "https://assets.arfanu.com/research-article/microservice-dependencies-taxonomy/og-image.png",
 	alternates: {
 		canonical: "/blog/microservice-dependencies-taxonomy",
 	},
@@ -23,7 +22,7 @@ export const metadata = {
 		url: 'https://arfanu.com/blog/microservice-dependencies-taxonomy',
 		siteName: 'Arfan Uddin',
 		images: [{
-			url: 'https://arfanu.com/blog/microservice-dependencies-taxonomy/og-image.png',
+			url: 'https://assets.arfanu.com/research-article/microservice-dependencies-taxonomy/og-image.png',
 			width: 1200,
 			height: 630,
 			alt: 'Microservice Dependencies Taxonomy',
@@ -35,7 +34,7 @@ export const metadata = {
 		card: 'summary_large_image',
 		title: "Understanding Microservice Dependencies: A Complete Taxonomy",
 		description: "28 dependency types across 6 categories - the complete taxonomy from 2,659 sources",
-		images: ['https://arfanu.com/blog/microservice-dependencies-taxonomy/og-image.png'],
+		images: ['https://assets.arfanu.com/research-article/microservice-dependencies-taxonomy/og-image.png'],
 	},
 };
 
@@ -120,7 +119,7 @@ export const jsonLdData = {
 	"@type": "BlogPosting",
 	"headline": metadata.title,
 	"description": metadata.description,
-	"image": ["https://arfanu.com/blog/microservice-dependencies-taxonomy/og-image.png"],
+	"image": ["https://assets.arfanu.com/research-article/microservice-dependencies-taxonomy/og-image.png"],
 	"url": "https://arfanu.com" + metadata.alternates.canonical,
 	"datePublished": metadata.date,
 	"dateModified": metadata.date,
@@ -158,7 +157,6 @@ Our multivocal literature review—**published in the <StyledLink href="https://
 
 <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 my-6 p-3 sm:p-4 bg-primary/10 rounded-lg border border-primary/20">
 	<Link href={metadata.paperUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-sm"><FileText size={16} className="flex-shrink-0" />Read Paper on JSS</Link>
-	<Link href={metadata.pdfAttachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Eye size={16} className="flex-shrink-0" />View PDF</Link>
 	<Link href="https://zenodo.org/records/14208294" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Database size={16} className="flex-shrink-0" />Replication Package</Link>
 </div>
 
@@ -169,7 +167,7 @@ Our multivocal literature review—**published in the <StyledLink href="https://
 Before diving into details, here's how the 90 synthesized studies map across dependency types, tools, and quality impacts:
 
 <Image
-	src="/blog/microservice-dependencies-taxonomy/sankey-diagram.png"
+	src="https://assets.arfanu.com/research-article/microservice-dependencies-taxonomy/sankey-diagram.png"
 	alt="Sankey diagram showing the flow from dependency types to detection tools to quality impacts across 90 synthesized studies"
 	width={1200}
 	height={700}
