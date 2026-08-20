@@ -2,7 +2,8 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
-import { Github, FileText, Eye, Database, AlertTriangle, TrendingUp, Lightbulb } from "lucide-react";
+import { FileText, Eye, Database, AlertTriangle, TrendingUp, Lightbulb } from "lucide-react";
+import { Icons } from "@/components/icons";
 
 export const metadata = {
 	title: "AI for Microservice Log Analysis: Key Insights from 82 Research Studies",
@@ -77,7 +78,7 @@ export const ResourceLink = ({ href, children, variant = "primary" }) => {
 				variants[variant] || variants.primary
 			)}
 		>
-			{variant === "github" && <Github size={14} className="flex-shrink-0" />}
+			{variant === "github" && <Icons.GitHub className="size-3.5 flex-shrink-0" />}
 			{children}
 		</Link>
 	);

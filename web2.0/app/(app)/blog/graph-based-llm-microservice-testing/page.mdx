@@ -2,7 +2,8 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
-import { FileText, Eye, Award, Zap, Target, RefreshCw, Shield, Layers, Github } from "lucide-react";
+import { FileText, Eye, Award, Zap, Target, RefreshCw, Shield, Layers } from "lucide-react";
+import { Icons } from "@/components/icons";
 
 export const metadata = {
 	title: "Winning 1st Runner Up at IEEE CISOSE: Graph-Based LLM Prompting for Microservice API Testing",
@@ -77,7 +78,7 @@ export const ResourceLink = ({ href, children, variant = "primary" }) => {
 				variants[variant] || variants.primary
 			)}
 		>
-			{variant === "github" && <Github size={14} className="flex-shrink-0" />}
+			{variant === "github" && <Icons.GitHub className="size-3.5 flex-shrink-0" />}
 			{children}
 		</Link>
 	);
@@ -161,7 +162,7 @@ Testing microservice APIs is notoriously difficult. With hundreds of interdepend
 <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 my-6 p-3 sm:p-4 bg-primary/10 rounded-lg border border-primary/20">
 	<Link href={metadata.paperUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-sm"><FileText size={16} className="flex-shrink-0" />Read Paper on IEEE</Link>
 	<Link href={metadata.pdfAttachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Eye size={16} className="flex-shrink-0" />Read the PDF (accepted version)</Link>
-	<Link href="https://github.com/arfan-rfn/ms-testing-llm-icfg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-gray-900 text-white rounded-md font-medium text-xs sm:text-sm hover:bg-gray-800 transition-colors shadow-sm"><Github size={16} className="flex-shrink-0" />View Code</Link>
+	<Link href="https://github.com/arfan-rfn/ms-testing-llm-icfg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-gray-900 text-white rounded-md font-medium text-xs sm:text-sm hover:bg-gray-800 transition-colors shadow-sm"><Icons.GitHub className="size-4 flex-shrink-0" />View Code</Link>
 </div>
 
 <p className="text-[11px] leading-relaxed text-muted-foreground max-w-3xl mx-auto text-center px-3 -mt-2 mb-8">
