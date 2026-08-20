@@ -9,7 +9,6 @@ const nextConfig = {
   pageExtensions: ["mdx", "ts", "tsx"],
   images: {
     remotePatterns: [
-      { hostname: "*.amazonaws.com" },
       { hostname: "arfanu.com" },
       { hostname: "assets.arfanu.com" },
     ],
