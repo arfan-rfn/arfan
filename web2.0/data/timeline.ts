@@ -71,6 +71,16 @@ const research: TimelineItem[] = [
     color: "pink",
     tags: ["Conference", "Microservices", "CISOSE", "Publication", "SRC Track", "Award", "LLM", "API Testing"],
     url: "/blog/graph-based-llm-microservice-testing"
+  },
+  {
+    id: "publication-sose2026",
+    date: "2026-07-27",
+    title: "Conference Publication at IEEE SOSE 2026",
+    description: "First-authored paper presented at IEEE SOSE 2026 in Fukuoka, Japan. Uses AI to test the permission rules buried deep inside microservice applications, catching all 16 planted security flaws that a formal verification tool missed.",
+    icon: "Research",
+    color: "pink",
+    tags: ["Conference", "Microservices", "SOSE", "Publication", "IEEE", "LLM", "Security", "Authorization"],
+    url: "/blog/microservice-authorization-testing-llm"
   }
 ].map(item => ({
   ...item,

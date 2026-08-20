@@ -1,0 +1,433 @@
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+import { FileText, Eye, Zap, Target, Layers, ShieldAlert, Database } from "lucide-react";
+
+export const metadata = {
+	title: "The Security Bug Your Tests Cannot See",
+	description: "Apps are built from dozens of services that each decide who is allowed in. We used AI to test the doors nobody checks, and found all 16 planted security flaws.",
+	date: "2026-07-27",
+	author: "Arfan Uddin",
+	tags: ["microservice-security", "authorization-testing", "authorization-drift", "LLM-test-generation", "broken-access-control", "software-testing", "IEEE-SOSE", "research"],
+	paperUrl: "https://doi.org/10.1109/SOSE71128.2026.00014",
+	pdfAttachment: "https://assets.arfanu.com/research-article/microservice-authorization-testing-llm/paper.pdf",
+	alternates: {
+		canonical: "/blog/microservice-authorization-testing-llm",
+	},
+	openGraph: {
+		type: 'article',
+		title: "The Security Bug Your Tests Cannot See",
+		description: "Apps are built from dozens of services that each decide who is allowed in. We used AI to test the doors nobody checks, and found all 16 planted security flaws.",
+		url: 'https://arfanu.com/blog/microservice-authorization-testing-llm',
+		siteName: 'Arfan Uddin',
+		images: [{
+			url: 'https://assets.arfanu.com/research-article/microservice-authorization-testing-llm/og-image.jpg',
+			width: 1200,
+			height: 630,
+			alt: 'Closing the microservice authorization blindspot, research presented at IEEE SOSE 2026 in Fukuoka, Japan',
+		}],
+		publishedTime: '2026-07-27',
+		authors: ['Arfan Uddin'],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: "The Security Bug Your Tests Cannot See",
+		description: "Apps are built from dozens of services that each decide who is allowed in. We used AI to test the doors nobody checks, and found all 16 planted security flaws.",
+		images: ['https://assets.arfanu.com/research-article/microservice-authorization-testing-llm/og-image.jpg'],
+	},
+};
+
+export const StyledLink = ({ href, children }) => {
+	const isExternal = href.startsWith('http');
+	return (
+		<Link
+			href={href}
+			target={isExternal ? "_blank" : undefined}
+			rel={isExternal ? "noopener noreferrer" : undefined}
+			className={cn(
+				"relative inline-block text-primary",
+				"after:absolute after:bottom-0 after:left-0 after:w-full",
+				"after:h-[2px] after:bg-primary after:origin-bottom-right",
+				"after:scale-x-0 hover:after:scale-x-100 after:transition-transform",
+				"after:duration-300 after:ease-out"
+			)}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const Callout = ({ type = "info", title, children }) => {
+	const styles = {
+		info: "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800",
+		warning: "bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800",
+		insight: "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800",
+		danger: "bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800",
+	};
+	const icons = {
+		info: <Zap size={18} className="text-blue-600 dark:text-blue-400" />,
+		warning: <Target size={18} className="text-amber-600 dark:text-amber-400" />,
+		insight: <Layers size={18} className="text-emerald-600 dark:text-emerald-400" />,
+		danger: <ShieldAlert size={18} className="text-red-600 dark:text-red-400" />,
+	};
+	return (
+		<div className={cn("rounded-lg border p-3 sm:p-4 my-6 overflow-hidden", styles[type])}>
+			<div className="flex items-start gap-2 sm:gap-3">
+				<span className="mt-0.5 flex-shrink-0">{icons[type]}</span>
+				<div className="min-w-0 flex-1 break-words">
+					{title && <p className="font-semibold mb-1 text-sm sm:text-base">{title}</p>}
+					<div className="text-xs sm:text-sm leading-relaxed">{children}</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export const ResponsiveTable = ({ children }) => (
+	<div className="overflow-x-auto my-6 max-w-full">
+		<div className="min-w-full">
+			{children}
+		</div>
+	</div>
+);
+
+export const Caption = ({ children }) => (
+	<div className="flex justify-center mb-8">
+		<span className="leading-snug mt-1 text-sm text-muted-foreground text-center max-w-2xl">{children}</span>
+	</div>
+);
+
+export const jsonLdData = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": metadata.title,
+	"description": metadata.description,
+	"image": [metadata.openGraph.images[0].url],
+	"url": "https://arfanu.com" + metadata.alternates.canonical,
+	"datePublished": metadata.date,
+	"dateModified": metadata.date,
+	"author": {
+		"@type": "Person",
+		"name": "Md Arfan Uddin",
+		"url": "https://arfanu.com",
+		"affiliation": {
+			"@type": "CollegeOrUniversity",
+			"name": "University of Arizona"
+		}
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Arfan's Blog",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://arfanu.com/assets/arfan.svg"
+		}
+	},
+	"keywords": metadata.tags.join(", "),
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://arfanu.com" + metadata.alternates.canonical
+	},
+	"isAccessibleForFree": "True",
+	"inLanguage": "en-US",
+	"articleSection": "Research",
+	"about": [
+		{ "@type": "Thing", "name": "Microservice security" },
+		{ "@type": "Thing", "name": "Authorization testing" },
+		{ "@type": "Thing", "name": "Artificial intelligence" }
+	],
+	"citation": {
+		"@type": "ScholarlyArticle",
+		"name": "Automated Generation of Microservice Authorization Tests Using Large Language Models",
+		"identifier": "https://doi.org/10.1109/SOSE71128.2026.00014"
+	}
+};
+
+export const faqJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": [
+		{
+			"@type": "Question",
+			"name": "What is a microservice?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "A microservice is one small program that does one job inside a larger application. Instead of building an app as a single large program, teams split it into dozens of small services that talk to each other over a network. Booking a train ticket might involve a login service, an order service, and a payment service working together."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "What is an authorization blindspot?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "An authorization blindspot is a part of an application where the permission rules disagree between the entrance and the services deeper inside. Because most testing tools only check the entrance, a mismatch further along the chain is never tested and stays hidden."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "What is authorization drift?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Authorization drift happens when the permission rules in running software slowly stop matching the rules the team intended. Because each service is updated on its own schedule, one team can change or accidentally remove a permission check without anyone else noticing."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "Can AI be trusted to write security tests?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "In this research the AI is never asked to decide what the correct security behaviour is. That answer is calculated in advance by analysing the code. The AI only writes the test that checks the already known answer, which is a translation task rather than a judgement call."
+			}
+		}
+	]
+};
+
+<JsonLd data={jsonLdData} />
+<JsonLd data={faqJsonLd} />
+
+# The Security Bug Your Tests Cannot See
+
+Picture an office building with a guard at the front desk. You show your badge, the guard waves you through, and in you go. Deeper inside there is a server room that only IT staff are meant to enter.
+
+Now picture how that building's security gets tested. One person walks up to the front desk, shows a badge, gets waved through, and goes home. They file a report saying security works.
+
+Nobody ever tried the server room door.
+
+That is roughly how most modern software gets tested for permissions, and it is what our paper at **IEEE SOSE 2026** in Fukuoka, Japan set out to fix.
+
+<div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 my-6 p-3 sm:p-4 bg-primary/10 rounded-lg border border-primary/20">
+	<Link href={metadata.paperUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-sm"><FileText size={16} className="flex-shrink-0" />Read Paper on IEEE Xplore</Link>
+	<Link href={metadata.pdfAttachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-primary/60 text-primary rounded-md font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors shadow-sm"><Eye size={16} className="flex-shrink-0" />Read the PDF (accepted version)</Link>
+	<Link href="https://doi.org/10.5281/zenodo.19230026" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-gray-900 text-white rounded-md font-medium text-xs sm:text-sm hover:bg-gray-800 transition-colors shadow-sm"><Database size={16} className="flex-shrink-0" />Data and Code</Link>
+</div>
+
+<p className="text-[11px] leading-relaxed text-muted-foreground max-w-3xl mx-auto text-center px-3 -mt-2 mb-8">
+	The PDF above is the accepted version of the manuscript. &copy; 2026 IEEE. Personal use of this material is permitted.
+	Permission from IEEE must be obtained for all other uses, in any current or future media, including
+	reprinting/republishing this material for advertising or promotional purposes, creating new collective works, for
+	resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works.
+	The final published version is available from IEEE at <StyledLink href={metadata.paperUrl}>doi.org/10.1109/SOSE71128.2026.00014</StyledLink>.
+</p>
+
+---
+
+## One Click, Many Doors
+
+Modern apps are rarely one big program. They are built as **microservices**, which means the app is chopped into dozens of small programs that call each other over a network.
+
+Booking a train ticket in one click might quietly involve a login service, an order service, a payment service, and a seat service, each one handing the request along to the next.
+
+Every one of those services decides for itself who is allowed to do what. That decision is called **authorization**, and it is made independently in dozens of places, by different teams, on different schedules.
+
+So the rules drift apart. One team tightens a rule. Another team rewrites a service and accidentally stops passing along proof of who you are. Nothing appears broken, because the front desk still says yes.
+
+<Callout type="danger" title="Why this matters">
+Faulty permission checks are not an exotic problem. Broken Access Control sits at number one on the <StyledLink href="https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/">OWASP Top 10</StyledLink>, the industry's standard list of the most serious web security risks. Failures of this kind have been linked to major incidents at companies including Google and Uber.
+</Callout>
+
+---
+
+## Why Today's Testing Tools Miss It
+
+There are good automated tools that generate security tests. The best known are EvoSuite and EvoMaster. They share one habit: they knock on the front door and stop there. Everything behind it is a black box to them.
+
+<Image
+	src="https://assets.arfanu.com/research-article/microservice-authorization-testing-llm/fig-1-blindspot.webp"
+	alt="Two-panel diagram comparing shallow and deep permission testing. On the left, a testing tool can only see the first endpoint, so the rest of the chain is greyed out inside a box labelled Authorization Blindspot and the tool reports a false alarm. On the right, the tool can see the whole chain through to the data, and correctly refuses the Viewer role."
+	width={1500}
+	height={1077}
+	className="w-[92%] max-w-2xl rounded-lg mx-auto my-6"
+/>
+
+<Caption>On the left, the tool sees only the first door. On the right, it can follow the request all the way in.</Caption>
+
+Both halves of that picture show the same app. On the left, the tool can only see the first step, so it raises an alarm it cannot back up. On the right, the tool follows the request through every step and gets the answer right.
+
+A tool that only sees the entrance fails in two directions at once. It cries wolf about problems it cannot confirm, and it stays silent about real ones happening out of sight.
+
+<Callout type="warning" title="A concrete example">
+A team rewrites the checkout service. In the process it stops passing your identity along to the payment service. The payment service now has no idea who is asking, and starts trusting whatever it is told. Every existing test still passes, because every existing test stops at checkout.
+</Callout>
+
+---
+
+## The Idea: Work Out the Answer First, Then Let AI Write the Test
+
+The obvious move is to point an AI model at the code and ask for security tests. That does not work well. The code is far too big to fit, most of it is irrelevant, and the model has no reliable way to know which service calls which.
+
+So we did it the other way around.
+
+**Step one is arithmetic, not AI.** We read the source code automatically and build a map of every service, every door, and the permission rule on each one. Then, for any journey through the app, we ask a simple question:
+
+> Does this person's badge open *every single door* along the route?
+
+If yes, they should get in. If any one door refuses, they should be turned away. There is no judgement involved. It is the same logic as a padlocked chain: one locked link stops the whole thing.
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Role</th><th className="text-center py-3 px-4 font-semibold">Door 1</th><th className="text-center py-3 px-4 font-semibold">Door 2</th><th className="text-center py-3 px-4 font-semibold">Door 3</th><th className="text-center py-3 px-4 font-semibold">Should get through?</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-medium">Admin</td><td className="py-3 px-4 text-center text-emerald-600 font-bold">opens</td><td className="py-3 px-4 text-center text-emerald-600 font-bold">opens</td><td className="py-3 px-4 text-center text-emerald-600 font-bold">opens</td><td className="py-3 px-4 text-center font-semibold text-emerald-600">Yes</td></tr><tr><td className="py-3 px-4 font-medium">Regular user</td><td className="py-3 px-4 text-center text-emerald-600 font-bold">opens</td><td className="py-3 px-4 text-center text-emerald-600 font-bold">opens</td><td className="py-3 px-4 text-center text-red-600 font-bold">blocked</td><td className="py-3 px-4 text-center font-semibold text-red-600">No</td></tr></tbody></table>
+</ResponsiveTable>
+
+<Caption>A regular user is welcomed at the entrance and stopped three doors in. That mismatch is exactly what goes untested.</Caption>
+
+**Step two is where AI comes in.** By this point we already know the right answer for every person and every route. The AI is never asked what *should* happen. It is only asked to write the actual test that checks it, which means filling in a realistic request with sensible data.
+
+<Callout type="insight" title="The key move">
+The AI is doing translation, not judgement. We hand it a fact and ask it to write the test that checks that fact. This is the difference between asking a model to invent the answer and asking it to show its work on an answer you already hold.
+</Callout>
+
+---
+
+## Drawing the Map
+
+To make any of this possible, we first have to figure out which service calls which, automatically, from the source code alone.
+
+<Image
+	src="https://assets.arfanu.com/research-article/microservice-authorization-testing-llm/fig-2-framework.webp"
+	alt="Four-stage pipeline. Stage one reads the source code and extracts an index and the permission rules. Stage two builds a map of which service calls which. Stage three works out, for every route and every role, whether access should be allowed or refused. Stage four uses those answers plus prompt templates and an AI model to write the tests, which are then run against the real running system and checked."
+	width={1900}
+	height={1123}
+	className="w-full max-w-4xl rounded-lg mx-auto my-6"
+/>
+
+<Caption>The pipeline. The first three stages are ordinary program analysis. Only the fourth involves AI.</Caption>
+
+The tricky part is spotting the moments when one service reaches across the network to call another. Those calls are the doors nobody tests.
+
+<Image
+	src="https://assets.arfanu.com/research-article/microservice-authorization-testing-llm/fig-3-ebg.webp"
+	alt="Diagram of three microservices side by side, each containing a tangle of internal steps. Orange arrows arc between them, showing the points where one service reaches across the network to call another."
+	width={1900}
+	height={529}
+	className="w-full max-w-4xl rounded-lg mx-auto my-6"
+/>
+
+<Caption>Three services. The orange arrows are the cross-service jumps that ordinary testing tools cannot follow.</Caption>
+
+On our test system, this found **399 of 418** such jumps, about 95%. The 19 it missed were cases where the destination is decided while the program is running, so it cannot be worked out just by reading the code. We deliberately leave those marked as unknown rather than guessing, because a confident wrong answer is worse than an admitted gap.
+
+Some of these journeys are surprisingly deep. The longest ran through **17 services** before finishing.
+
+---
+
+## What Happened
+
+We tested this on **Train-Ticket**, a realistic 20-service demo train booking system that researchers use as a standard yardstick. Then we deliberately broke it, planting faulty permission rules the way a careless code change would, and checked whether the tests caught them.
+
+### Against other testing tools
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Tool</th><th className="text-center py-3 px-4 font-semibold">Tests that matched a real multi-service journey</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4 font-semibold">Ours</td><td className="py-3 px-4 text-center font-semibold text-emerald-600">100%</td></tr><tr className="border-b border-primary/10"><td className="py-3 px-4">EvoMaster</td><td className="py-3 px-4 text-center">46%</td></tr><tr><td className="py-3 px-4">EvoSuite</td><td className="py-3 px-4 text-center">0%</td></tr></tbody></table>
+</ResponsiveTable>
+
+EvoMaster is a genuinely good tool. It always aims at the right place and writes sensible checks. It simply has no way of knowing what happens after the first step, so fewer than half its tests line up with a real journey through the system. EvoSuite produced four tests in total, none of them meaningful for this kind of app.
+
+To be fair in the other direction: EvoMaster's tests ran without technical errors 100% of the time, against 97.4% for ours. On raw stability, it beat us.
+
+### Against the mathematical approach
+
+There is a rival school of thought that proves security properties mathematically instead of testing them. We compared against one such tool, using 16 planted flaws.
+
+<ResponsiveTable>
+<table className="min-w-full text-sm"><thead><tr className="border-b border-primary/20"><th className="text-left py-3 px-4 font-semibold">Approach</th><th className="text-center py-3 px-4 font-semibold">Planted flaws found</th><th className="text-center py-3 px-4 font-semibold">False alarms</th></tr></thead><tbody><tr className="border-b border-primary/10"><td className="py-3 px-4">Mathematical proof tool</td><td className="py-3 px-4 text-center font-bold text-red-600">0 of 16</td><td className="py-3 px-4 text-center">5</td></tr><tr><td className="py-3 px-4 font-semibold">Ours</td><td className="py-3 px-4 text-center font-bold text-emerald-600">16 of 16</td><td className="py-3 px-4 text-center">1</td></tr></tbody></table>
+</ResponsiveTable>
+
+The proof-based tool declared all 16 broken cases secure. Ours caught every one, at the cost of a single false alarm.
+
+That sounds like a rout, and in this test it was. But the fair reading is narrower: a mathematical proof describes what the design *should* do. It cannot tell you what the software running on real servers, with real configuration and half-finished changes, is *actually* doing. The two approaches answer different questions, and this result is an argument for using both.
+
+### Being honest about the rough edges
+
+Not everything scored 100%. When assigning which roles to test, the system got it right **82%** of the time. Coverage of routes and roles was complete, but that role-matching gap is real and we report it as such.
+
+The tests themselves ran cleanly **97.4%** of the time, and the whole process takes about **16 seconds per scenario**, which is fast enough to run automatically every time code changes.
+
+---
+
+## The Bug We Found by Accident
+
+Beyond the flaws we planted on purpose, the system turned up a real one we did not know about: a service that forgot to pass along proof of identity when calling the next service down the line. Legitimate, properly logged-in users were being turned away deep inside the app.
+
+No tool that stops at the front door could have found that.
+
+It also taught us something honest about the limits of this work. Once you start testing deep inside an app, you run into ordinary bugs as much as security ones. Requests often fail not because permission was refused, but because the data they needed was not there.
+
+---
+
+## What This Means If You Build Software
+
+1. **Test the inside doors, not just the entrance.** If your security tests all stop at the API gateway, they are testing the lobby.
+2. **Treat "allowed in, blocked later" as a red flag.** It is either a genuine security hole or a feature nobody can actually reach. Both are worth a look.
+3. **Check what your public endpoints expose.** Our crude keyword scan for words like `payment` and `profile` still turned up things that should not have been public.
+4. **A crash is not a rejection.** If your tests count any error as "correctly blocked", some of them are passing for the wrong reason.
+
+And the broader lesson about AI: models are far more reliable when you hand them a fact to verify than when you ask them to supply the fact. Pin down the answer with ordinary analysis first, and use the model for the part it is genuinely good at.
+
+---
+
+## What This Does Not Prove
+
+I would rather state the limits plainly than oversell it.
+
+**It is one system, and a small slice of it.** The results come from 13 entry points on a single test application. Train-Ticket is a respected benchmark, but there is no standard collection of real permission bugs to test against, so we checked every finding by hand.
+
+**It only works on one kind of codebase so far.** The code reader is built for Java Spring, a common but far from universal way of building services. The underlying idea carries over; the tool would need rewriting for each new language.
+
+**It cannot see rules enforced outside the code.** Plenty of permission rules live in network infrastructure rather than in the application itself. Those are invisible to this approach.
+
+**It does not scale for free.** Checking every role against every route across every path multiplies quickly. On a large system you would need to prioritise rather than test everything.
+
+**And there is a trust question.** Companies are understandably wary of letting an AI model gate their releases, and calling a large model on every code change costs real money. The sensible path is probably to shrink this down into a small, specialised model.
+
+For anyone who wants the full numbers, the exact statistical breakdowns, and the formal write-up, all of it is in the published paper, available from IEEE at <StyledLink href={metadata.paperUrl}>doi.org/10.1109/SOSE71128.2026.00014</StyledLink>. The prompts, generated tests, and raw results are separately available on <StyledLink href="https://doi.org/10.5281/zenodo.19230026">Zenodo</StyledLink> under an open licence.
+
+If you would like the more technical version of the ideas behind this, my earlier post on <StyledLink href="/blog/graph-based-llm-microservice-testing">graph-based prompting for microservice API testing</StyledLink> covers how we make this scale.
+
+---
+
+## Common Questions
+
+### What is a microservice?
+
+One small program that does one job inside a bigger app. Rather than building an app as a single large program, teams split it into dozens of small services that talk to each other over a network.
+
+### What is an authorization blindspot?
+
+A part of an app where the permission rules disagree between the entrance and the services deeper inside. Because most tools only check the entrance, that mismatch is never tested and stays hidden.
+
+### What is authorization drift?
+
+When the permission rules in running software slowly stop matching what the team intended. Each service gets updated on its own schedule, so one team can change or remove a check without anyone else noticing.
+
+### Can AI be trusted to write security tests?
+
+Here it is never asked to decide what secure behaviour is. That is worked out in advance by analysing the code. The AI only writes the test that checks an answer we already have, which is a translation job rather than a judgement call.
+
+---
+
+## Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@INPROCEEDINGS{11652948,
+  author={Uddin, Md Arfan and Weerasinghe, Shakthi and Wojtak, Connor and Cerny, Tomas
+          and Silva-Junior, Deuslirio and Ribeiro, Mateus Eduardo S.
+          and Dos Santos Neto, Manoel Ver{\'i}ssimo and Graciano-Neto, Valdemar V.
+          and Galv{\~a}o, Arlindo and Abdelfattah, Amr S.},
+  booktitle={2026 International Conference on Service-Oriented System Engineering (SOSE)},
+  title={Automated Generation of Microservice Authorization Tests Using Large Language Models},
+  year={2026},
+  pages={41-50},
+  doi={10.1109/SOSE71128.2026.00014}}
+```
+
+---
+
+## About This Research
+
+This work was done at the **University of Arizona** with collaborators at the **Federal University of Goiás** in Brazil, supported by the **National Science Foundation** under Grant No. 2409933. All experiments and data processing were carried out by the university collaborators on university-managed resources.
+
+Thanks to my advisor <StyledLink href="https://tomas-cerny.github.io/">Dr. Tomáš Černý</StyledLink> and the research group. The prompts, generated tests, and raw results are published openly on <StyledLink href="https://doi.org/10.5281/zenodo.19230026">Zenodo</StyledLink>.
+
+If you work on this kind of problem, or just want to talk about it, <StyledLink href="/#contact">get in touch</StyledLink>.
