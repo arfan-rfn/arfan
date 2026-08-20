@@ -34,8 +34,8 @@ Allow: /llms-full.txt
 Allow: /blog/*
 
 # Host
-Host: http://localhost:3000
+Host: https://arfanu.com
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
-Sitemap: http://localhost:3000/rss.xml
+Sitemap: https://arfanu.com/sitemap.xml
+Sitemap: https://arfanu.com/rss.xml

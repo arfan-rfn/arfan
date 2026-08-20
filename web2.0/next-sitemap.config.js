@@ -1,5 +1,9 @@
 /** @type {import('next-sitemap').IConfig} */
-const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://arfanu.com'
+// Sitemaps and robots.txt must always carry the canonical production origin.
+// NEXT_PUBLIC_BASE_URL is http://localhost:3000 in .env for local dev, so
+// reading it here made every local `npm run build` rewrite the committed
+// sitemap with localhost URLs. Use an explicit override instead.
+const siteUrl = process.env.SITE_URL || 'https://arfanu.com'
 
 module.exports = {
   siteUrl,
